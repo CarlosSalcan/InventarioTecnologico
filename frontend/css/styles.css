@@ -1,0 +1,53 @@
+body {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*********************
+        LOGIN
+*********************/
+header {
+    text-align: center;
+    border-radius: 0 0 40px 40px;
+    margin: 0 0 50px 0;
+    padding: 20px;
+
+    color: white;
+    background-color: rgba(30, 10, 116, 0.884);
+}
+
+main {
+    max-width: 450px;
+    margin: 20px 0 51px 640px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.726);
+}
+
+.loginIcon {
+    width: 40%;
+    margin: 10px 118px;
+}
+
+/*********************
+        FOOTER
+*********************/
+footer {
+    text-align: center;
+    margin-top: 30px;
+    border-radius: 40px 40px 0 0;
+
+    padding: 40px;              /* Espaciado arriba y abajo */
+    background-color: #2e3d4d;
+    border-top: 3px solid #44517a;/* Línea de separación */
+    color: #ffffff;
+    font-size: 17px;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer span {
+    font-weight: bold;  /* Hacer el año en negrita */
+}
