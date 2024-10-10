@@ -1,33 +1,23 @@
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const User = require('../models/userModel');
+const connection = require('../config/connection.js');
 
-const authController = {};
+// Controlador para manejar el login
+exports.login = (req, res) => {
+    const { username, password } = req.body;
 
-authController.register = (req, res) => {
-    const { email, password } = req.body;
-    bcrypt.hash(password, 10, (err, hashedPassword) => {
-        if (err) throw err;
-        User.create({ email, password: hashedPassword }, (result) => {
-            res.status(201).json({ message: 'Usuario registrado exitosamente' });
-        });
+    // Consulta SQL para verificar las credenciales en la base de datos
+    const query = 'SELECT * FROM usuario WHERE id = ? AND clave = ?';
+
+    connection.query(query, [username, password], (err, results) => {
+        if (err) {
+            return res.status(500).json({ success: false, message: 'Error en el servidor.' });
+        }
+
+        // Si las credenciales son correctas, enviar respuesta exitosa
+        if (results.length > 0) {
+            res.status(200).json({ success: true, message: 'Inicio de sesión exitoso' });
+        } else {
+            // Credenciales incorrectas
+            res.status(401).json({ success: false, message: 'Credenciales incorrectas' });
+        }
     });
 };
-
-authController.login = (req, res) => {
-    const { email, password } = req.body;
-    User.findByEmail(email, (user) => {
-        if (!user) return res.status(404).json({ message: 'Usuario no encontrado' });
-        bcrypt.compare(password, user.password, (err, isMatch) => {
-            if (err) throw err;
-            if (isMatch) {
-                const token = jwt.sign({ id: user.id }, 'secreto', { expiresIn: '1h' });
-                res.json({ token });
-            } else {
-                res.status(401).json({ message: 'Contraseña incorrecta' });
-            }
-        });
-    });
-};
-
-module.exports = authController;
