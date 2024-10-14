@@ -3,12 +3,11 @@ body {
 }
 
 /*********************
-        LOGIN
+    LOGIN (INDEX)
 *********************/
 header {
     text-align: center;
-    border-radius: 0 0 40px 40px;
-    margin: 0 0 50px 0;
+    border-radius: 0 0 25px 25px;
     padding: 20px;
 
     color: white;
@@ -16,17 +15,37 @@ header {
 }
 
 main {
+    display: flex;
+    margin: auto;    /* Centra el main horizontalmente dentro del body */
+}
+
+.login {
+    width: 400px;
     max-width: 450px;
-    margin: 20px 0 51px 640px;
-    padding: 15px;
+    padding: 13px;
+    margin: 45px auto;
+
     background-color: white;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.726);
+    
+    flex-direction: column;
 }
 
 .loginIcon {
     width: 40%;
-    margin: 10px 118px;
+    margin: 10px 119px;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    align-self: flex-end;      /* Mueve el botón a la derecha */
+    width: 35%;
+    margin: 10px 5px 0 0;      /* Espacio entre el botón y el último input */
 }
 
 /*********************
@@ -35,11 +54,11 @@ main {
 footer {
     text-align: center;
     margin-top: 30px;
-    border-radius: 40px 40px 0 0;
+    border-radius: 20px 20px 0 0;
 
-    padding: 40px;              /* Espaciado arriba y abajo */
+    padding: 40px;                        /* Espaciado arriba y abajo */
     background-color: #2e3d4d;
-    border-top: 3px solid #44517a;/* Línea de separación */
+    border-top: 3px solid #44517a;      /* Línea de separación */
     color: #ffffff;
     font-size: 17px;
 }
@@ -49,5 +68,9 @@ footer p {
 }
 
 footer span {
-    font-weight: bold;  /* Hacer el año en negrita */
+    font-weight: bold;          /* Hacer el año en negrita */
 }
+
+/*******************
+    INVENTARIO
+*******************/

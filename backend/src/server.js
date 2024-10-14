@@ -1,17 +1,21 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
-const authRouter = require('./routes/authRoutes.js'); // Asegúrate de que la ruta sea correcta
+const connection = require('./connection');
+const routes = require('./routes/routes.server');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = 3000;
 
 // Middleware
-app.use(bodyParser.json()); // Para analizar el cuerpo de las solicitudes JSON
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Rutas
-app.use('/api', authRouter); // Prefijo para tus rutas de autenticación
+app.use('/api', routes);
 
 // Iniciar el servidor
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+app.listen(port, () => {
+    console.log(`Servidor escuchando en http://localhost:${port}`);
 });
