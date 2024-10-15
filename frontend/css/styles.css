@@ -3,20 +3,22 @@ body {
 }
 
 /*********************
-    LOGIN (INDEX)
+    HEADER
 *********************/
 header {
     text-align: center;
     border-radius: 0 0 25px 25px;
     padding: 20px;
-
-    color: white;
     background-color: rgba(30, 10, 116, 0.884);
+    color: white;
 }
 
+/*********************
+    MAIN
+*********************/
 main {
     display: flex;
-    margin: auto;    /* Centra el main horizontalmente dentro del body */
+    margin: auto; /* Centra el main horizontalmente dentro del body */
 }
 
 .login {
@@ -24,17 +26,15 @@ main {
     max-width: 450px;
     padding: 13px;
     margin: 45px auto;
-
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.726);
-    
     flex-direction: column;
 }
 
 .loginIcon {
     width: 40%;
-    margin: 10px 119px;
+    margin: 10px auto; /* Centra el icono */
 }
 
 .loginForm {
@@ -43,22 +43,21 @@ main {
 }
 
 .btn {
-    align-self: flex-end;      /* Mueve el botón a la derecha */
+    align-self: flex-end; /* Mueve el botón a la derecha */
     width: 35%;
-    margin: 10px 5px 0 0;      /* Espacio entre el botón y el último input */
+    margin: 10px 0 0; /* Espacio entre el botón y el último input */
 }
 
 /*********************
-        FOOTER
+    FOOTER
 *********************/
 footer {
     text-align: center;
     margin-top: 30px;
     border-radius: 20px 20px 0 0;
-
-    padding: 40px;                        /* Espaciado arriba y abajo */
+    padding: 40px;
     background-color: #2e3d4d;
-    border-top: 3px solid #44517a;      /* Línea de separación */
+    border-top: 3px solid #44517a; /* Línea de separación */
     color: #ffffff;
     font-size: 17px;
 }
@@ -68,7 +67,24 @@ footer p {
 }
 
 footer span {
-    font-weight: bold;          /* Hacer el año en negrita */
+    font-weight: bold; /* Hacer el año en negrita */
+}
+
+/*********************
+    NAVBAR
+*********************/
+.custom-navbar {
+    background-color: transparent !important; /* Eliminar fondo */
+    border-radius: 0 0 25px 25px; /* Mantener bordes redondeados */
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+    color: white !important; /* Color del texto en el navbar */
+}
+
+.custom-navbar .nav-link:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /*******************
