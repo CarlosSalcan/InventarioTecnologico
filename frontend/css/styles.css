@@ -53,7 +53,7 @@ main {
 *********************/
 footer {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 10px;
     border-radius: 20px 20px 0 0;
     padding: 40px;
     background-color: #2e3d4d;
@@ -74,8 +74,8 @@ footer span {
     NAVBAR
 *********************/
 .custom-navbar {
-    background-color: transparent !important; /* Eliminar fondo */
-    border-radius: 0 0 25px 25px; /* Mantener bordes redondeados */
+    background-color: transparent !important;   /* Eliminar fondo */
+    border-radius: 0 0 25px 25px; 
 }
 
 .custom-navbar .navbar-brand,
@@ -90,3 +90,88 @@ footer span {
 /*******************
     INVENTARIO
 *******************/
+.table_component {
+    border: 2px solid #0b0b4e;
+    border-radius: 20px 10px 10px 20px;
+    overflow-y: auto;                   /* Permitir desplazamiento vertical */
+    max-height: 585px;                  /* Establecer una altura máxima para el contenedor */
+    margin: 5px;
+    width: 100%;
+}
+
+/* Estilos para el scrollbar */
+.table_component::-webkit-scrollbar {
+    width: 10px;                
+}
+
+.table_component::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);     /* Color del fondo del track */
+    border-radius: 10px;        
+}
+
+.table_component::-webkit-scrollbar-thumb {
+    background: #888;                   /* Color del scrollbar */
+    border-radius: 50px;        
+}
+
+.table_component::-webkit-scrollbar-thumb:hover {
+    background: #555;         
+}
+
+.table_component table {
+    border-radius: 20px;
+    height: auto;               
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    text-align: left;
+}
+
+.table_component thead th:last-child {
+    border-top-right-radius: 10px; /* Esquina superior derecha redondeada */
+}
+
+.table_component caption {
+    caption-side: top;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0;
+    color: #333;
+    font-weight: bold;
+}
+
+.table_component th, .table_component td {
+    border: 1px solid #dededf;
+    padding: 10px 15px;
+    text-align: left;
+    /* white-space: nowrap; */ 
+    /* Evita que el contenido se divida en varias líneas */
+}
+
+.table_component th {
+    background-color: #00509e;  
+    color: #ffffff;              
+    font-weight: 600;
+}
+
+.table_component td {
+    background-color: #f8f9fa;              /* Color de fondo más claro para filas */
+    color: #000;
+}
+
+.table_component tbody tr:nth-child(even) td {
+    background-color: #e9ecef;              /* Alterna colores de filas */
+}
+
+.table_component tbody tr:hover td {
+    background-color: #cfe2f3;              /* Color de fondo al pasar el ratón */
+}
+
+.table_component td:first-child, .table_component th:first-child {
+    border-left: none;                         /* Eliminar borde izquierdo */
+}
+
+.table_component td:last-child, .table_component th:last-child {
+    border-right: none;                         /* Eliminar borde derecho */
+}
