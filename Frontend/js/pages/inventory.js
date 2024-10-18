@@ -40,18 +40,31 @@ window.onload = function () {
 };
 
 //-------------------------------> ABRIR MODAL CARGAR DATA
-function openEditModal(codEquipo) {
-    // Aquí puedes hacer otra solicitud para obtener los detalles del equipo usando codEquipo
-    // Por ahora, solo abriré el modal
+function openEditModal(item) {
+    // Referencias a los campos dentro del modal
+    // const modalTitle = document.getElementById('modal-title');
+    const modalCodEquipo = document.getElementById('modal-cod-equipo');
+    const modalFecReg = document.getElementById('modal-fec-reg');
+    const modalCodAlmacen = document.getElementById('modal-cod-almacen');
+    const modalTipEquipo = document.getElementById('modal-tip-equipo');
+    const modalPisoUbic = document.getElementById('modal-piso-ubic');
+    const modalServDepar = document.getElementById('modal-serv-depar');
+    const modalNomCustodio = document.getElementById('modal-nom-custodio');
+    const modalNomUsua = document.getElementById('modal-nom-tics');
+
+    // Cargar los datos del equipo en el modal
+    // modalTitle.textContent = `Edición de Equipo`;
+    modalCodEquipo.value = item.cod_equipo;
+    modalFecReg.value = new Date(item.fec_reg).toISOString().split('T')[0];
+    modalCodAlmacen.value = item.cod_almacen;
+    modalTipEquipo.value = item.tip_equipo;
+    modalPisoUbic.value = item.piso_ubic;
+    modalServDepar.value = item.serv_depar;
+    modalNomCustodio.value = item.nom_custodio;
+    modalNomUsua.value = item.nom_usua;
+
+    // Mostrar el modal
     const modal = new bootstrap.Modal(document.getElementById('editModal'));
     modal.show();
-
-    // Cargar los datos del equipo en el formulario (esto es un ejemplo, adapta según tu lógica)
-    document.getElementById('cod_equipo').value = codEquipo;
-    // Aquí puedes agregar más lógica para cargar los otros campos
 }
 
-function closeModal() {
-    const modal = bootstrap.Modal.getInstance(document.getElementById('editModal'));
-    modal.hide();
-}

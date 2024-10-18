@@ -1,34 +1,56 @@
 <div class="modal" tabindex="-1" id="editModal">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg"> <!-- Agrega 'modal-lg' para hacerlo más ancho -->
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Modal body text goes here.</p>
-                <div class="form-container">
+            <div class="modal-header d-flex justify-content-between align-items-center">
+                <h5 class="modal-title" id="modal-title">Edición de Equipo:</h5>
+
+                <div class="form-container-header">
                     <form class="form-floating">
-                        <input type="email" class="form-control" id="floatingInputValue1" placeholder="name@example.com" value="test@example.com">
-                        <label for="floatingInputValue1">Input with value</label>
+                        <input type="text" class="form-control is-valid" id="modal-cod-equipo" readonly>
+                        <label for="modal-cod-equipo">Cod. Equipo</label>
                     </form>
                     <form class="form-floating">
-                        <input type="email" class="form-control" id="floatingInputValue2" placeholder="name@example.com" value="test@example.com">
-                        <label for="floatingInputValue2">Input with value</label>
+                        <input type="text" class="form-control is-valid" id="modal-nom-tics" readonly>
+                        <label for="modal-nom-tics">TICS</label>
                     </form>
                     <form class="form-floating">
-                        <input type="email" class="form-control" id="floatingInputValue3" placeholder="name@example.com" value="test@example.com">
-                        <label for="floatingInputValue3">Input with value</label>
+                        <input type="text" class="form-control is-valid" id="modal-tip-equipo" readonly>
+                        <label for="modal-tip-equipo">Tipo Equipo</label>
                     </form>
                     <form class="form-floating">
-                        <input type="email" class="form-control" id="floatingInputValue4" placeholder="name@example.com" value="test@example.com">
-                        <label for="floatingInputValue4">Input with value</label>
+                        <input type="text" class="form-control is-valid" id="modal-fec-reg" readonly>
+                        <label for="modal-fec-reg">Fecha de Entrega</label>
                     </form>
                 </div>
-                
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <p>Información del equipo:</p>
+                <div class="form-container"> <!-- Flexbox con espacio entre formularios -->
+                    <div class="form-info-eq">
+                        <form class="form-floating me-2">
+                            <input type="email" class="form-control" id="modal-cod-almacen" readonly>
+                            <label for="modal-cod-almacen">Cod. Almacen</label>
+                        </form>
+                        <form class="form-floating me-2">
+                            <input type="email" class="form-control" id="modal-piso-ubic">
+                            <label for="modal-piso-ubic">Piso Ubicado</label>
+                        </form>
+                        <div class="form-floating">
+                            <select class="form-select" id="modal-serv-depar" aria-label="Floating label select example">
+                            </select>
+                            <label for="modal-serv-depar">Departamento</label>
+                        </div>
+                        <form class="form-floating me-2">
+                            <input type="email" class="form-control" id="modal-nom-custodio">
+                            <label for="modal-nom-custodio">Custodio</label>
+                        </form>
+
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>

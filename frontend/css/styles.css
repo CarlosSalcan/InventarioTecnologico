@@ -208,13 +208,31 @@ footer span {
 
 
 
-.form-container {
+
+
+.modal-lg {
+    max-width: 90%; /* Aumenta el ancho del modal */
+}
+
+.modal-header form {
     display: flex;
-    flex-wrap: wrap; /* Permite que los formularios se envuelvan en una nueva fila */
-    gap: 20px; /* Espaciado entre los formularios */
+    margin-right: 30px;
+}
+
+.form-container-header, .form-info-eq {
+    display: flex;
+    gap: 10px;                  /* Espacio entre los formularios */
+    align-items: center;
 }
 
 .form-floating {
-    flex: 1 1 calc(50% - 20px); /* Dos columnas, restando el espacio del gap */
-    box-sizing: border-box; /* Asegura que el padding y border no afecten el ancho total */
+    margin: 1px;
+    flex: 1;
 }
+
+.btn-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
