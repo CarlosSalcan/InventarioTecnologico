@@ -8,7 +8,7 @@ body {
 header {
     text-align: center;
     border-radius: 0 0 25px 25px;
-    padding: 20px;
+    padding: 0 7px;
     background-color: rgba(30, 10, 116, 0.884);
     color: white;
 }
@@ -75,6 +75,8 @@ footer span {
 *********************/
 .custom-navbar {
     background-color: transparent !important;   /* Eliminar fondo */
+    padding: 10px;
+    margin: 0 10px;
     border-radius: 0 0 25px 25px; 
 }
 
@@ -87,14 +89,14 @@ footer span {
     color: rgba(255, 255, 255, 0.8) !important;
 }
 
-/*******************
-    INVENTARIO
-*******************/
+/*********************
+    INVENTARIO TABLE
+*********************/
 .table_component {
     border: 2px solid #0b0b4e;
     border-radius: 20px 10px 10px 20px;
     overflow-y: auto;                   /* Permitir desplazamiento vertical */
-    max-height: 585px;                  /* Establecer una altura máxima para el contenedor */
+    max-height: 578px;                  /* Establecer una altura máxima para el contenedor */
     margin: 5px;
     width: 100%;
 }
@@ -122,10 +124,12 @@ footer span {
     border-radius: 20px;
     height: auto;               
     width: 100%;
-    table-layout: fixed;
+    table-layout: auto;
     border-collapse: collapse;
     border-spacing: 1px;
-    text-align: left;
+
+    text-align: center;        /* Centra horizontalmente */
+    vertical-align: middle;    /* Centra verticalmente */
 }
 
 .table_component thead th:last-child {
@@ -144,9 +148,11 @@ footer span {
 .table_component th, .table_component td {
     border: 1px solid #dededf;
     padding: 10px 15px;
-    text-align: left;
-    /* white-space: nowrap; */ 
-    /* Evita que el contenido se divida en varias líneas */
+}
+
+.table_component th:nth-child(2), .table_component td:nth-child(2),
+.table_component th:nth-child(3), .table_component td:nth-child(3) {
+    white-space: nowrap;   /* Evita que el contenido de la segunda columna se divida en varias líneas */
 }
 
 .table_component th {
@@ -174,4 +180,41 @@ footer span {
 
 .table_component td:last-child, .table_component th:last-child {
     border-right: none;                         /* Eliminar borde derecho */
+}
+
+/*********************
+    BTN EDIT
+*********************/
+.buttonEdit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    width: 45px;
+    height: auto;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buttonEdit:hover {
+    background-color: #e6ac00; 
+}
+
+.buttonEdit:hover .svg-icon {
+    animation: lr 1s linear infinite;
+}
+
+
+
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los formularios se envuelvan en una nueva fila */
+    gap: 20px; /* Espaciado entre los formularios */
+}
+
+.form-floating {
+    flex: 1 1 calc(50% - 20px); /* Dos columnas, restando el espacio del gap */
+    box-sizing: border-box; /* Asegura que el padding y border no afecten el ancho total */
 }
