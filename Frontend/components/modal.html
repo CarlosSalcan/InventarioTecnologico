@@ -2,26 +2,29 @@
     <div class="modal-dialog modal-lg"> <!-- Agrega 'modal-lg' para hacerlo más ancho -->
         <div class="modal-content">
             <div class="modal-header d-flex justify-content-between align-items-center">
-                <h5 class="modal-title" id="modal-title">Edición de Equipo:</h5>
+                <h5 class="modal-title" id="modal-title">Edición Equipo</h5>
 
                 <div class="form-container-header">
-                    <form class="form-floating">
-                        <input type="text" class="form-control is-valid" id="modal-cod-equipo" readonly>
-                        <label for="modal-cod-equipo">Cod. Equipo</label>
-                    </form>
-                    <form class="form-floating">
-                        <input type="text" class="form-control is-valid" id="modal-nom-tics" readonly>
-                        <label for="modal-nom-tics">TICS</label>
-                    </form>
-                    <form class="form-floating">
-                        <input type="text" class="form-control is-valid" id="modal-tip-equipo" readonly>
-                        <label for="modal-tip-equipo">Tipo Equipo</label>
-                    </form>
-                    <form class="form-floating">
-                        <input type="text" class="form-control is-valid" id="modal-fec-reg" readonly>
-                        <label for="modal-fec-reg">Fecha de Entrega</label>
-                    </form>
+                    <div class="form-row">
+                        <form class="form-floating">
+                            <input type="text" class="form-control is-valid" id="modal-cod-equipo" readonly>
+                            <label for="modal-cod-equipo">Cod. Equipo</label>
+                        </form>
+                        <form class="form-floating">
+                            <input type="text" class="form-control is-valid" id="modal-nom-usua" readonly>
+                            <label for="modal-nom-usua">TICS</label>
+                        </form>
+                        <form class="form-floating">
+                            <input type="text" class="form-control is-valid" id="modal-tip-equipo" readonly>
+                            <label for="modal-tip-equipo">Tipo Equipo</label>
+                        </form>
+                        <form class="form-floating">
+                            <input type="text" class="form-control is-valid" id="modal-fec-reg" readonly>
+                            <label for="modal-fec-reg">Fecha de Entrega</label>
+                        </form>
+                    </div>
                 </div>
+
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -29,23 +32,28 @@
                 <p>Información del equipo:</p>
                 <div class="form-container"> <!-- Flexbox con espacio entre formularios -->
                     <div class="form-info-eq">
-                        <form class="form-floating me-2">
-                            <input type="email" class="form-control" id="modal-cod-almacen" readonly>
-                            <label for="modal-cod-almacen">Cod. Almacen</label>
-                        </form>
-                        <form class="form-floating me-2">
-                            <input type="email" class="form-control" id="modal-piso-ubic">
-                            <label for="modal-piso-ubic">Piso Ubicado</label>
-                        </form>
-                        <div class="form-floating">
-                            <select class="form-select" id="modal-serv-depar" aria-label="Floating label select example">
-                            </select>
-                            <label for="modal-serv-depar">Departamento</label>
+                        <div class="form-row">
+                            <form class="form-floating me-2">
+                                <input type="email" class="form-control" id="modal-cod-almacen" readonly>
+                                <label for="modal-cod-almacen">Cod. Almacen</label>
+                            </form>
+                            <form class="form-floating me-2">
+                                <input type="email" class="form-control" id="modal-piso-ubic">
+                                <label for="modal-piso-ubic">Piso Ubicado</label>
+                            </form>
+                            <form class="form-floating me-2">
+                                <input type="email" class="form-control" id="modal-nom-custodio">
+                                <label for="modal-nom-custodio">Custodio</label>
+                            </form>
                         </div>
-                        <form class="form-floating me-2">
-                            <input type="email" class="form-control" id="modal-nom-custodio">
-                            <label for="modal-nom-custodio">Custodio</label>
-                        </form>
+                        <div class="form-row">
+                            <form class="form-floating me-2">
+                                <input type="email" class="form-control" id="modal-serv-depar">
+                                <label for="modal-serv-depar">Piso Ubicado</label>
+                            </form>
+                            
+                        </div>
+
 
                     </div>
                 </div>

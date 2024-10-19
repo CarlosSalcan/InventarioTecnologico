@@ -205,29 +205,12 @@ footer span {
     animation: lr 1s linear infinite;
 }
 
-
-
-
-
-
+/***************
+    MODAL
+***************/
 .modal-lg {
-    max-width: 90%; /* Aumenta el ancho del modal */
-}
-
-.modal-header form {
-    display: flex;
-    margin-right: 30px;
-}
-
-.form-container-header, .form-info-eq {
-    display: flex;
-    gap: 10px;                  /* Espacio entre los formularios */
-    align-items: center;
-}
-
-.form-floating {
-    margin: 1px;
-    flex: 1;
+    margin-top: 100px;
+    max-width: 60%; /* Aumenta el ancho del modal */
 }
 
 .btn-close {
@@ -236,3 +219,22 @@ footer span {
     right: 15px;
 }
 
+.modal-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header h5{
+    margin: 10px 50px 15px 50px;
+}
+
+.form-row {
+    display: flex;                      /* Crea una fila de formularios */
+    justify-content: space-between;     /* Espacio entre columnas */
+    margin-bottom: 1rem;                /* Espacio entre filas */
+}
+
+.form-floating {
+    flex: 1;                     /* Cada formulario ocupa el mismo ancho */
+    margin-right: 10px;          /* Espacio entre columnas, puedes ajustar este valor */
+}

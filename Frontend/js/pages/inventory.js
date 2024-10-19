@@ -50,7 +50,7 @@ function openEditModal(item) {
     const modalPisoUbic = document.getElementById('modal-piso-ubic');
     const modalServDepar = document.getElementById('modal-serv-depar');
     const modalNomCustodio = document.getElementById('modal-nom-custodio');
-    const modalNomUsua = document.getElementById('modal-nom-tics');
+    const modalNomUsua = document.getElementById('modal-nom-usua');
 
     // Cargar los datos del equipo en el modal
     // modalTitle.textContent = `Edición de Equipo`;
