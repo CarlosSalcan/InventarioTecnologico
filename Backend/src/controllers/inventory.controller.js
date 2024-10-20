@@ -18,6 +18,7 @@ const inventoryController = {
         const { cod_equipo } = req.params;
         const { piso_ubic, serv_depar, nom_custodio } = req.body;
 
+        // Consulta SQL
         const query = `
             UPDATE equipo
             SET piso_ubic = ?, serv_depar = ?, nom_custodio = ?

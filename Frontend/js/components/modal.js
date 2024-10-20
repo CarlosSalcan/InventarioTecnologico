@@ -1,4 +1,4 @@
-fetch('./components/modal.html')
+fetch('./components/modal.html') // Ruta component
 .then(response => response.text())
 .then(data => {
     document.getElementById('modal-container').innerHTML = data;

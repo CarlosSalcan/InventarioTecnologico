@@ -1,5 +1,6 @@
 const connection = require('../connection');
 
+// TODO: Optimizar
 const optionController = {
     getPisos: (req, res) => {
         const query = 'SELECT * FROM param_piso'; // Consulta SQL para obtener pisos

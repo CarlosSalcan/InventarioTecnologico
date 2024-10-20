@@ -1,3 +1,5 @@
+// LOGIN
+// TODO: Tipo de usuario
 document.getElementById('loginForm').addEventListener('submit', async function(event) {
     event.preventDefault(); // Evitar el envío del formulario por defecto
 

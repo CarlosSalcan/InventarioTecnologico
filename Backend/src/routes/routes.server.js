@@ -7,7 +7,7 @@ const optionController = require('../controllers/option.controller.js');
 
 // Ruta para el inicio de sesión
 // Ruta para obtener los datos del inventario
-// Ruta para la modificaicon de datos
+// Ruta para la modificaicon de datos // TODO: Optimzar
 router.post('/login', userController.loginUser);
 router.get('/inventory', inventoryController.getAllItems);
 

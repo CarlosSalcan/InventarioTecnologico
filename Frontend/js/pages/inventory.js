@@ -1,5 +1,4 @@
 window.onload = function () {
-    // Cargar el inventario de equipos
     fetch('http://localhost:3000/api/inventory')
         .then(response => response.json())
         .then(data => {
@@ -36,7 +35,7 @@ function renderInventoryTable(items) {
             <td>${item.nom_custodio}</td>
             <td>${item.nom_usua}</td>
             <td>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick='openEditModal(${JSON.stringify(item)})'> E </button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick='openEditModal(${JSON.stringify(item)})'> </button>
             </td>`;
         tableBody.appendChild(row);
     });

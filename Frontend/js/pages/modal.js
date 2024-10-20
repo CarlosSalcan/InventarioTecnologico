@@ -23,7 +23,6 @@ function loadSelectOptions(apiEndpoint, selectId) {
 
 // Función para abrir el modal de edición y cargar los datos
 function openEditModal(item) {
-    // Referencias a los campos dentro del modal
     const modalCodEquipo = document.getElementById('modal-cod-equipo');
     const modalFecReg = document.getElementById('modal-fec-reg');
     const modalCodAlmacen = document.getElementById('modal-cod-almacen');

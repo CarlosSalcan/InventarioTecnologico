@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('./components/header.html') //Ruta del componente
+    fetch('./components/header.html') // Ruta component
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al cargar el header');

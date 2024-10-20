@@ -6,7 +6,7 @@ const userController = {
         try {
             const { username, password } = req.body;
 
-            const query = 'SELECT * FROM usuario WHERE id = ? AND clave = ?';
+            const query = 'SELECT * FROM usuario WHERE id = ? AND clave = ?'; // Consulta SQL
             connection.query(query, [username, password], (error, results, fields) => {
                 if (error) {
                     console.error('Error en la consulta:', error);
