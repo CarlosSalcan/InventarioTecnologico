@@ -19,14 +19,7 @@ window.onload = function () {
                         <td>${item.nom_custodio}</td>
                         <td>${item.nom_usua}</td>
                         <td>
-                            <button class="buttonEdit" onclick='openEditModal(${JSON.stringify(item)})'>
-                                <svg class="svg-icon" fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                    <g stroke="#a649da" stroke-linecap="round" stroke-width="2">
-                                        <path d="m20 20h-16"></path>
-                                        <path clip-rule="evenodd" d="m14.5858 4.41422c.781-.78105 2.0474-.78105 2.8284 0 .7811.78105.7811 2.04738 0 2.82843l-8.28322 8.28325-3.03046.202.20203-3.0304z" fill-rule="evenodd"></path>
-                                    </g>
-                                </svg>
-                            </button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick='openEditModal(${JSON.stringify(item)})'> E </button>
                         </td>`;
                     tableBody.appendChild(row);
                 });
@@ -37,12 +30,60 @@ window.onload = function () {
         .catch(error => {
             console.error('Error:', error);
         });
+
+    // Obtener pisos
+    fetch('http://localhost:3000/api/options/pisos')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const selectPisoUbic = document.getElementById('modal-piso-ubic');
+                data.data.forEach(piso => {
+                    const option = document.createElement('option');
+                    option.value = piso.cod_piso; // o el valor que necesites
+                    option.textContent = piso.nom_piso; // o el texto que necesites
+                    selectPisoUbic.appendChild(option);
+                });
+            } else {
+                console.error('Error al obtener los pisos');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+
+    fetch('http://localhost:3000/api/options/pisos')
+        .then(response => response.json())
+        .then(data => {
+            const pisoSelect = document.getElementById('modal-piso-ubic');
+            if (data.success) {
+                data.data.forEach(piso => {
+                    const option = document.createElement('option');
+                    option.value = piso.nom_piso; // Establece el valor de la opción
+                    option.textContent = piso.nom_piso; // Texto que se mostrará
+                    pisoSelect.appendChild(option);
+                });
+            }
+        });
+
+    fetch('http://localhost:3000/api/options/servicios')
+        .then(response => response.json())
+        .then(data => {
+            const servicioSelect = document.getElementById('modal-serv-depar');
+            if (data.success) {
+                data.data.forEach(servicio => {
+                    const option = document.createElement('option');
+                    option.value = servicio.nom_servicio; // Establece el valor de la opción
+                    option.textContent = servicio.nom_servicio; // Texto que se mostrará
+                    servicioSelect.appendChild(option);
+                });
+            }
+        });
 };
 
 //-------------------------------> ABRIR MODAL CARGAR DATA
 function openEditModal(item) {
     // Referencias a los campos dentro del modal
-    // const modalTitle = document.getElementById('modal-title');
     const modalCodEquipo = document.getElementById('modal-cod-equipo');
     const modalFecReg = document.getElementById('modal-fec-reg');
     const modalCodAlmacen = document.getElementById('modal-cod-almacen');
@@ -53,7 +94,6 @@ function openEditModal(item) {
     const modalNomUsua = document.getElementById('modal-nom-usua');
 
     // Cargar los datos del equipo en el modal
-    // modalTitle.textContent = `Edición de Equipo`;
     modalCodEquipo.value = item.cod_equipo;
     modalFecReg.value = new Date(item.fec_reg).toISOString().split('T')[0];
     modalCodAlmacen.value = item.cod_almacen;
@@ -64,7 +104,6 @@ function openEditModal(item) {
     modalNomUsua.value = item.nom_usua;
 
     // Mostrar el modal
-    const modal = new bootstrap.Modal(document.getElementById('editModal'));
+    const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
     modal.show();
 }
-

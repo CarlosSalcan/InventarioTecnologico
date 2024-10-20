@@ -1,63 +1,52 @@
-<div class="modal" tabindex="-1" id="editModal">
-    <div class="modal-dialog modal-lg"> <!-- Agrega 'modal-lg' para hacerlo más ancho -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header d-flex justify-content-between align-items-center">
-                <h5 class="modal-title" id="modal-title">Edición Equipo</h5>
-
-                <div class="form-container-header">
-                    <div class="form-row">
-                        <form class="form-floating">
-                            <input type="text" class="form-control is-valid" id="modal-cod-equipo" readonly>
-                            <label for="modal-cod-equipo">Cod. Equipo</label>
-                        </form>
-                        <form class="form-floating">
-                            <input type="text" class="form-control is-valid" id="modal-nom-usua" readonly>
-                            <label for="modal-nom-usua">TICS</label>
-                        </form>
-                        <form class="form-floating">
-                            <input type="text" class="form-control is-valid" id="modal-tip-equipo" readonly>
-                            <label for="modal-tip-equipo">Tipo Equipo</label>
-                        </form>
-                        <form class="form-floating">
-                            <input type="text" class="form-control is-valid" id="modal-fec-reg" readonly>
-                            <label for="modal-fec-reg">Fecha de Entrega</label>
-                        </form>
-                    </div>
-                </div>
-
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edicion Equipos</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <div class="modal-body">
-                <p>Información del equipo:</p>
-                <div class="form-container"> <!-- Flexbox con espacio entre formularios -->
-                    <div class="form-info-eq">
-                        <div class="form-row">
-                            <form class="form-floating me-2">
-                                <input type="email" class="form-control" id="modal-cod-almacen" readonly>
-                                <label for="modal-cod-almacen">Cod. Almacen</label>
-                            </form>
-                            <form class="form-floating me-2">
-                                <input type="email" class="form-control" id="modal-piso-ubic">
-                                <label for="modal-piso-ubic">Piso Ubicado</label>
-                            </form>
-                            <form class="form-floating me-2">
-                                <input type="email" class="form-control" id="modal-nom-custodio">
-                                <label for="modal-nom-custodio">Custodio</label>
-                            </form>
-                        </div>
-                        <div class="form-row">
-                            <form class="form-floating me-2">
-                                <input type="email" class="form-control" id="modal-serv-depar">
-                                <label for="modal-serv-depar">Piso Ubicado</label>
-                            </form>
-                            
-                        </div>
+                <div class="form-row">
+                    <form class="form-floating">
+                        <input type="text" class="form-control is-valid" id="modal-cod-equipo" readonly>
+                        <label for="modal-cod-equipo">Cod. Equipo</label>
+                    </form>
+                    <form class="form-floating">
+                        <input type="text" class="form-control is-valid" id="modal-nom-usua" readonly>
+                        <label for="modal-nom-usua">TICS</label>
+                    </form>
+                    <form class="form-floating">
+                        <input type="text" class="form-control is-valid" id="modal-tip-equipo" readonly>
+                        <label for="modal-tip-equipo">Tipo Equipo</label>
+                    </form>
+                    <form class="form-floating">
+                        <input type="text" class="form-control is-valid" id="modal-fec-reg" readonly>
+                        <label for="modal-fec-reg">Fecha de Entrega</label>
+                    </form>
+                </div>
 
-
+                <p>Informacion del Equipo:</p>
+                <div class="form-row">
+                    <form class="form-floating me-2">
+                        <input type="email" class="form-control" id="modal-cod-almacen" readonly>
+                        <label for="modal-cod-almacen">Cod. Almacen</label>
+                    </form>
+                    <div class="form-floating">
+                        <select class="form-select" id="modal-piso-ubic" aria-label="Floating label select example"></select>
+                        <label for="floatingSelect">Piso Ubicado</label>
                     </div>
+                    <form class="form-floating me-2">
+                        <input type="email" class="form-control" id="modal-nom-custodio">
+                        <label for="modal-nom-custodio">Custodio</label>
+                    </form>
+                </div>
+                <div class="form-floating">
+                    <select class="form-select" id="modal-serv-depar" aria-label="Floating label select example"></select>
+                    <label for="floatingSelect">Departamento / Servicio</label>
                 </div>
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div>
