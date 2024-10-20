@@ -208,7 +208,7 @@ footer span {
 /***************
     MODAL
 ***************/
-.modal-lg {
+.modal-dialog {
     margin-top: 100px;
     max-width: 60%; /* Aumenta el ancho del modal */
 }

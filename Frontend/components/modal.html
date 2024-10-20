@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Edicion Equipos</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edicion Equipo</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -29,7 +29,7 @@
                 <p>Informacion del Equipo:</p>
                 <div class="form-row">
                     <form class="form-floating me-2">
-                        <input type="email" class="form-control" id="modal-cod-almacen" readonly>
+                        <input type="email" class="form-control is-valid" id="modal-cod-almacen" readonly>
                         <label for="modal-cod-almacen">Cod. Almacen</label>
                     </form>
                     <div class="form-floating">
@@ -48,7 +48,7 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
             </div>
         </div>
     </div>
