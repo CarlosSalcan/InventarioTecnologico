@@ -15,5 +15,6 @@ router.get('/options/pisos', optionController.getPisos);
 router.get('/options/servicios', optionController.getServicios);
 
 router.put('/inventory/:cod_equipo', inventoryController.updateItem);
+router.get('/inventory/escritorio', inventoryController.getEscritorioInventory);
 
 module.exports = router;
