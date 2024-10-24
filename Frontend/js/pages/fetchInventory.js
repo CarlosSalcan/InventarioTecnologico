@@ -7,8 +7,17 @@ function populateTable(equipos) {
         // Crear una fila para el equipo con los detalles en una sola fila
         const equipoRow = document.createElement('tr');
         equipoRow.innerHTML = `
-            <td colspan="4"><strong>Equipo #${index + 1}</strong></td>
-        `;
+            <tr>
+                <th>Cod.</th>
+                <th>Fecha Reg.</th>
+                <th>Cod. Almacen</th>
+                <th>Tipo Eq.</th>
+                <th>Piso</th>
+                <th>Departamento</th>
+                <th>Custodio</th>
+                <th>Usuario</th>
+                <th>Editar</th>
+            </tr>`;
         tableBody.appendChild(equipoRow);
 
         const detalleRow = document.createElement('tr');
@@ -21,22 +30,31 @@ function populateTable(equipos) {
             <td>${equipo.serv_depar}</td>
             <td>${equipo.nom_custodio}</td>
             <td>${equipo.nom_usua}</td>
+            <td>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick='openEditModal(${JSON.stringify(equipo)})'> E </button>
+            </td>
         `;
         tableBody.appendChild(detalleRow);
+
+        // Cargar opciones para los select (pisos y servicios)
+    loadSelectOptions('pisos', 'modal-piso-ubic');
+    loadSelectOptions('servicios', 'modal-serv-depar');
 
         // Añadir detalles del monitor
         const monitorRow = document.createElement('tr');
         monitorRow.innerHTML = `
-            <td colspan="4"><strong>Monitor</strong></td>
+            <td colspan="9"  style="background-color: #e0e0e0"><strong>Monitor</strong></td>
         `;
         tableBody.appendChild(monitorRow);
 
         const monitorHeaderRow = document.createElement('tr');
         monitorHeaderRow.innerHTML = `
-            <td>COD_EQUIPO</td>
-            <td>CODIGO_TICS</td>
-            <td>MARCA</td>
-            <td>TAMAÑO</td>
+            <td>Cod_Equipo</td>
+            <td colspan="2">Cod_Tics</td>
+            <td>Marca</td>
+            <td colspan="2">Modelo</td>
+            <td>Tamaño</td>
+            <td colspan="2">Condición</td>
         `;
         tableBody.appendChild(monitorHeaderRow);
 
@@ -44,13 +62,18 @@ function populateTable(equipos) {
         if (equipo.cod_monitor) {
             monitorDetailsRow.innerHTML = `
                 <td>${equipo.cod_equipo}</td>
-                <td>${equipo.cod_tics_monitor}</td>
+                <td colspan="2">${equipo.cod_tics_monitor}</td>
                 <td>${equipo.mar_monitor}</td>
+                <td colspan="2">${equipo.mod_monitor}</td>
                 <td>${equipo.tam_monitor}</td>
+                <td>${equipo.con_monitor}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> E </button>
+                </td>
             `;
         } else {
             monitorDetailsRow.innerHTML = `
-                <td colspan="4">No disponible</td>
+                <td colspan="9">No disponible</td>
             `;
         }
         tableBody.appendChild(monitorDetailsRow);
@@ -58,16 +81,18 @@ function populateTable(equipos) {
         // Añadir detalles del teclado
         const tecladoRow = document.createElement('tr');
         tecladoRow.innerHTML = `
-            <td colspan="4"><strong>Teclado</strong></td>
+            <td colspan="9" style="background-color: #e0e0e0"><strong>Teclado</strong></td>
         `;
         tableBody.appendChild(tecladoRow);
 
         const tecladoHeaderRow = document.createElement('tr');
         tecladoHeaderRow.innerHTML = `
-            <td>COD_EQUIPO</td>
-            <td>CODIGO_TICS</td>
-            <td>MARCA</td>
-            <td>MODELO</td>
+            <td>Cod_Equipo</td>
+            <td colspan="2">Cod_Tics</td>
+            <td>Marca</td>
+            <td colspan="2">Modelo</td>
+            <td>Puerto</td>
+            <td colspan="2">Condición</td>
         `;
         tableBody.appendChild(tecladoHeaderRow);
 
@@ -75,13 +100,18 @@ function populateTable(equipos) {
         if (equipo.cod_teclado) {
             tecladoDetailsRow.innerHTML = `
                 <td>${equipo.cod_equipo}</td>
-                <td>${equipo.cod_tics_teclado}</td>
+                <td colspan="2">${equipo.cod_tics_teclado}</td>
                 <td>${equipo.mar_teclado}</td>
-                <td>${equipo.mod_teclado}</td>
+                <td colspan="2">${equipo.mod_teclado}</td>
+                <td>${equipo.pue_teclado}</td>
+                <td>${equipo.con_teclado}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> E </button>
+                </td>
             `;
         } else {
             tecladoDetailsRow.innerHTML = `
-                <td colspan="4">No disponible</td>
+                <td colspan="9">No disponible</td>
             `;
         }
         tableBody.appendChild(tecladoDetailsRow);
@@ -89,16 +119,18 @@ function populateTable(equipos) {
         // Añadir detalles del mouse
         const mouseRow = document.createElement('tr');
         mouseRow.innerHTML = `
-            <td colspan="4"><strong>Mouse</strong></td>
+            <td colspan="9" style="background-color: #e0e0e0"><strong>Mouse</strong></td>
         `;
         tableBody.appendChild(mouseRow);
 
         const mouseHeaderRow = document.createElement('tr');
         mouseHeaderRow.innerHTML = `
-            <td>COD_EQUIPO</td>
-            <td>CODIGO_TICS</td>
-            <td>MARCA</td>
-            <td>MODELO</td>
+            <td>Cod_Equipo</td>
+            <td colspan="2">Cod_Tics</td>
+            <td>Marca</td>
+            <td colspan="2">Modelo</td>
+            <td>Puerto</td>
+            <td colspan="2">Condición</td>
         `;
         tableBody.appendChild(mouseHeaderRow);
 
@@ -106,9 +138,14 @@ function populateTable(equipos) {
         if (equipo.cod_mouse) {
             mouseDetailsRow.innerHTML = `
                 <td>${equipo.cod_equipo}</td>
-                <td>${equipo.cod_tics_mouse}</td>
+                <td colspan="2">${equipo.cod_tics_mouse}</td>
                 <td>${equipo.mar_mouse}</td>
-                <td>${equipo.mod_mouse}</td>
+                <td colspan="2">${equipo.mod_mouse}</td>
+                <td>${equipo.pue_mouse}</td>
+                <td>${equipo.con_mouse}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> E </button>
+                </td>
             `;
         } else {
             mouseDetailsRow.innerHTML = `

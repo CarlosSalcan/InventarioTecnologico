@@ -20,23 +20,13 @@
     <main>
         <div class="table_component" role="region" tabindex="0">
             <table id="escritorio-table" class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Fecha Reg.</th>
-                        <th>Cod. Almacen</th>
-                        <th>Tipo Eq.</th>
-                        <th>Piso</th>
-                        <th>Departamento</th>
-                        <th>Custodio</th>
-                        <th>Usuario</th>
-                        <th>Editar</th>
-                    </tr>
-                </thead>
                 <tbody></tbody> <!-- Aquí se llenarán los datos -->
             </table>
         </div>
     </main>
+
+    <!-- Cargar el modal -->
+    <div id="modal-container"></div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -45,8 +35,10 @@
 
     <!-- Script Components -->
     <script src="js/components/header.js"></script>
+    <script src="js/components/modal.js"></script>
     <!-- Script Pages -->
     <script src="js/pages/fetchInventory.js"></script>
+    <script src="js/pages/modal.js"></script>
 </body>
 
 </html>
