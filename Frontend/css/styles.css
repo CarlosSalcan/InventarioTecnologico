@@ -174,13 +174,7 @@ footer span {
     background-color: #cfe2f3;              /* Color de fondo al pasar el ratón */
 }
 
-.table_component td:first-child, .table_component th:first-child {
-    border-left: none;                         /* Eliminar borde izquierdo */
-}
 
-.table_component td:last-child, .table_component th:last-child {
-    border-right: none;                         /* Eliminar borde derecho */
-}
 
 /*********************
     BTN EDIT

@@ -187,8 +187,10 @@ function populateTable(equipos) {
             </td>`;
         tableBody.appendChild(accordionRow);
     });
+    // Cargar opciones para los select (pisos y servicios)
+    loadSelectOptions('pisos', 'modal-piso-ubic');
+    loadSelectOptions('servicios', 'modal-serv-depar');
 }
-
 
 // fetchInventory.js
 async function fetchEquiposEscritorio() {
