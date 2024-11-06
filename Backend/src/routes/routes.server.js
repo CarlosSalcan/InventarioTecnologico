@@ -4,6 +4,7 @@ const router = express.Router();
 const userController = require('../controllers/user.controller.js');
 const inventoryController = require('../controllers/inventory.controller.js');
 const optionController = require('../controllers/option.controller.js');
+const componentController = require('../controllers/component.controller.js');
 
 // Ruta para el inicio de sesión
 // Ruta para obtener los datos del inventario
@@ -16,6 +17,8 @@ router.get('/options/servicios', optionController.getServicios);
 
 router.put('/inventory/:cod_equipo', inventoryController.updateItem);
 router.get('/inventory/escritorio', inventoryController.getEscritorioInventory);
+
+router.put('/monitor/:cod_monitor',componentController.updateComponent);
 
 
 module.exports = router;
