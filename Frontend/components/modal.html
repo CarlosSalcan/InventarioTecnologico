@@ -56,3 +56,68 @@
         </div>
     </div>
 </div>
+
+<!-- Modal para editar monitor -->
+<div class="modal fade" id="editMonitorModal" tabindex="-1" aria-labelledby="editMonitorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="editMonitorModalLabel">Edición Monitor</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="monitorForm">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="modal-cod-Eqmonitor" readonly>
+                        <label for="modal-cod-Eqmonitor">Cod. Equipo</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="modal-cod-monitor" readonly>
+                        <label for="modal-cod-monitor">Cod. Monitor</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="modal-cod-tics" readonly>
+                        <label for="modal-cod-tics">Cod. Tics Monitor</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="modal-mar-monitor">
+                        <label for="modal-mar-monitor">Marca Monitor</label>
+                    </div>
+                    <form class="form-floating">
+                        <input type="text" class="form-control" id="modal-mod-monitor">
+                        <label for="modal-mod-monitor">Modelo Monitor</label>
+                    </form>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="modal-ser-monitor">
+                        <label for="modal-ser-monitor">Serie Monitor</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="modal-tam-monitor">
+                        <label for="modal-tam-monitor">Tamaño Monitor</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="modal-con-monitor">
+                        <label for="modal-con-monitor">Conectividad Monitor</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="modal-est-monitor">
+                        <label for="modal-est-monitor">Estado Monitor</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="modal-observacion">
+                        <label for="modal-observacion">Observación</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="modal-usua">
+                        <label for="modal-usua">Personal Tics</label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="saveMonitorChanges()">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+</div>

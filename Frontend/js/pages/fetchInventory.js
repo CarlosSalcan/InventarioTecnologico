@@ -95,6 +95,7 @@ function populateTable(equipos) {
                                             <th>Modelo</th>
                                             <th>Tamaño</th>
                                             <th>Condición</th>
+                                            <th>Edición</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -106,6 +107,7 @@ function populateTable(equipos) {
                                                 <td>${equipo.mod_monitor}</td>
                                                 <td>${equipo.tam_monitor}</td>
                                                 <td>${equipo.con_monitor}</td>
+                                                <td><button type="button" class="btn btn-primary" data-bs-target="#exampleModal" onclick='openEditMonitorModal(${JSON.stringify(equipo)})'> EMO </button></td>
                                             ` : `<td colspan="6">No disponible</td>`}
                                         </tr>
                                     </tbody>
