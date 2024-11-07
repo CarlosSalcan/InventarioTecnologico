@@ -83,3 +83,49 @@ function saveMonitorChanges() {
             console.error('Error al guardar los cambios:', error);
         });
 }
+
+// Función para abrir el modal de edición de Mouse y cargar los datos
+function openMouseEditModal(mouseData) {
+    document.getElementById('mouse-cod-mouse').value = mouseData.cod_mouse;
+    document.getElementById('mouse-cod-equipo').value = mouseData.cod_equipo;
+    document.getElementById('mouse-cos-tics-mouse').value = mouseData.cod_tics_mouse;
+    document.getElementById('mouse-mar-mouse').value = mouseData.mar_mouse;
+    document.getElementById('mouse-mod-mouse').value = mouseData.mod_mouse;
+    document.getElementById('mouse-ser-mouse').value = mouseData.ser_mouse;
+    // ... cargar otros campos de mouse según corresponda
+
+    const mouseModal = new bootstrap.Modal(document.getElementById('mouseModal'));
+    mouseModal.show();
+}
+
+// Función para guardar cambios del modal de Mouse
+function saveMouseChanges() {
+    const updatedMouseData = {
+        cod_mouse: document.getElementById('mouse-cod-mouse').value,
+        cod_equipo: document.getElementById('mouse-cod-equipo').value,
+        cod_tics_mouse: document.getElementById('mouse-cos-tics-mouse').value,
+        mar_mouse: document.getElementById('mouse-mar-mouse').value,
+        mod_mouse: document.getElementById('mouse-mod-mouse').value,
+        ser_mouse: document.getElementById('mouse-ser-mouse').value,
+        // ... incluir otros campos de mouse según sea necesario
+    };
+
+    fetch(`http://localhost:3000/api/mouse/${updatedMouseData.cod_mouse}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedMouseData)
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const mouseModal = bootstrap.Modal.getInstance(document.getElementById('mouseModal'));
+                mouseModal.hide();
+                window.location.reload();
+            } else {
+                console.error('Error al guardar los cambios:', data.message);
+            }
+        })
+        .catch(error => console.error('Error al guardar los cambios:', error));
+}
