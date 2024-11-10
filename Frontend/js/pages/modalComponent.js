@@ -85,17 +85,6 @@ function saveMonitorChanges() {
 }
 
 // Función para abrir el modal de edición de Mouse y cargar los datos
-function openMouseEditModal(mouseData) {
-    document.getElementById('mouse-cod-mouse').value = mouseData.cod_mouse;
-    document.getElementById('mouse-cod-equipo').value = mouseData.cod_equipo;
-    document.getElementById('mouse-cos-tics-mouse').value = mouseData.cod_tics_mouse;
-    document.getElementById('mouse-mar-mouse').value = mouseData.mar_mouse;
-    document.getElementById('mouse-mod-mouse').value = mouseData.mod_mouse;
-    document.getElementById('mouse-ser-mouse').value = mouseData.ser_mouse;
-    // ... cargar otros campos de mouse según corresponda
-
-    const mouseModal = new bootstrap.Modal(document.getElementById('mouseModal'));
-    mouseModal.show();
 function openMouseEditModal(item) {
     // Asignar directamente los valores de 'item' a los campos del formulario
     document.getElementById('modal-cod-mouse').value = item.cod_mouse;
@@ -117,15 +106,6 @@ function openMouseEditModal(item) {
 }
 
 // Función para guardar cambios del modal de Mouse
-function saveMouseChanges() {
-    const updatedMouseData = {
-        cod_mouse: document.getElementById('mouse-cod-mouse').value,
-        cod_equipo: document.getElementById('mouse-cod-equipo').value,
-        cod_tics_mouse: document.getElementById('mouse-cos-tics-mouse').value,
-        mar_mouse: document.getElementById('mouse-mar-mouse').value,
-        mod_mouse: document.getElementById('mouse-mod-mouse').value,
-        ser_mouse: document.getElementById('mouse-ser-mouse').value,
-        // ... incluir otros campos de mouse según sea necesario
 async function saveMouseChanges() {
     // Obtener los valores de los campos del modal
     const codMouse = document.getElementById('modal-cod-mouse').value;
@@ -182,7 +162,81 @@ async function saveMouseChanges() {
             alert('Hubo un error al actualizar los datos');
         });
 }
+
+function openTecladoEditModal(tcd) {
+    console.log(tcd); // Verifica todo el objeto item
+    // Asignar directamente los valores de 'item' a los campos del formulario
+    document.getElementById('modal-cod-teclado').value = tcd.cod_teclado;
+    document.getElementById('modal-cod-equipo-teclado').value = tcd.cod_equipo;
+    document.getElementById('modal-cod-tics-teclado').value = tcd.cod_tics_teclado;
+    document.getElementById('modal-mar-teclado').value = tcd.mar_teclado;
+    document.getElementById('modal-mod-teclado').value = tcd.mod_teclado;
+    document.getElementById('modal-ser-teclado').value = tcd.ser_teclado;
+    document.getElementById('modal-tip-teclado').value = tcd.tip_teclado;
+    document.getElementById('modal-pue-teclado').value = tcd.pue_teclado;
+    document.getElementById('modal-con-teclado').value = tcd.con_teclado;
+    document.getElementById('modal-est-teclado').value = tcd.est_teclado;
+    document.getElementById('modal-obs-teclado').value = tcd.obs_teclado;
+    document.getElementById('modal-usua-teclado').value = tcd.nom_usua;
+
+    // Mostrar el modal con Bootstrap
+    const modal = new bootstrap.Modal(document.getElementById('editTecladoModal'));
+    modal.show()
+}
+
+async function saveTecladoChanges() {
+    // Obtener los valores de los campos del modal
+    const codTeclado = document.getElementById('modal-cod-teclado').value;
+    const codEquipo = document.getElementById('modal-cod-equipo-teclado').value;
+    const codTicsTeclado = document.getElementById('modal-cod-tics-teclado').value;
+    const marTeclado = document.getElementById('modal-mar-teclado').value;
+    const modTeclado = document.getElementById('modal-mod-teclado').value;
+    const serTeclado = document.getElementById('modal-ser-teclado').value;
+    const tipTeclado = document.getElementById('modal-tip-teclado').value;
+    const pueTeclado = document.getElementById('modal-pue-teclado').value;
+    const conTeclado = document.getElementById('modal-con-teclado').value;
+    const estTeclado = document.getElementById('modal-est-teclado').value;
+    const obsTeclado = document.getElementById('modal-obs-teclado').value;
+    const nomUsua = document.getElementById('modal-usua-teclado').value;
+
+    // Crear el objeto con los datos a enviar
+    const tecladoData = {
+        cod_teclado: codTeclado,
+        cod_equipo: codEquipo,
+        cod_tics_teclado: codTicsTeclado,
+        mar_teclado: marTeclado,
+        mod_teclado: modTeclado,
+        ser_teclado: serTeclado,
+        tip_teclado: tipTeclado,
+        pue_teclado: pueTeclado,
+        con_teclado: conTeclado,
+        est_teclado: estTeclado,
+        obs_teclado: obsTeclado,
+        nom_usua: nomUsua
+    };
+
+    // Enviar los datos al servidor usando fetch
+    fetch(`http://localhost:3000/api/teclado/${codTeclado}`, {
+        method: 'PUT', // Usamos PUT para actualizar
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(tecladoData) // Convertimos el objeto a JSON
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Mostrar un mensaje de éxito (puedes usar un modal o alert)
+                alert('Teclado actualizado exitosamente');
+                // Cerrar el modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('editTecladoModal'));
+                modal.hide();
+            } else {
+                alert('Error al actualizar el teclado');
             }
         })
-        .catch(error => console.error('Error al guardar los cambios:', error));
+        .catch(error => {
+            console.error('Error al enviar la solicitud:', error);
+            alert('Hubo un error al actualizar los datos');
+        });
 }

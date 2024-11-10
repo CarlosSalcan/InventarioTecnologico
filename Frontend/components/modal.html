@@ -180,11 +180,77 @@
                         <input type="text" class="form-control is-valid" id="modal-usua-mouse">
                         <label for="modal-usua-mouse">Personal Tics</label>
                     </form>
-                    <!-- Agregar los demás campos según la estructura -->
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" onclick="saveMouseChanges()">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para mostrar los datos de Teclado -->
+<div class="modal fade" id="editTecladoModal" tabindex="-1" aria-labelledby="viewTecladoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewTecladoModalLabel">Detalles del Teclado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="viewTecladoForm">
+                    <div class="mb-3">
+                        <label for="modal-cod-teclado" class="form-label">Código Teclado</label>
+                        <input type="text" class="form-control" id="modal-cod-teclado" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="modal-cod-equipo-teclado" class="form-label">Código Equipo</label>
+                        <input type="text" class="form-control" id="modal-cod-equipo-teclado" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="modal-cod-tics-teclado" class="form-label">Código TICS Teclado</label>
+                        <input type="text" class="form-control" id="modal-cod-tics-teclado" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="modal-mar-teclado" class="form-label">Marca Teclado</label>
+                        <input type="text" class="form-control" id="modal-mar-teclado" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="modal-mod-teclado" class="form-label">Modelo Teclado</label>
+                        <input type="text" class="form-control" id="modal-mod-teclado" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="modal-ser-teclado" class="form-label">Serie Teclado</label>
+                        <input type="text" class="form-control" id="modal-ser-teclado" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="modal-tip-teclado" class="form-label">Tipo Teclado</label>
+                        <input type="text" class="form-control" id="modal-tip-teclado" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="modal-pue-teclado" class="form-label">Puerto Teclado</label>
+                        <input type="text" class="form-control" id="modal-pue-teclado" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="modal-con-teclado" class="form-label">Condición Teclado</label>
+                        <input type="text" class="form-control" id="modal-con-teclado" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="modal-est-teclado" class="form-label">Estado Teclado</label>
+                        <input type="text" class="form-control" id="modal-est-teclado" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="modal-obs-teclado" class="form-label">Observación</label>
+                        <textarea class="form-control" id="modal-obs-teclado" rows="3" disabled></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="modal-usua-teclado" class="form-label">Usuario</label>
+                        <input type="text" class="form-control" id="modal-usua-teclado" disabled>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="saveTecladoChanges()">Guardar cambios</button>
             </div>
         </div>
     </div>

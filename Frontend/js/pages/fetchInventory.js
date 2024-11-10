@@ -132,6 +132,7 @@ function populateTable(equipos) {
                                             <th>Modelo</th>
                                             <th>Puerto</th>
                                             <th>Condición</th>
+                                            <th>Edidición</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -143,6 +144,7 @@ function populateTable(equipos) {
                                                 <td>${equipo.mod_teclado}</td>
                                                 <td>${equipo.pue_teclado}</td>
                                                 <td>${equipo.con_teclado}</td>
+                                                <td><button type="button" class="btn btn-primary" data-bs-target="#exampleModal" onclick='openTecladoEditModal(${JSON.stringify(equipo)})'> ETC </button></td>
                                             ` : `<td colspan="6">No disponible</td>`}
                                         </tr>
                                     </tbody>
