@@ -179,7 +179,7 @@ function populateTable(equipos) {
                                                 <td>${equipo.mod_mouse}</td>
                                                 <td>${equipo.pue_mouse}</td>
                                                 <td>${equipo.con_mouse}</td>
-                                                <td><button type="button" class="btn btn-primary" data-bs-target="#exampleModal" onclick='openMouseEditModal(${JSON.stringify(equipo)})'> EMO </button></td>
+                                                <td><button type="button" class="btn btn-primary" data-bs-target="#exampleModal" onclick='openMouseEditModal(${JSON.stringify(equipo)})'> EMOU </button></td>
                                             ` : `<td colspan="6">No disponible</td>`}
                                         </tr>
                                     </tbody>
