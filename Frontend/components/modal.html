@@ -68,49 +68,62 @@
 
             <div class="modal-body">
                 <form id="monitorForm">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="modal-cod-Eqmonitor" readonly>
-                        <label for="modal-cod-Eqmonitor">Cod. Equipo</label>
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control is-valid" id="modal-cod-Eqmonitor" readonly
+                                placeholder="Cod. Equipo">
+                            <label for="modal-cod-Eqmonitor">Cod. Equipo</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control is-valid" id="modal-cod-monitor" readonly
+                                placeholder="Cod. Monitor">
+                            <label for="modal-cod-monitor">Cod. Monitor</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control is-valid" id="modal-cod-tics-monitor" readonly
+                                placeholder="Cod. Tics Monitor">
+                            <label for="modal-cod-tics-monitor">Cod. Tics Monitor</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control is-valid" id="modal-usua" readonly
+                                placeholder="Personal Tics">
+                            <label for="modal-usua">Personal Tics</label>
+                        </div>
+                    </div>
+
+                    <p>Informacion del Monitor:</p>
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-ser-monitor" placeholder="Serie Monitor">
+                            <label for="modal-ser-monitor">Serie Monitor</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-mod-monitor" placeholder="Modelo Monitor">
+                            <label for="modal-mod-monitor">Modelo Monitor</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-mar-monitor" placeholder="Marca Monitor">
+                            <label for="modal-mar-monitor">Marca Monitor</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-tam-monitor" placeholder="Tamaño Monitor">
+                            <label for="modal-tam-monitor">Tamaño Monitor</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-con-monitor"
+                                placeholder="Conectividad Monitor">
+                            <label for="modal-con-monitor">Condición Monitor</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-est-monitor" placeholder="Estado Monitor">
+                            <label for="modal-est-monitor">Estado Monitor</label>
+                        </div>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="modal-cod-monitor" readonly>
-                        <label for="modal-cod-monitor">Cod. Monitor</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="modal-cod-tics-monitor" readonly>
-                        <label for="modal-cod-tics-monitor">Cod. Tics Monitor</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="modal-mar-monitor">
-                        <label for="modal-mar-monitor">Marca Monitor</label>
-                    </div>
-                    <form class="form-floating">
-                        <input type="text" class="form-control" id="modal-mod-monitor">
-                        <label for="modal-mod-monitor">Modelo Monitor</label>
-                    </form>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="modal-ser-monitor">
-                        <label for="modal-ser-monitor">Serie Monitor</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="modal-tam-monitor">
-                        <label for="modal-tam-monitor">Tamaño Monitor</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="modal-con-monitor">
-                        <label for="modal-con-monitor">Conectividad Monitor</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="modal-est-monitor">
-                        <label for="modal-est-monitor">Estado Monitor</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="modal-observacion">
-                        <label for="modal-observacion">Observación</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="modal-usua">
-                        <label for="modal-usua">Personal Tics</label>
+                        <textarea class="form-control" id="modal-observacion" rows="3" placeholder="Observación"></textarea>
+                        <label for="modal-observacion">Observación Monitor</label>
                     </div>
                 </form>
             </div>
@@ -131,56 +144,68 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="form-row">
-                    <form class="form-floating">
-                        <input type="text" class="form-control is-valid" id="modal-cod-mouse" readonly>
-                        <label for="modal-cod-mouse">Cod. Mouse</label>
-                    </form>
-                    <form class="form-floating">
-                        <input type="text" class="form-control is-valid" id="modal-cod-equipo-mouse" readonly>
-                        <label for="modal-cod-equipo-mouse">Cod. Equipo</label>
-                    </form>
-                    <form class="form-floating">
-                        <input type="text" class="form-control is-valid" id="modal-cod-tics-mouse">
-                        <label for="modal-cod-tics-mouse">TICS</label>
-                    </form>
-                    <form class="form-floating">
-                        <input type="text" class="form-control is-valid" id="modal-mar-mouse">
-                        <label for="modal-mar-mouse">Marca</label>
-                    </form>
-                    <form class="form-floating">
-                        <input type="text" class="form-control is-valid" id="modal-mod-mouse">
-                        <label for="modal-mod-mouse">Modelo</label>
-                    </form>
-                    <form class="form-floating">
-                        <input type="text" class="form-control is-valid" id="modal-ser-mouse">
-                        <label for="modal-ser-mouse">Serie</label>
-                    </form>
-                    <form class="form-floating">
-                        <input type="text" class="form-control is-valid" id="modal-tip-mouse">
-                        <label for="modal-tip-mouse">Tipo</label>
-                    </form>
-                    <form class="form-floating">
-                        <input type="text" class="form-control is-valid" id="modal-pue-mouse">
-                        <label for="modal-pue-mouse">Puerto</label>
-                    </form>
-                    <form class="form-floating">
-                        <input type="text" class="form-control is-valid" id="modal-con-mouse">
-                        <label for="modal-con-mouse">Condicino</label>
-                    </form>
-                    <form class="form-floating">
-                        <input type="text" class="form-control is-valid" id="modal-est-mouse">
-                        <label for="modal-est-mouse">Estado</label>
-                    </form>
-                    <form class="form-floating">
-                        <input type="text" class="form-control is-valid" id="modal-obs-mouse">
-                        <label for="modal-obs-mouse">Observacion</label>
-                    </form>
-                    <form class="form-floating">
-                        <input type="text" class="form-control is-valid" id="modal-usua-mouse">
-                        <label for="modal-usua-mouse">Personal Tics</label>
-                    </form>
-                </div>
+                <form id="mouseForm">
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control is-valid" id="modal-cod-mouse" readonly
+                                placeholder="Cod. Mouse">
+                            <label for="modal-cod-mouse">Cod. Mouse</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control is-valid" id="modal-cod-equipo-mouse" readonly
+                                placeholder="Cod. Equipo">
+                            <label for="modal-cod-equipo-mouse">Cod. Equipo</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control is-valid" id="modal-cod-tics-mouse" readonly
+                                placeholder="Cod. Tics Mouse">
+                            <label for="modal-cod-tics-mouse">Cod. Tics Mouse</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control is-valid" id="modal-usua-mouse"
+                                placeholder="Personal Tics">
+                            <label for="modal-usua-mouse">Personal Tics</label>
+                        </div>
+                    </div>
+
+                    <p>Informacion del Mouse:</p>
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-ser-mouse" placeholder="Serie">
+                            <label for="modal-ser-mouse">Serie Mouse</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-mod-mouse" placeholder="Modelo">
+                            <label for="modal-mod-mouse">Modelo Mouse</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-mar-mouse" placeholder="Marca">
+                            <label for="modal-mar-mouse">Marca Mouse</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-tip-mouse" placeholder="Tipo">
+                            <label for="modal-tip-mouse">Tipo Mouse</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-pue-mouse" placeholder="Puerto">
+                            <label for="modal-pue-mouse">Puerto Mouse</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-con-mouse" placeholder="Condición">
+                            <label for="modal-con-mouse">Condición Mouse</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-est-mouse" placeholder="Estado">
+                            <label for="modal-est-mouse">Estado Mouse</label>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="modal-obs-mouse" rows="3" placeholder="Observación"></textarea>
+                        <label for="modal-obs-mouse">Observación Mouse</label>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" onclick="saveMouseChanges()">Guardar cambios</button>
@@ -189,7 +214,7 @@
     </div>
 </div>
 
-<!-- Modal para mostrar los datos de Teclado -->
+<!-- Modal para editar Teclado -->
 <div class="modal fade" id="editTecladoModal" tabindex="-1" aria-labelledby="viewTecladoModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -199,53 +224,67 @@
             </div>
             <div class="modal-body">
                 <form id="viewTecladoForm">
-                    <div class="mb-3">
-                        <label for="modal-cod-teclado" class="form-label">Código Teclado</label>
-                        <input type="text" class="form-control" id="modal-cod-teclado" disabled>
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-cod-teclado" disabled
+                                placeholder="Código Teclado">
+                            <label for="modal-cod-teclado">Código Teclado</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-cod-equipo-teclado" disabled
+                                placeholder="Código Equipo">
+                            <label for="modal-cod-equipo-teclado">Código Equipo</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-cod-tics-teclado" disabled
+                                placeholder="Código TICS Teclado">
+                            <label for="modal-cod-tics-teclado">Código TICS Teclado</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-usua-teclado" disabled
+                                placeholder="Personal Tics">
+                            <label for="modal-usua-teclado">Personal Tics</label>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="modal-cod-equipo-teclado" class="form-label">Código Equipo</label>
-                        <input type="text" class="form-control" id="modal-cod-equipo-teclado" disabled>
+
+                    <p>Informacion del Teclado:</p>
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-ser-teclado" placeholder="Serie Teclado">
+                            <label for="modal-ser-teclado">Serie Teclado</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-mod-teclado" placeholder="Modelo Teclado">
+                            <label for="modal-mod-teclado">Modelo Teclado</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-mar-teclado" placeholder="Marca Teclado">
+                            <label for="modal-mar-teclado">Marca Teclado</label>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="modal-cod-tics-teclado" class="form-label">Código TICS Teclado</label>
-                        <input type="text" class="form-control" id="modal-cod-tics-teclado" disabled>
+
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-tip-teclado" placeholder="Tipo Teclado">
+                            <label for="modal-tip-teclado">Tipo Teclado</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-pue-teclado" placeholder="Puerto Teclado">
+                            <label for="modal-pue-teclado">Puerto Teclado</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-con-teclado"
+                                placeholder="Condición Teclado">
+                            <label for="modal-con-teclado">Condición Teclado</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-est-teclado" placeholder="Estado Teclado">
+                            <label for="modal-est-teclado">Estado Teclado</label>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="modal-mar-teclado" class="form-label">Marca Teclado</label>
-                        <input type="text" class="form-control" id="modal-mar-teclado" >
-                    </div>
-                    <div class="mb-3">
-                        <label for="modal-mod-teclado" class="form-label">Modelo Teclado</label>
-                        <input type="text" class="form-control" id="modal-mod-teclado" >
-                    </div>
-                    <div class="mb-3">
-                        <label for="modal-ser-teclado" class="form-label">Serie Teclado</label>
-                        <input type="text" class="form-control" id="modal-ser-teclado" >
-                    </div>
-                    <div class="mb-3">
-                        <label for="modal-tip-teclado" class="form-label">Tipo Teclado</label>
-                        <input type="text" class="form-control" id="modal-tip-teclado" >
-                    </div>
-                    <div class="mb-3">
-                        <label for="modal-pue-teclado" class="form-label">Puerto Teclado</label>
-                        <input type="text" class="form-control" id="modal-pue-teclado" disabled>
-                    </div>
-                    <div class="mb-3">
-                        <label for="modal-con-teclado" class="form-label">Condición Teclado</label>
-                        <input type="text" class="form-control" id="modal-con-teclado" disabled>
-                    </div>
-                    <div class="mb-3">
-                        <label for="modal-est-teclado" class="form-label">Estado Teclado</label>
-                        <input type="text" class="form-control" id="modal-est-teclado" disabled>
-                    </div>
-                    <div class="mb-3">
-                        <label for="modal-obs-teclado" class="form-label">Observación</label>
-                        <textarea class="form-control" id="modal-obs-teclado" rows="3" disabled></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="modal-usua-teclado" class="form-label">Usuario</label>
-                        <input type="text" class="form-control" id="modal-usua-teclado" disabled>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="modal-obs-teclado" rows="3" placeholder="Observación"></textarea>
+                        <label for="modal-obs-teclado">Observación Teclado</label>
                     </div>
                 </form>
             </div>
