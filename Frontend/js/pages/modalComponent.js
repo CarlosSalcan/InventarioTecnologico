@@ -269,10 +269,10 @@ function openCpuEditModal(cpuData) {
     document.getElementById('modal-nom-tics-cpu').value = cpuData.nom_usua_cpu;
 
     // Asignar valores a los checkboxes
-    document.getElementById('modal-red-fija-cpu').checked = !!cpuData.red_fija;
-    document.getElementById('modal-red-cpu').checked = !!cpuData.red_inalam;
-    document.getElementById('modal-bluetooth-cpu').checked = !!cpuData.bluethooth;
-    document.getElementById('modal-lector-tarjeta-cpu').checked = !!cpuData.lec_tarjeta;
+    document.getElementById("modal-red-fija-cpu").checked = cpuData.red_fija === "SI";
+    document.getElementById("modal-red-cpu").checked = cpuData.red_inalam === "SI";
+    document.getElementById("modal-bluetooth-cpu").checked = cpuData.bluetooth === "SI";
+    document.getElementById("modal-lector-tarjeta-cpu").checked = cpuData.lec_tarjeta === "SI";
 
     // Mostrar el modal
     const modal = new bootstrap.Modal(document.getElementById('editCpuModal'));

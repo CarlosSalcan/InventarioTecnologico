@@ -194,19 +194,32 @@ function populateTable(equipos) {
         tableBody.appendChild(accordionRow);
     });
 
-    // Loas Options SELECTS
-    loadSelectOptions('pisos', 'modal-piso-ubic');
+    // Load Options SELECT-EQUIPO
     loadSelectOptions('servicios', 'modal-serv-depar');
+    loadSelectOptions('pisos', 'modal-piso-ubic');
     
-    loadSelectOptions('procesador', 'modal-proce-cpu');
-    loadSelectOptions('memoria', 'modal-ram-cpu');
+    // Load Opption SELECT-CPU
+    loadSelectOptions('nomAntivirus', 'modal-nombre-antivirus-cpu');
+    loadSelectOptions('sisOpe', 'modal-sistema-operativo-cpu');
     loadSelectOptions('tamHdd', 'modal-almacenamiento-cpu');
     loadSelectOptions('disOpt', 'modal-disp-optico-cpu');
-    loadSelectOptions('sisOpe', 'modal-sistema-operativo-cpu');
+    loadSelectOptions('procesador', 'modal-proce-cpu');
     loadSelectOptions('office', 'modal-office-cpu');
-    loadSelectOptions('nomAntivirus', 'modal-nombre-antivirus-cpu');
-    loadSelectOptions('condicion', 'modal-condicion-cpu');
-    loadSelectOptions('estado', 'modal-estado-cpu');
+    loadSelectOptions('marcas', 'modal-marca-cpu');
+    loadSelectOptions('memoria', 'modal-ram-cpu');
+    
+    // Load Opption SELECT-MONITOR
+    loadSelectOptions('condicion', 'modal-con-monitor');
+    loadSelectOptions('estado', 'modal-est-monitor');
+    loadSelectOptions('marcas', 'modal-mar-monitor');
+    loadSelectOptions('tamMtr', 'modal-tam-monitor');
+    
+    // Load Opption SELECT-MONITOR
+    loadSelectOptions('condicion', 'modal-con-teclado');
+    loadSelectOptions('estado', 'modal-est-teclado');
+    loadSelectOptions('marcas', 'modal-mar-teclado');
+    loadSelectOptions('conexion', 'modal-tip-teclado');
+    loadSelectOptions('puerto', 'modal-pue-teclado');
 }
 
 // fetchInventory.js

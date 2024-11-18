@@ -14,6 +14,7 @@ router.get('/inventory', inventoryController.getAllItems);
 
 router.get('/options/pisos', optionController.getPisos);
 router.get('/options/servicios', optionController.getServicios);
+router.get('/options/marcas', optionController.getMarca);
 router.get('/options/memoria', optionController.getMemoria);
 router.get('/options/procesador', optionController.getProcesador);
 router.get('/options/tamHdd', optionController.getTamHdd);
@@ -23,6 +24,10 @@ router.get('/options/office', optionController.getOffice);
 router.get('/options/nomAntivirus', optionController.getNomAntivirus);
 router.get('/options/condicion', optionController.getCondicion);
 router.get('/options/estado', optionController.getEstado);
+
+router.get('/options/tamMtr', optionController.getTamMonitor);
+router.get('/options/conexion', optionController.getTipConexion);
+router.get('/options/puerto', optionController.getPuerto);
 
 router.put('/inventory/:cod_equipo', inventoryController.updateItem);
 router.get('/inventory/escritorio', inventoryController.getEscritorioInventory);

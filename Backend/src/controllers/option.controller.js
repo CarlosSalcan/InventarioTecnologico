@@ -2,6 +2,7 @@ const connection = require('../connection');
 
 // TODO: Optimizar
 const optionController = {
+    // Load Option SELECT-EQUIPO
     getPisos: (req, res) => {
         const query = 'SELECT * FROM param_piso'; // Consulta SQL para obtener pisos
 
@@ -28,6 +29,46 @@ const optionController = {
         });
     },
 
+    getMarca: (req, res) => {
+        const query = 'SELECT * FROM param_marcas'; // Consulta SQL para obtener servicios
+
+        connection.query(query, (error, results) => {
+            if (error) {
+                console.error('Error al obtener las Marcas:', error);
+                return res.status(500).json({ success: false, message: 'Error interno del servidor' });
+            }
+
+            res.status(200).json({ success: true, data: results });
+        });
+    },
+
+    getCondicion: (req, res) => {
+        const query = 'SELECT * FROM param_condicion'; // Consulta SQL para obtener servicios
+
+        connection.query(query, (error, results) => {
+            if (error) {
+                console.error('Error al obtener los Condiciones:', error);
+                return res.status(500).json({ success: false, message: 'Error interno del servidor' });
+            }
+
+            res.status(200).json({ success: true, data: results });
+        });
+    },
+
+    getEstado: (req, res) => {
+        const query = 'SELECT * FROM param_estado'; // Consulta SQL para obtener servicios
+
+        connection.query(query, (error, results) => {
+            if (error) {
+                console.error('Error al obtener los Estados:', error);
+                return res.status(500).json({ success: false, message: 'Error interno del servidor' });
+            }
+
+            res.status(200).json({ success: true, data: results });
+        });
+    },
+
+    // Load Option SELECT-CPU
     getMemoria: (req, res) => {
         const query = 'SELECT * FROM param_memoria'; // Consulta SQL para obtener servicios
 
@@ -119,12 +160,13 @@ const optionController = {
         });
     },
 
-    getCondicion: (req, res) => {
-        const query = 'SELECT * FROM param_condicion'; // Consulta SQL para obtener servicios
+    // Load Option SELECT-MONITOR
+    getTamMonitor: (req, res) => {
+        const query = 'SELECT * FROM param_tamano_monitor'; // Consulta SQL para obtener servicios
 
         connection.query(query, (error, results) => {
             if (error) {
-                console.error('Error al obtener los Condiciones:', error);
+                console.error('Error al obtener los Tamanos Monitor:', error);
                 return res.status(500).json({ success: false, message: 'Error interno del servidor' });
             }
 
@@ -132,12 +174,26 @@ const optionController = {
         });
     },
 
-    getEstado: (req, res) => {
-        const query = 'SELECT * FROM param_estado'; // Consulta SQL para obtener servicios
+    // Load Option SELECT-TECLADO
+    getTipConexion: (req, res) => {
+        const query = 'SELECT * FROM param_tipo_mt'; // Consulta SQL para obtener servicios
 
         connection.query(query, (error, results) => {
             if (error) {
-                console.error('Error al obtener los Estados:', error);
+                console.error('Error al obtener los Tamanos Monitor:', error);
+                return res.status(500).json({ success: false, message: 'Error interno del servidor' });
+            }
+
+            res.status(200).json({ success: true, data: results });
+        });
+    },
+
+    getPuerto: (req, res) => {
+        const query = 'SELECT * FROM param_puertos'; // Consulta SQL para obtener servicios
+
+        connection.query(query, (error, results) => {
+            if (error) {
+                console.error('Error al obtener los Tamanos Monitor:', error);
                 return res.status(500).json({ success: false, message: 'Error interno del servidor' });
             }
 
