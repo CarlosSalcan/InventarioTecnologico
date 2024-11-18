@@ -193,9 +193,20 @@ function populateTable(equipos) {
             </td>`;
         tableBody.appendChild(accordionRow);
     });
-    // Cargar opciones para los select (pisos y servicios)
+
+    // Loas Options SELECTS
     loadSelectOptions('pisos', 'modal-piso-ubic');
     loadSelectOptions('servicios', 'modal-serv-depar');
+    
+    loadSelectOptions('procesador', 'modal-proce-cpu');
+    loadSelectOptions('memoria', 'modal-ram-cpu');
+    loadSelectOptions('tamHdd', 'modal-almacenamiento-cpu');
+    loadSelectOptions('disOpt', 'modal-disp-optico-cpu');
+    loadSelectOptions('sisOpe', 'modal-sistema-operativo-cpu');
+    loadSelectOptions('office', 'modal-office-cpu');
+    loadSelectOptions('nomAntivirus', 'modal-nombre-antivirus-cpu');
+    loadSelectOptions('condicion', 'modal-condicion-cpu');
+    loadSelectOptions('estado', 'modal-estado-cpu');
 }
 
 // fetchInventory.js
