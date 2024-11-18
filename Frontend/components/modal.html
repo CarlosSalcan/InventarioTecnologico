@@ -122,7 +122,8 @@
                         </div>
                     </div>
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" id="modal-observacion" rows="3" placeholder="Observación"></textarea>
+                        <textarea class="form-control" id="modal-observacion" rows="3"
+                            placeholder="Observación"></textarea>
                         <label for="modal-observacion">Observación Monitor</label>
                     </div>
                 </form>
@@ -202,7 +203,8 @@
                         </div>
                     </div>
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" id="modal-obs-mouse" rows="3" placeholder="Observación"></textarea>
+                        <textarea class="form-control" id="modal-obs-mouse" rows="3"
+                            placeholder="Observación"></textarea>
                         <label for="modal-obs-mouse">Observación Mouse</label>
                     </div>
                 </form>
@@ -283,13 +285,178 @@
                         </div>
                     </div>
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" id="modal-obs-teclado" rows="3" placeholder="Observación"></textarea>
+                        <textarea class="form-control" id="modal-obs-teclado" rows="3"
+                            placeholder="Observación"></textarea>
                         <label for="modal-obs-teclado">Observación Teclado</label>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" onclick="saveTecladoChanges()">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para editar CPU -->
+<div class="modal fade" id="editCpuModal" tabindex="-1" aria-labelledby="viewCpuModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewCpuModalLabel">Edición CPU</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="viewCpuForm">
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-cod-cpu" readonly
+                                placeholder="Código CPU">
+                            <label for="modal-cod-cpu">Código CPU</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-cod-equipo-cpu" readonly
+                                placeholder="Código Equipo">
+                            <label for="modal-cod-equipo-cpu">Código Equipo</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-cod-tics-cpu" readonly
+                                placeholder="Código TICS CPU">
+                            <label for="modal-cod-tics-cpu">Código TICS CPU</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-host-cpu" placeholder="Nombre Host">
+                            <label for="modal-host-cpu">Nombre Host</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-usuario-cpu" placeholder="Usuario CPU">
+                            <label for="modal-usuario-cpu">Usuario CPU</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-nom-tics-cpu" readonly
+                                placeholder="Personal Tics">
+                            <label for="modal-nom-tics-cpu">Personal Tics</label>
+                        </div>
+                    </div>
+
+                    <p>Información del CPU:</p>
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-ser-cpu" placeholder="Serie CPU">
+                            <label for="modal-ser-cpu">Serie CPU</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-generacion-cpu"
+                                placeholder="Generacion IP">
+                            <label for="modal-generacion-cpu">Generacion IP</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-marca-cpu" placeholder="Marca CPU">
+                            <label for="modal-marca-cpu">Marca CPU</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-tarjeta-cpu" placeholder="Tarjeta Madre">
+                            <label for="modal-tarjeta-cpu">Tarjeta Madre</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-proce-cpu" placeholder="Procesador">
+                            <label for="modal-procesador">Procesador</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-almacenamiento-cpu"
+                                placeholder="Tamaño HDD">
+                            <label for="modal-almacenamiento-cpu">Tamaño HDD</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-ram-cpu" placeholder="Memoria RAM">
+                            <label for="modal-ram-cpu">Memoria RAM</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-alimentacion-cpu"
+                                placeholder="alimentacion CPU">
+                            <label for="modal-alimentacion-cpu">Alimnetacion CPU</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-disp-optico-cpu"
+                                placeholder="Dispositivo Óptico">
+                            <label for="modal-disp-optico-cpu">Dispositivo Óptico</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-sistema-operativo-cpu"
+                                placeholder="Sistema Operativo">
+                            <label for="modal-sistema-operativo-cpu">Sistema Operativo</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-office-cpu" placeholder="OFFICE">
+                            <label for="modal-office-cpu">Office</label>
+                        </div>
+                    </div>
+
+                    <p>Seguridad y Estado:</p>
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-antivirus-cpu" placeholder="Antivirus">
+                            <label for="modal-antivirus-cpu">Antivirus</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-nombre-antivirus-cpu"
+                                placeholder="Nombre Antivirus">
+                            <label for="modal-nombre-antivirus-cpu">Nombre Antivirus</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-version-antivirus-cpu"
+                                placeholder="Version Antivirus">
+                            <label for="modal-version-antivirus-cpu">Version Antivirus</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-condicion-cpu"
+                                placeholder="Condicion CPU">
+                            <label for="modal-condicion-cpu">Condicion CPU</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-estado-cpu" placeholder="estado CPU">
+                            <label for="modal-Estado-cpu">Estado CPU</label>
+                        </div>
+                    </div>
+
+                    <p>Adicionales:</p>
+                    <div class="form-row">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="modal-red-fija-cpu">
+                            <label class="form-check-label" for="modal-red-fija-cpu">Red Fija</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="modal-red-cpu">
+                            <label class="form-check-label" for="modal-red-cpu">Red Inalámbrica</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="modal-bluetooth-cpu">
+                            <label class="form-check-label" for="modal-bluetooth-cpu">Bluetooth</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="modal-lector-tarjeta-cpu">
+                            <label class="form-check-label" for="modal-lector-tarjeta-cpu">Lector de Tarjetas</label>
+                        </div>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="modal-observacion-cpu" rows="3"
+                            placeholder="Observaciones"></textarea>
+                        <label for="modal-observacion-cpu">Observación CPU</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="saveCpuChanges()">Guardar cambios</button>
             </div>
         </div>
     </div>

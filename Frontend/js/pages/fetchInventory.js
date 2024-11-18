@@ -57,7 +57,7 @@ function populateTable(equipos) {
                                             <th>Procesador</th>
                                             <th>Memoria</th>
                                             <th>Almacenamiento</th>
-                                            <th>Editar</th>
+                                            <th>Edición</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -69,7 +69,7 @@ function populateTable(equipos) {
                                                 <td>${equipo.procesador}</td>
                                                 <td>${equipo.memoria}</td>
                                                 <td>${equipo.tam_hdd}</td>
-                                                <td>Edicion</td>
+                                                <td><button type="button" class="btn btn-primary" data-bs-target="#exampleModal" onclick='openCpuEditModal(${JSON.stringify(equipo)})'> CPU </button></td>
                                             ` : `<td colspan="6">No disponible</td>`}
                                         </tr>
                                     </tbody>

@@ -240,3 +240,41 @@ async function saveTecladoChanges() {
             alert('Hubo un error al actualizar los datos');
         });
 }
+
+// Función para mostrar los datos del CPU en el modal
+function openCpuEditModal(cpuData) {
+    // Asignar los valores a los inputs del modal
+    document.getElementById('modal-cod-cpu').value = cpuData.cod_cpu;
+    document.getElementById('modal-cod-equipo-cpu').value = cpuData.cod_equipo;
+    document.getElementById('modal-marca-cpu').value = cpuData.mar_cpu;
+    document.getElementById('modal-cod-tics-cpu').value = cpuData.cod_tics_cpu;
+    document.getElementById('modal-ser-cpu').value = cpuData.ser_cpu;
+    document.getElementById('modal-tarjeta-cpu').value = cpuData.tar_madre;
+    document.getElementById('modal-proce-cpu').value = cpuData.procesador;
+    document.getElementById('modal-alimentacion-cpu').value = cpuData.velocidad;
+    document.getElementById('modal-ram-cpu').value = cpuData.memoria;
+    document.getElementById('modal-almacenamiento-cpu').value = cpuData.tam_hdd;
+    document.getElementById('modal-disp-optico-cpu').value = cpuData.disp_optico;
+    document.getElementById('modal-sistema-operativo-cpu').value = cpuData.sis_ope;
+    document.getElementById('modal-office-cpu').value = cpuData.office;
+    document.getElementById('modal-antivirus-cpu').value = cpuData.antivirus;
+    document.getElementById('modal-nombre-antivirus-cpu').value = cpuData.nom_antivirus;
+    document.getElementById('modal-version-antivirus-cpu').value = cpuData.ver_antivirus;
+    document.getElementById('modal-host-cpu').value = cpuData.nom_hots;
+    document.getElementById('modal-usuario-cpu').value = cpuData.nom_usuario_cpu;
+    document.getElementById('modal-generacion-cpu').value = cpuData.ip_equipo;
+    document.getElementById('modal-condicion-cpu').value = cpuData.con_cpu;
+    document.getElementById('modal-estado-cpu').value = cpuData.est_cpu;
+    document.getElementById('modal-observacion-cpu').value = cpuData.observacion;
+    document.getElementById('modal-nom-tics-cpu').value = cpuData.nom_usua_cpu;
+
+    // Asignar valores a los checkboxes
+    document.getElementById('modal-red-fija-cpu').checked = !!cpuData.red_fija;
+    document.getElementById('modal-red-cpu').checked = !!cpuData.red_inalam;
+    document.getElementById('modal-bluetooth-cpu').checked = !!cpuData.bluethooth;
+    document.getElementById('modal-lector-tarjeta-cpu').checked = !!cpuData.lec_tarjeta;
+
+    // Mostrar el modal
+    const modal = new bootstrap.Modal(document.getElementById('editCpuModal'));
+    modal.show();
+}
