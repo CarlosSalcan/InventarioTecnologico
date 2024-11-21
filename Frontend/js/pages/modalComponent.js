@@ -278,3 +278,76 @@ function openCpuEditModal(cpuData) {
     const modal = new bootstrap.Modal(document.getElementById('editCpuModal'));
     modal.show();
 }
+
+async function saveCpuChanges() {
+    try {
+        // Obtener los valores de los campos del modal
+        const codCpu = document.getElementById('modal-cod-cpu').value;
+
+        if (!codCpu) {
+            alert('El código del CPU es obligatorio.');
+            return;
+        }
+
+        const cpuData = {
+            mar_cpu: document.getElementById('modal-marca-cpu').value,
+            ser_cpu: document.getElementById('modal-ser-cpu').value,
+            tar_madre: document.getElementById('modal-tarjeta-cpu').value,
+            procesador: document.getElementById('modal-proce-cpu').value,
+            velocidad: document.getElementById('modal-generacion-cpu').value,
+            memoria: document.getElementById('modal-ram-cpu').value,
+            tam_hdd: document.getElementById('modal-almacenamiento-cpu').value,
+            disp_optico: document.getElementById('modal-disp-optico-cpu').value,
+            red_fija: document.getElementById('modal-red-fija-cpu').checked,
+            red_inalam: document.getElementById('modal-red-cpu').checked,
+            bluetooth: document.getElementById('modal-bluetooth-cpu').checked,
+            lec_tarjeta: document.getElementById('modal-lector-tarjeta-cpu').checked,
+            sis_ope: document.getElementById('modal-sistema-operativo-cpu').value,
+            office: document.getElementById('modal-office-cpu').value,
+            antivirus: document.getElementById('modal-antivirus-cpu').value,
+            nom_antivirus: document.getElementById('modal-nombre-antivirus-cpu').value,
+            ver_antivirus: document.getElementById('modal-version-antivirus-cpu').value,
+            nom_hots: document.getElementById('modal-host-cpu').value,
+            nom_usuario: document.getElementById('modal-usuario-cpu').value,
+            ip_equipo: document.getElementById('modal-alimentacion-cpu').value,
+            con_cpu: document.getElementById('modal-condicion-cpu').value,
+            est_cpu: document.getElementById('modal-estado-cpu').value,
+            observacion: document.getElementById('modal-observacion-cpu').value,
+        };
+
+
+        // Verificar conexión antes de realizar la solicitud
+        if (!navigator.onLine) {
+            alert('Parece que no tienes conexión a internet.');
+            return;
+        }
+
+        // Realizar la solicitud fetch
+        const response = await fetch(`http://localhost:3000/api/cpu/${codCpu}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(cpuData), // Convertimos el objeto a JSON
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error en la solicitud: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.success) {
+            alert('CPU actualizado exitosamente');
+            // Cerrar el modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('editCpuModal'));
+            modal.hide();
+        } else {
+            alert(data.message || 'Error al actualizar el CPU');
+        }
+    } catch (error) {
+        console.error('Error al enviar la solicitud:', error);
+        alert('Hubo un error al intentar actualizar el CPU.');
+    }
+}
+

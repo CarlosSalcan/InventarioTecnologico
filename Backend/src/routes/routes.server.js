@@ -35,6 +35,7 @@ router.get('/inventory/escritorio', inventoryController.getEscritorioInventory);
 router.put('/monitor/:cod_monitor',componentController.updateMonitor);
 router.put('/mouse/:cod_mouse',componentController.updateMouse);
 router.put('/teclado/:cod_teclado',componentController.updateTeclado);
+router.put('/cpu/:cod_cpu',componentController.updateCPU);
 
 
 module.exports = router;

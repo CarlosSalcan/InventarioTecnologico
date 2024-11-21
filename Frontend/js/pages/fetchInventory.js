@@ -202,8 +202,10 @@ function populateTable(equipos) {
     loadSelectOptions('nomAntivirus', 'modal-nombre-antivirus-cpu');
     loadSelectOptions('sisOpe', 'modal-sistema-operativo-cpu');
     loadSelectOptions('tamHdd', 'modal-almacenamiento-cpu');
+    loadSelectOptions('condicion', 'modal-condicion-cpu');
     loadSelectOptions('disOpt', 'modal-disp-optico-cpu');
     loadSelectOptions('procesador', 'modal-proce-cpu');
+    loadSelectOptions('estado', 'modal-estado-cpu');
     loadSelectOptions('office', 'modal-office-cpu');
     loadSelectOptions('marcas', 'modal-marca-cpu');
     loadSelectOptions('memoria', 'modal-ram-cpu');
@@ -220,6 +222,13 @@ function populateTable(equipos) {
     loadSelectOptions('marcas', 'modal-mar-teclado');
     loadSelectOptions('conexion', 'modal-tip-teclado');
     loadSelectOptions('puerto', 'modal-pue-teclado');
+    
+    // Load Opption SELECT-MONITOR
+    loadSelectOptions('marcas', 'modal-mar-mouse');
+    loadSelectOptions('conexion', 'modal-tip-mouse');
+    loadSelectOptions('puerto', 'modal-pue-mouse');
+    loadSelectOptions('condicion', 'modal-con-mouse');
+    loadSelectOptions('estado', 'modal-est-mouse');
 }
 
 // fetchInventory.js

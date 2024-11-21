@@ -182,8 +182,126 @@ const componentController = {
             console.error('Error en el controlador al intentar actualizar el teclado:', error);
             res.status(500).json({ success: false, message: 'Error en el servidor al actualizar el teclado' });
         }
-    }
+    },
 
+    updateCPU: (req, res) => {
+        try {
+            // Log para verificar los datos recibidos
+            console.log('Datos recibidos:', req.body);
+            console.log('Código del CPU:', req.params.cod_cpu);
+    
+            const codCPU = req.params.cod_cpu; // ID del CPU a actualizar
+    
+            // Desestructuración de los datos enviados en el cuerpo de la solicitud
+            const {
+                mar_cpu,
+                ser_cpu,
+                tar_madre,
+                procesador,
+                velocidad,
+                memoria,
+                tam_hdd,
+                disp_optico,
+                red_fija,
+                red_inalam,
+                bluetooth,
+                lec_tarjeta,
+                sis_ope,
+                office,
+                antivirus,
+                nom_antivirus,
+                ver_antivirus,
+                nom_hots,
+                nom_usuario,
+                ip_equipo,
+                con_cpu,
+                est_cpu,
+                observacion
+            } = req.body;
+    
+            // Validación: Verifica si alguno de los campos requeridos está vacío
+            if (!codCPU || !mar_cpu || !ser_cpu) {
+                return res.status(400).json({ success: false, message: 'Faltan datos requeridos' });
+            }
+    
+            // Consulta SQL para actualizar la CPU en la base de datos
+            const sql = `
+                UPDATE cpu_equipo SET 
+                    mar_cpu = ?, 
+                    ser_cpu = ?, 
+                    tar_madre = ?, 
+                    procesador = ?, 
+                    velocidad = ?, 
+                    memoria = ?, 
+                    tam_hdd = ?, 
+                    disp_optico = ?, 
+                    red_fija = ?, 
+                    red_inalam = ?, 
+                    bluetooth = ?, 
+                    lec_tarjeta = ?, 
+                    sis_ope = ?, 
+                    office = ?, 
+                    antivirus = ?, 
+                    nom_antivirus = ?, 
+                    ver_antivirus = ?, 
+                    nom_hots = ?, 
+                    nom_usuario = ?, 
+                    ip_equipo = ?, 
+                    con_cpu = ?, 
+                    est_cpu = ?, 
+                    observacion = ? 
+                WHERE cod_cpu = ?
+            `;
+    
+            // Valores a insertar en la consulta SQL
+            const values = [
+                mar_cpu || null,
+                ser_cpu || null,
+                tar_madre || null,
+                procesador || null,
+                velocidad || null,
+                memoria || null,
+                tam_hdd || null,
+                disp_optico || null,
+                red_fija || null,
+                red_inalam || null,
+                bluetooth || null,
+                lec_tarjeta || null,
+                sis_ope || null,
+                office || null,
+                antivirus || null,
+                nom_antivirus || null,
+                ver_antivirus || null,
+                nom_hots || null,
+                nom_usuario || null,
+                ip_equipo || null,
+                con_cpu || null,
+                est_cpu || null,
+                observacion || null,
+                codCPU
+            ];
+    
+            // Ejecutar la consulta en la base de datos
+            connection.query(sql, values, (error, result) => {
+                if (error) {
+                    console.error('Error al actualizar el CPU:', error);
+                    return res.status(500).json({ success: false, message: 'Error al actualizar el CPU' });
+                }
+    
+                // Verificar si se afectaron filas (CPU existente)
+                if (result.affectedRows === 0) {
+                    return res.status(404).json({ success: false, message: 'No se encontró el CPU con el código proporcionado' });
+                }
+    
+                // Respuesta exitosa
+                return res.status(200).json({ success: true, message: 'CPU actualizado exitosamente' });
+            });
+        } catch (error) {
+            console.error('Error en el controlador al intentar actualizar el CPU:', error);
+            return res.status(500).json({ success: false, message: 'Error interno del servidor' });
+        }
+    }
+    
 }
 
 module.exports = componentController;
