@@ -238,7 +238,9 @@ footer span {
 }
 
 .modal-body .form-floating textarea {
-    height: 90px;
+    min-height: 100px;                  /* Ajusta según tus necesidades */
+    max-height: 300px;                  /* Evita que el campo sea demasiado grande */
+    overflow-y: auto;                   /* Agrega scroll si el texto excede el tamaño */
 }
 
 .form-floating input:focus ~ label,

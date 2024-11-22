@@ -22,7 +22,7 @@ function populateTable(equipos) {
 
         const detalleRow = document.createElement('tr');
         detalleRow.innerHTML =
-            `<td>${equipo.cod_equipo}</td>
+            `<td>${equipo.cod_equipo_general}</td>
             <td>${new Date(equipo.fec_reg).toLocaleDateString()}</td>
             <td>${equipo.cod_almacen}</td>
             <td>${equipo.tip_equipo}</td>
@@ -51,8 +51,8 @@ function populateTable(equipos) {
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Cod_Equipo</th>
-                                            <th>Cod_Tics</th>
+                                            <th>Cod. CPU</th>
+                                            <th>Cod. Tics</th>
                                             <th>Marca</th>
                                             <th>Procesador</th>
                                             <th>Memoria</th>
@@ -62,8 +62,8 @@ function populateTable(equipos) {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            ${equipo.cod_mouse ? `
-                                                <td>${equipo.cod_equipo}</td>
+                                            ${equipo.cod_cpu ? `
+                                                <td>${equipo.cod_cpu}</td>
                                                 <td>${equipo.cod_tics_cpu}</td>
                                                 <td>${equipo.mar_cpu}</td>
                                                 <td>${equipo.procesador}</td>
@@ -89,8 +89,8 @@ function populateTable(equipos) {
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Cod_Equipo</th>
-                                            <th>Cod_Tics</th>
+                                            <th>Cod. Monitor</th>
+                                            <th>Cod. Tics</th>
                                             <th>Marca</th>
                                             <th>Modelo</th>
                                             <th>Tamaño</th>
@@ -101,7 +101,7 @@ function populateTable(equipos) {
                                     <tbody>
                                         <tr>
                                             ${equipo.cod_monitor ? `
-                                                <td>${equipo.cod_equipo}</td>
+                                                <td>${equipo.cod_monitor}</td>
                                                 <td>${equipo.cod_tics_monitor}</td>
                                                 <td>${equipo.mar_monitor}</td>
                                                 <td>${equipo.mod_monitor}</td>
@@ -126,8 +126,8 @@ function populateTable(equipos) {
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Cod_Equipo</th>
-                                            <th>Cod_Tics</th>
+                                            <th>Cod. Teclado</th>
+                                            <th>Cod. Tics</th>
                                             <th>Marca</th>
                                             <th>Modelo</th>
                                             <th>Puerto</th>
@@ -138,7 +138,7 @@ function populateTable(equipos) {
                                     <tbody>
                                         <tr>
                                             ${equipo.cod_teclado ? `
-                                                <td>${equipo.cod_equipo}</td>
+                                                <td>${equipo.cod_teclado}</td>
                                                 <td>${equipo.cod_tics_teclado}</td>
                                                 <td>${equipo.mar_teclado}</td>
                                                 <td>${equipo.mod_teclado}</td>
@@ -163,8 +163,8 @@ function populateTable(equipos) {
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Cod_Equipo</th>
-                                            <th>Cod_Tics</th>
+                                            <th>Cod. Mouse</th>
+                                            <th>Cod. Tics</th>
                                             <th>Marca</th>
                                             <th>Modelo</th>
                                             <th>Puerto</th>
@@ -175,7 +175,7 @@ function populateTable(equipos) {
                                     <tbody>
                                         <tr>
                                             ${equipo.cod_mouse ? `
-                                                <td>${equipo.cod_equipo}</td>
+                                                <td>${equipo.cod_mouse}</td>
                                                 <td>${equipo.cod_tics_mouse}</td>
                                                 <td>${equipo.mar_mouse}</td>
                                                 <td>${equipo.mod_mouse}</td>
