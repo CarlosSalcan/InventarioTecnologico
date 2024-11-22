@@ -13,7 +13,7 @@ function openEditMonitorModal(item) {
     const modalUsua = document.getElementById('modal-usua');
 
     // Cargar los datos del monitor en el modal
-    modalCodEqMonitor.value = item.cod_equipo;
+    modalCodEqMonitor.value = item.cod_equipo_monitor;
     modalCodMonitor.value = item.cod_monitor;
     modalCodTicsMonitor.value = item.cod_tics_monitor;
     modalMarMonitor.value = item.mar_monitor;
@@ -22,8 +22,8 @@ function openEditMonitorModal(item) {
     modalTamMonitor.value = item.tam_monitor;
     modalConMonitor.value = item.con_monitor;
     modalEstMonitor.value = item.est_monitor;
-    modalObservacion.value = item.observacion;
-    modalUsua.value = item.nom_usua;
+    modalObservacion.value = item.observacion_monitor;
+    modalUsua.value = item.nom_usua_monitor;
 
     // Mostrar el modal
     const modal = new bootstrap.Modal(document.getElementById('editMonitorModal'));
@@ -46,7 +46,7 @@ function saveMonitorChanges() {
 
     // Crear el objeto con los datos actualizados
     const updatedData = {
-        cod_equipo: codEquipo,
+        cod_equipo_monitor: codEquipo,
         cod_tics_monitor: codTicsMonitor,
         mar_monitor: marMonitor,
         mod_monitor: modMonitor,
@@ -54,8 +54,8 @@ function saveMonitorChanges() {
         tam_monitor: tamMonitor,
         con_monitor: conMonitor,
         est_monitor: estMonitor,
-        observacion: observacion,
-        nom_usua: nomUsua
+        observacion_monitor: observacion,
+        nom_usua_monitor: nomUsua
     };
 
     // Enviar los datos actualizados al servidor con fetch
@@ -88,7 +88,7 @@ function saveMonitorChanges() {
 function openMouseEditModal(item) {
     // Asignar directamente los valores de 'item' a los campos del formulario
     document.getElementById('modal-cod-mouse').value = item.cod_mouse;
-    document.getElementById('modal-cod-equipo-mouse').value = item.cod_equipo;
+    document.getElementById('modal-cod-equipo-mouse').value = item.cod_equipo_mouse;
     document.getElementById('modal-cod-tics-mouse').value = item.cod_tics_mouse;
     document.getElementById('modal-mar-mouse').value = item.mar_mouse;
     document.getElementById('modal-mod-mouse').value = item.mod_mouse;
@@ -97,8 +97,8 @@ function openMouseEditModal(item) {
     document.getElementById('modal-pue-mouse').value = item.pue_mouse;
     document.getElementById('modal-con-mouse').value = item.con_mouse;
     document.getElementById('modal-est-mouse').value = item.est_mouse;
-    document.getElementById('modal-obs-mouse').value = item.obs_mouse;
-    document.getElementById('modal-usua-mouse').value = item.nom_usua;
+    document.getElementById('modal-obs-mouse').value = item.observacion_mouse;
+    document.getElementById('modal-usua-mouse').value = item.nom_usua_mouse;
 
     // Mostrar el modal con Bootstrap
     const modal = new bootstrap.Modal(document.getElementById('editMouseModal'));
@@ -124,7 +124,7 @@ async function saveMouseChanges() {
     // Crear el objeto con los datos a enviar
     const mouseData = {
         cod_mouse: codMouse,
-        cod_equipo: codEquipo,
+        cod_equipo_mouse: codEquipo,
         cod_tics_mouse: codTicsMouse,
         mar_mouse: marMouse,
         mod_mouse: modMouse,
@@ -133,8 +133,8 @@ async function saveMouseChanges() {
         pue_mouse: pueMouse,
         con_mouse: conMouse,
         est_mouse: estMouse,
-        obs_mouse: obsMouse,
-        nom_usua: nomUsua
+        observacion_mouse: obsMouse,
+        nom_usua_mouse: nomUsua
     };
 
     // Enviar los datos al servidor usando fetch
@@ -167,7 +167,7 @@ function openTecladoEditModal(tcd) {
     console.log(tcd); // Verifica todo el objeto item
     // Asignar directamente los valores de 'item' a los campos del formulario
     document.getElementById('modal-cod-teclado').value = tcd.cod_teclado;
-    document.getElementById('modal-cod-equipo-teclado').value = tcd.cod_equipo;
+    document.getElementById('modal-cod-equipo-teclado').value = tcd.cod_equipo_teclado;
     document.getElementById('modal-cod-tics-teclado').value = tcd.cod_tics_teclado;
     document.getElementById('modal-mar-teclado').value = tcd.mar_teclado;
     document.getElementById('modal-mod-teclado').value = tcd.mod_teclado;
@@ -176,8 +176,8 @@ function openTecladoEditModal(tcd) {
     document.getElementById('modal-pue-teclado').value = tcd.pue_teclado;
     document.getElementById('modal-con-teclado').value = tcd.con_teclado;
     document.getElementById('modal-est-teclado').value = tcd.est_teclado;
-    document.getElementById('modal-obs-teclado').value = tcd.obs_teclado;
-    document.getElementById('modal-usua-teclado').value = tcd.nom_usua;
+    document.getElementById('modal-obs-teclado').value = tcd.observacion_teclado;
+    document.getElementById('modal-usua-teclado').value = tcd.nom_usua_teclado;
 
     // Mostrar el modal con Bootstrap
     const modal = new bootstrap.Modal(document.getElementById('editTecladoModal'));
@@ -202,7 +202,7 @@ async function saveTecladoChanges() {
     // Crear el objeto con los datos a enviar
     const tecladoData = {
         cod_teclado: codTeclado,
-        cod_equipo: codEquipo,
+        cod_equipo_teclado: codEquipo,
         cod_tics_teclado: codTicsTeclado,
         mar_teclado: marTeclado,
         mod_teclado: modTeclado,
@@ -211,8 +211,8 @@ async function saveTecladoChanges() {
         pue_teclado: pueTeclado,
         con_teclado: conTeclado,
         est_teclado: estTeclado,
-        obs_teclado: obsTeclado,
-        nom_usua: nomUsua
+        observacion_teclado: obsTeclado,
+        nom_usua_teclado: nomUsua
     };
 
     // Enviar los datos al servidor usando fetch
@@ -245,7 +245,7 @@ async function saveTecladoChanges() {
 function openCpuEditModal(cpuData) {
     // Asignar los valores a los inputs del modal
     document.getElementById('modal-cod-cpu').value = cpuData.cod_cpu;
-    document.getElementById('modal-cod-equipo-cpu').value = cpuData.cod_equipo;
+    document.getElementById('modal-cod-equipo-cpu').value = cpuData.cod_cpu_equipo;
     document.getElementById('modal-marca-cpu').value = cpuData.mar_cpu;
     document.getElementById('modal-cod-tics-cpu').value = cpuData.cod_tics_cpu;
     document.getElementById('modal-ser-cpu').value = cpuData.ser_cpu;
@@ -265,7 +265,7 @@ function openCpuEditModal(cpuData) {
     document.getElementById('modal-generacion-cpu').value = cpuData.ip_equipo;
     document.getElementById('modal-condicion-cpu').value = cpuData.con_cpu;
     document.getElementById('modal-estado-cpu').value = cpuData.est_cpu;
-    document.getElementById('modal-observacion-cpu').value = cpuData.observacion;
+    document.getElementById('modal-observacion-cpu').value = cpuData.observacion_cpu;
     document.getElementById('modal-nom-tics-cpu').value = cpuData.nom_usua_cpu;
 
     // Asignar valores a los checkboxes
@@ -289,19 +289,26 @@ async function saveCpuChanges() {
             return;
         }
 
+        // Obtener valores de los checkboxes y convertir a "SI" o "NO"
+        const redFija = document.getElementById('modal-red-fija-cpu').checked ? "SI" : "NO";
+        const redInalam = document.getElementById('modal-red-cpu').checked ? "SI" : "NO";
+        const bluetooth = document.getElementById('modal-bluetooth-cpu').checked ? "SI" : "NO";
+        const lecTarjeta = document.getElementById('modal-lector-tarjeta-cpu').checked ? "SI" : "NO";
+
+        // Crear el objeto con los datos
         const cpuData = {
             mar_cpu: document.getElementById('modal-marca-cpu').value,
             ser_cpu: document.getElementById('modal-ser-cpu').value,
             tar_madre: document.getElementById('modal-tarjeta-cpu').value,
             procesador: document.getElementById('modal-proce-cpu').value,
-            velocidad: document.getElementById('modal-generacion-cpu').value,
+            velocidad: document.getElementById('modal-alimentacion-cpu').value,
             memoria: document.getElementById('modal-ram-cpu').value,
             tam_hdd: document.getElementById('modal-almacenamiento-cpu').value,
             disp_optico: document.getElementById('modal-disp-optico-cpu').value,
-            red_fija: document.getElementById('modal-red-fija-cpu').checked,
-            red_inalam: document.getElementById('modal-red-cpu').checked,
-            bluetooth: document.getElementById('modal-bluetooth-cpu').checked,
-            lec_tarjeta: document.getElementById('modal-lector-tarjeta-cpu').checked,
+            red_fija: redFija,
+            red_inalam: redInalam,
+            bluetooth: bluetooth,
+            lec_tarjeta: lecTarjeta,
             sis_ope: document.getElementById('modal-sistema-operativo-cpu').value,
             office: document.getElementById('modal-office-cpu').value,
             antivirus: document.getElementById('modal-antivirus-cpu').value,
@@ -309,12 +316,11 @@ async function saveCpuChanges() {
             ver_antivirus: document.getElementById('modal-version-antivirus-cpu').value,
             nom_hots: document.getElementById('modal-host-cpu').value,
             nom_usuario: document.getElementById('modal-usuario-cpu').value,
-            ip_equipo: document.getElementById('modal-alimentacion-cpu').value,
+            ip_equipo: document.getElementById('modal-generacion-cpu').value,
             con_cpu: document.getElementById('modal-condicion-cpu').value,
             est_cpu: document.getElementById('modal-estado-cpu').value,
             observacion: document.getElementById('modal-observacion-cpu').value,
         };
-
 
         // Verificar conexión antes de realizar la solicitud
         if (!navigator.onLine) {
@@ -342,6 +348,7 @@ async function saveCpuChanges() {
             // Cerrar el modal
             const modal = bootstrap.Modal.getInstance(document.getElementById('editCpuModal'));
             modal.hide();
+            window.location.reload();
         } else {
             alert(data.message || 'Error al actualizar el CPU');
         }
@@ -350,4 +357,3 @@ async function saveCpuChanges() {
         alert('Hubo un error al intentar actualizar el CPU.');
     }
 }
-
