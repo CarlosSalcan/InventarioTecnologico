@@ -32,6 +32,7 @@ router.get('/options/puerto', optionController.getPuerto);
 router.put('/inventory/:cod_equipo', inventoryController.updateItem);
 router.get('/inventory/escritorio', inventoryController.getEscritorioInventory);
 
+router.get('/inventoryFilter/:tipo', inventoryController.getEquipoInventory); //-------->
 router.put('/monitor/:cod_monitor',componentController.updateMonitor);
 router.put('/mouse/:cod_mouse',componentController.updateMouse);
 router.put('/teclado/:cod_teclado',componentController.updateTeclado);

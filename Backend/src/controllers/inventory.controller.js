@@ -129,6 +129,25 @@ const inventoryController = {
             }
             return res.status(200).json({ success: true, data: results });
         });
+    },
+
+    getEquipoInventory: (req, res) => {
+        const { tipo } = req.params; // Obtener el tipo de equipo desde la URL (por ejemplo, 'Escritorio' o 'Impresora')
+
+        const query = 'SELECT * FROM equipo WHERE tip_equipo = ?'; // Consulta SQL con un filtro por tipo de equipo
+
+        connection.query(query, [tipo], (error, results) => {
+            if (error) {
+                console.error('Error al obtener los equipos:', error);
+                return res.status(500).json({ success: false, message: 'Error interno del servidor' });
+            }
+
+            if (results.length > 0) {
+                res.status(200).json({ success: true, equipos: results });
+            } else {
+                res.status(404).json({ success: false, message: 'No se encontraron equipos de este tipo.' });
+            }
+        });
     }
 }
 
