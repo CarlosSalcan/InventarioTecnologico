@@ -34,7 +34,6 @@ function openEditMonitorModal(item) {
 function saveMonitorChanges() {
     const codMonitor = document.getElementById('modal-cod-monitor').value;
     const codEquipo = document.getElementById('modal-cod-Eqmonitor').value;
-    const codTicsMonitor = document.getElementById('modal-cod-tics-monitor').value;
     const marMonitor = document.getElementById('modal-mar-monitor').value;
     const modMonitor = document.getElementById('modal-mod-monitor').value;
     const serMonitor = document.getElementById('modal-ser-monitor').value;
@@ -42,20 +41,16 @@ function saveMonitorChanges() {
     const conMonitor = document.getElementById('modal-con-monitor').value;
     const estMonitor = document.getElementById('modal-est-monitor').value;
     const observacion = document.getElementById('modal-observacion').value;
-    const nomUsua = document.getElementById('modal-nom-usua').value;
 
     // Crear el objeto con los datos actualizados
     const updatedData = {
-        cod_equipo_monitor: codEquipo,
-        cod_tics_monitor: codTicsMonitor,
         mar_monitor: marMonitor,
         mod_monitor: modMonitor,
         ser_monitor: serMonitor,
         tam_monitor: tamMonitor,
         con_monitor: conMonitor,
         est_monitor: estMonitor,
-        observacion_monitor: observacion,
-        nom_usua_monitor: nomUsua
+        observacion: observacion,
     };
 
     // Enviar los datos actualizados al servidor con fetch
@@ -110,7 +105,6 @@ async function saveMouseChanges() {
     // Obtener los valores de los campos del modal
     const codMouse = document.getElementById('modal-cod-mouse').value;
     const codEquipo = document.getElementById('modal-cod-equipo-mouse').value;
-    const codTicsMouse = document.getElementById('modal-cod-tics-mouse').value;
     const marMouse = document.getElementById('modal-mar-mouse').value;
     const modMouse = document.getElementById('modal-mod-mouse').value;
     const serMouse = document.getElementById('modal-ser-mouse').value;
@@ -119,13 +113,11 @@ async function saveMouseChanges() {
     const conMouse = document.getElementById('modal-con-mouse').value;
     const estMouse = document.getElementById('modal-est-mouse').value;
     const obsMouse = document.getElementById('modal-obs-mouse').value;
-    const nomUsua = document.getElementById('modal-usua-mouse').value;
 
     // Crear el objeto con los datos a enviar
     const mouseData = {
         cod_mouse: codMouse,
-        cod_equipo_mouse: codEquipo,
-        cod_tics_mouse: codTicsMouse,
+        cod_equipo: codEquipo,
         mar_mouse: marMouse,
         mod_mouse: modMouse,
         ser_mouse: serMouse,
@@ -133,8 +125,7 @@ async function saveMouseChanges() {
         pue_mouse: pueMouse,
         con_mouse: conMouse,
         est_mouse: estMouse,
-        observacion_mouse: obsMouse,
-        nom_usua_mouse: nomUsua
+        obs_mouse: obsMouse
     };
 
     // Enviar los datos al servidor usando fetch

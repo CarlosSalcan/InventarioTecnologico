@@ -5,37 +5,29 @@ const componentController = {
         try {
             const codMonitor = req.params.cod_monitor; // ID del monitor a actualizar
             const {
-                cod_equipo,
-                cod_tics_monitor,
                 mar_monitor,
                 mod_monitor,
                 ser_monitor,
                 tam_monitor,
                 con_monitor,
                 est_monitor,
-                observacion,
-                nom_usua
+                observacion
             } = req.body;
 
             // Consulta SQL para actualizar el monitor en la base de datos
             const sql = `
                 UPDATE monitor SET 
-                    cod_equipo = ?,
-                    cod_tics_monitor = ?,
                     mar_monitor = ?,
                     mod_monitor = ?,
                     ser_monitor = ?,
                     tam_monitor = ?,
                     con_monitor = ?,
                     est_monitor = ?,
-                    observacion = ?,
-                    nom_usua = ?
+                    observacion = ?
                 WHERE cod_monitor = ?
             `;
 
             const values = [
-                cod_equipo,
-                cod_tics_monitor,
                 mar_monitor,
                 mod_monitor,
                 ser_monitor,
@@ -43,7 +35,6 @@ const componentController = {
                 con_monitor,
                 est_monitor,
                 observacion,
-                nom_usua,
                 codMonitor
             ];
 
@@ -65,8 +56,6 @@ const componentController = {
         try {
             const codMouse = req.params.cod_mouse; // ID del mouse a actualizar
             const {
-                cod_equipo,
-                cos_tics_mouse,
                 mar_mouse,
                 mod_mouse,
                 ser_mouse,
@@ -74,15 +63,12 @@ const componentController = {
                 pue_mouse,
                 con_mouse,
                 est_mouse,
-                obs_mouse,
-                nom_usua
+                obs_mouse
             } = req.body;
 
             // Consulta SQL para actualizar el mouse en la base de datos
             const sql = `
                 UPDATE mouse SET 
-                    cod_equipo = ?,
-                    cod_tics_mouse = ?,
                     mar_mouse = ?,
                     mod_mouse = ?,
                     ser_mouse = ?,
@@ -90,14 +76,11 @@ const componentController = {
                     pue_mouse = ?,
                     con_mouse = ?,
                     est_mouse = ?,
-                    obs_mouse = ?,
-                    nom_usua = ?
+                    obs_mouse = ?
                 WHERE cod_mouse = ?
             `;
 
             const values = [
-                cod_equipo,
-                cos_tics_mouse,
                 mar_mouse,
                 mod_mouse,
                 ser_mouse,
@@ -106,7 +89,6 @@ const componentController = {
                 con_mouse,
                 est_mouse,
                 obs_mouse,
-                nom_usua,
                 codMouse
             ];
 
