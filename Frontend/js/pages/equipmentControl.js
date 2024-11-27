@@ -41,7 +41,7 @@ function showEquipos(equipos, tablaId) {
                 <td>${equipo.nom_custodio}</td>
                 <td>${equipo.nom_usua}</td>
                 <td>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick='openEditModal()'> EDIT </button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editImpresora" onclick="editImpresora(${equipo.cod_equipo})"> EDIT </button>
                 </td>
             `;
             
@@ -51,6 +51,13 @@ function showEquipos(equipos, tablaId) {
     } else {
         tbody.innerHTML = '<tr><td colspan="6">No hay equipos disponibles de este tipo.</td></tr>';
     }
+
+    // Load Opption SELECT-IMPRESORA
+    loadSelectOptions('marcas', 'modal-marca-impresora');
+    // Tipo Impresora
+    loadSelectOptions('puerto', 'modal-puerto-impresora');
+    loadSelectOptions('condicion', 'modal-condicion-impresora');
+    loadSelectOptions('estado', 'modal-estado-impresora');
 }
 
 // Llamar a la función para cargar los equipos de tipo "Impresora" en la tabla correspondiente

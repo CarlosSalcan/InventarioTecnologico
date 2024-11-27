@@ -31,6 +31,7 @@ router.get('/options/puerto', optionController.getPuerto);
 
 router.put('/inventory/:cod_equipo', inventoryController.updateItem);
 router.get('/inventory/escritorio', inventoryController.getEscritorioInventory);
+router.get('/impresoras/:id', inventoryController.getImpresoraInventory);
 
 router.get('/inventoryFilter/:tipo', inventoryController.getEquipoInventory); //-------->
 router.put('/monitor/:cod_monitor',componentController.updateMonitor);

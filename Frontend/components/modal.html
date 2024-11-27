@@ -484,3 +484,85 @@
         </div>
     </div>
 </div>
+
+<!-- Modal para Editar Impresora -->
+<div class="modal fade" id="editImpresora" tabindex="-1" aria-labelledby="modalEditarImpresoraLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalEditarImpresoraLabel">Edición de Impresora</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-row">
+                    <form class="form-floating me-2">
+                        <input type="text" class="form-control is-valid" id="modal-cod-impresora" readonly>
+                        <label for="modal-cod-impresora">Cod. Impresora</label>
+                    </form>
+                    <form class="form-floating me-2">
+                        <input type="text" class="form-control is-valid" id="modal-cod-equipo-impresora" readonly>
+                        <label for="modal-cod-equipo-impresora">Cod. Equipo</label>
+                    </form>
+                    <form class="form-floating">
+                        <input type="text" class="form-control is-valid" id="modal-cod-tics-impresora" readonly>
+                        <label for="modal-cod-tics-impresora">Cod. TICS Impresora</label>
+                    </form>
+                </div>
+
+                <p>Información de la Impresora:</p>
+                <div class="form-row">
+                    <form class="form-floating me-2">
+                        <select class="form-select" id="modal-marca-impresora"
+                                aria-label="Floating label select example"></select>
+                            <label for="floatingSelect">Marca Impresora</label>
+                    </form>
+                    <form class="form-floating me-2">
+                        <input type="text" class="form-control" id="modal-modelo-impresora">
+                        <label for="modal-modelo-impresora">Modelo</label>
+                    </form>
+                    <form class="form-floating">
+                        <input type="text" class="form-control" id="modal-serie-impresora">
+                        <label for="modal-serie-impresora">Serie</label>
+                    </form>
+                </div>
+                <div class="form-row">
+                    <form class="form-floating me-2">
+                        <select class="form-select" id="modal-tipo-impresora"
+                                aria-label="Floating label select example"></select>
+                            <label for="floatingSelect">Tipo Impresora</label>
+                    </form>
+                    <form class="form-floating me-2">
+                        <select class="form-select" id="modal-puerto-impresora"
+                            aria-label="Floating label select example"></select>
+                        <label for="floatingSelect">Puerto Impresora</label>
+                    </form>
+                    <form class="form-floating">
+                        <select class="form-select" id="modal-condicion-impresora"
+                            aria-label="Floating label select example"></select>
+                        <label for="floatingSelect">Condicion Impresora</label>
+                    </form>
+                </div>
+                <div class="form-row">
+                    <form class="form-floating me-2">
+                        <select class="form-select" id="modal-estado-impresora"
+                            aria-label="Floating label select example"></select>
+                        <label for="floatingSelect">Estado Impresora</label>
+                    </form>
+                    <form class="form-floating">
+                        <textarea class="form-control" id="modal-obs-impresora" style="height: 100px;"></textarea>
+                        <label for="modal-obs-imp">Observaciones</label>
+                    </form>
+                </div>
+                <form class="form-floating">
+                    <input type="text" class="form-control is-valid" id="nom-usua-impresora" readonly>
+                    <label for="nom-usua-impresora">Usuario Responsable</label>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
