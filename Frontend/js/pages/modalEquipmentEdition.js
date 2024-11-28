@@ -29,55 +29,50 @@ function editImpresora(cod_impresora) {
 }
 
 // Función para guardar los cambios de la impresora
-function saveImpresoraChanges() {
-    const modal = document.getElementById('editImpresora');
+async function saveImpresoraChanges() {
+    const codImpresora = document.getElementById('modal-cod-impresora').value;
+    const marImp = document.getElementById('modal-marca-impresora').value;
+    const modImp = document.getElementById('modal-modelo-impresora').value;
+    const serImp = document.getElementById('modal-serie-impresora').value;
+    const tipImp = document.getElementById('modal-tipo-impresora').value;
+    const pueImp = document.getElementById('modal-puerto-impresora').value;
+    const conImp = document.getElementById('modal-condicion-impresora').value;
+    const estImp = document.getElementById('modal-estado-impresora').value;
+    const obsImp = document.getElementById('modal-obs-impresora').value;
 
-    // Obtener los valores de los campos en el modal
-    const id = modal.querySelector('[name="cod_impresora"]').value;
-    const cod_equipo = modal.querySelector('[name="cod_equipo"]').value;
-    const cod_tics_impresora = modal.querySelector('[name="cod_tics_impresora"]').value;
-    const mar_imp = modal.querySelector('[name="mar_imp"]').value;
-    const mod_imp = modal.querySelector('[name="mod_imp"]').value;
-    const ser_imp = modal.querySelector('[name="ser_imp"]').value;
-    const tip_imp = modal.querySelector('[name="tip_imp"]').value;
-    const pue__imp = modal.querySelector('[name="pue__imp"]').value;
-    const con_imp = modal.querySelector('[name="con_imp"]').value;
-    const est_imp = modal.querySelector('[name="est_imp"]').value;
-    const obs_imp = modal.querySelector('[name="obs_imp"]').value;
-    const nom_usua = modal.querySelector('[name="nom_usua"]').value;
-
-    // Crear el objeto para enviar al backend
-    const updatedData = {
-        mar_imp,
-        mod_imp,
-        ser_imp,
-        tip_imp,
-        pue__imp,
-        con_imp,
-        est_imp,
-        obs_imp
+    const impresoraData = {
+        mar_imp: marImp,
+        mod_imp: modImp,
+        ser_imp: serImp,
+        tip_imp: tipImp,
+        pue_imp: pueImp,
+        con_imp: conImp,
+        est_imp: estImp,
+        obs_imp: obsImp,
     };
 
-    // Enviar los datos al backend
-    fetch(`http://localhost:3000/api/impresoras/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedData),
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.success) {
-                alert('Impresora actualizada correctamente');
-                location.reload(); // Recargar la página para actualizar los datos
-            } else {
-                alert('Error al actualizar la impresora: ' + data.message);
-            }
-        })
-        .catch((error) => {
-            console.error('Error al guardar los cambios:', error);
-            alert('Error interno al guardar los cambios');
+    try {
+        const response = await fetch(`http://localhost:3000/api/editImpresoras/${codImpresora}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(impresoraData),
         });
+
+        const data = await response.json();
+        if (data.success) {
+            alert('Impresora actualizada exitosamente');
+            const modal = bootstrap.Modal.getInstance(document.getElementById('editImpresora'));
+            modal.hide();
+            location.reload();
+        } else {
+            alert(`Error al actualizar la impresora: ${data.message}`);
+        }
+    } catch (error) {
+        console.error('Error al enviar la solicitud:', error);
+        alert('Hubo un error al actualizar los datos');
+    }
 }
+
 

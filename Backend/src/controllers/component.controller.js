@@ -168,10 +168,6 @@ const componentController = {
 
     updateCPU: (req, res) => {
         try {
-            // Log para verificar los datos recibidos
-            console.log('Datos recibidos:', req.body);
-            console.log('Código del CPU:', req.params.cod_cpu);
-
             const codCPU = req.params.cod_cpu; // ID del CPU a actualizar
 
             // Desestructuración de los datos enviados en el cuerpo de la solicitud
@@ -286,25 +282,25 @@ const componentController = {
 
     updateImpresora: (req, res) => {
         try {
-            const { id } = req.params; // ID de la impresora
+            const id = req.params.cod_impresora; // ID de la impresora
             const {
                 mar_imp,
                 mod_imp,
                 ser_imp,
                 tip_imp,
-                pue__imp,
+                pue_imp,
                 con_imp,
                 est_imp,
-                obs_imp,
+                obs_imp
             } = req.body;
 
-            const query = `
+            const sql = `
                 UPDATE impresora 
                 SET mar_imp = ?, 
                     mod_imp = ?, 
                     ser_imp = ?, 
                     tip_imp = ?, 
-                    pue__imp = ?, 
+                    pue_imp = ?, 
                     con_imp = ?, 
                     est_imp = ?, 
                     obs_imp = ?
@@ -315,24 +311,38 @@ const componentController = {
                 mod_imp,
                 ser_imp,
                 tip_imp,
-                pue__imp,
+                pue_imp,
                 con_imp,
                 est_imp,
                 obs_imp,
                 id,
             ];
 
-            // Ejecutar la consulta
             connection.query(sql, values, (error, result) => {
                 if (error) {
-                    console.error('Error al actualizar la Impresora:', error);
-                    return res.status(500).json({ success: false, message: 'Error al actualizar la IMP' });
+                    console.error('Error al actualizar la impresora:', error);
+                    return res.status(500).json({
+                        success: false,
+                        message: 'Error al ejecutar la consulta SQL',
+                    });
                 }
-                return res.status(200).json({ success: true, message: 'Impresora actualizado exitosamente' });
+                if (result.affectedRows === 0) {
+                    return res.status(404).json({
+                        success: false,
+                        message: 'No se encontró la impresora con el ID especificado',
+                    });
+                }
+                return res.status(200).json({
+                    success: true,
+                    message: 'Impresora actualizada exitosamente',
+                });
             });
         } catch (error) {
             console.error('Error en el controlador al intentar actualizar la impresora:', error);
-            res.status(500).json({ success: false, message: 'Error en el servidor al actualizar la impresora' });
+            res.status(500).json({
+                success: false,
+                message: 'Error en el servidor al actualizar la impresora',
+            });
         }
     }
 }

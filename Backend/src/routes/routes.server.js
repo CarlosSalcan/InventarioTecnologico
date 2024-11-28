@@ -39,7 +39,7 @@ router.put('/monitor/:cod_monitor',componentController.updateMonitor);
 router.put('/mouse/:cod_mouse',componentController.updateMouse);
 router.put('/teclado/:cod_teclado',componentController.updateTeclado);
 router.put('/cpu/:cod_cpu',componentController.updateCPU);
-router.put('/impresoras/:cod_imp',componentController.updateImpresora);
+router.put('/editImpresoras/:cod_impresora', componentController.updateImpresora);
 
 
 module.exports = router;
