@@ -282,6 +282,58 @@ const componentController = {
             console.error('Error en el controlador al intentar actualizar el CPU:', error);
             return res.status(500).json({ success: false, message: 'Error interno del servidor' });
         }
+    },
+
+    updateImpresora: (req, res) => {
+        try {
+            const { id } = req.params; // ID de la impresora
+            const {
+                mar_imp,
+                mod_imp,
+                ser_imp,
+                tip_imp,
+                pue__imp,
+                con_imp,
+                est_imp,
+                obs_imp,
+            } = req.body;
+
+            const query = `
+                UPDATE impresora 
+                SET mar_imp = ?, 
+                    mod_imp = ?, 
+                    ser_imp = ?, 
+                    tip_imp = ?, 
+                    pue__imp = ?, 
+                    con_imp = ?, 
+                    est_imp = ?, 
+                    obs_imp = ?
+                WHERE cod_impresora = ?`;
+
+            const values = [
+                mar_imp,
+                mod_imp,
+                ser_imp,
+                tip_imp,
+                pue__imp,
+                con_imp,
+                est_imp,
+                obs_imp,
+                id,
+            ];
+
+            // Ejecutar la consulta
+            connection.query(sql, values, (error, result) => {
+                if (error) {
+                    console.error('Error al actualizar la Impresora:', error);
+                    return res.status(500).json({ success: false, message: 'Error al actualizar la IMP' });
+                }
+                return res.status(200).json({ success: true, message: 'Impresora actualizado exitosamente' });
+            });
+        } catch (error) {
+            console.error('Error en el controlador al intentar actualizar la impresora:', error);
+            res.status(500).json({ success: false, message: 'Error en el servidor al actualizar la impresora' });
+        }
     }
 }
 
