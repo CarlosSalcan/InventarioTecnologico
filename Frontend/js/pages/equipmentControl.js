@@ -54,7 +54,7 @@ function showEquipos(equipos, tablaId) {
 
     // Load Opption SELECT-IMPRESORA
     loadSelectOptions('marcas', 'modal-marca-impresora');
-    // Tipo Impresora
+    loadSelectOptions('tipImpresora', 'modal-tipo-impresora');
     loadSelectOptions('puerto', 'modal-puerto-impresora');
     loadSelectOptions('condicion', 'modal-condicion-impresora');
     loadSelectOptions('estado', 'modal-estado-impresora');

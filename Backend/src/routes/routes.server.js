@@ -24,6 +24,7 @@ router.get('/options/office', optionController.getOffice);
 router.get('/options/nomAntivirus', optionController.getNomAntivirus);
 router.get('/options/condicion', optionController.getCondicion);
 router.get('/options/estado', optionController.getEstado);
+router.get('/options/tipImpresora', optionController.getTipoImpresora);
 
 router.get('/options/tamMtr', optionController.getTamMonitor);
 router.get('/options/conexion', optionController.getTipConexion);

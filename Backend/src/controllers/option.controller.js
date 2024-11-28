@@ -199,6 +199,19 @@ const optionController = {
 
             res.status(200).json({ success: true, data: results });
         });
+    },
+
+    getTipoImpresora: (req, res) => {
+        const query = 'SELECT * FROM param_tipo_impresora'; // Consulta SQL para obtener servicios
+
+        connection.query(query, (error, results) => {
+            if (error) {
+                console.error('Error al obtener los Tipos de Impresora:', error);
+                return res.status(500).json({ success: false, message: 'Error interno del servidor' });
+            }
+
+            res.status(200).json({ success: true, data: results });
+        });
     }
 };
 

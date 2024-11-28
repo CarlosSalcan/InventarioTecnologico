@@ -171,9 +171,9 @@ const componentController = {
             // Log para verificar los datos recibidos
             console.log('Datos recibidos:', req.body);
             console.log('Código del CPU:', req.params.cod_cpu);
-    
+
             const codCPU = req.params.cod_cpu; // ID del CPU a actualizar
-    
+
             // Desestructuración de los datos enviados en el cuerpo de la solicitud
             const {
                 mar_cpu,
@@ -200,12 +200,12 @@ const componentController = {
                 est_cpu,
                 observacion
             } = req.body;
-    
+
             // Validación: Verifica si alguno de los campos requeridos está vacío
             if (!codCPU || !mar_cpu || !ser_cpu) {
                 return res.status(400).json({ success: false, message: 'Faltan datos requeridos' });
             }
-    
+
             // Consulta SQL para actualizar la CPU en la base de datos
             const sql = `
                 UPDATE cpu_equipo SET 
@@ -234,7 +234,7 @@ const componentController = {
                     observacion = ? 
                 WHERE cod_cpu = ?
             `;
-    
+
             // Valores a insertar en la consulta SQL
             const values = [
                 mar_cpu || null,
@@ -262,19 +262,19 @@ const componentController = {
                 observacion || null,
                 codCPU
             ];
-    
+
             // Ejecutar la consulta en la base de datos
             connection.query(sql, values, (error, result) => {
                 if (error) {
                     console.error('Error al actualizar el CPU:', error);
                     return res.status(500).json({ success: false, message: 'Error al actualizar el CPU' });
                 }
-    
+
                 // Verificar si se afectaron filas (CPU existente)
                 if (result.affectedRows === 0) {
                     return res.status(404).json({ success: false, message: 'No se encontró el CPU con el código proporcionado' });
                 }
-    
+
                 // Respuesta exitosa
                 return res.status(200).json({ success: true, message: 'CPU actualizado exitosamente' });
             });
@@ -283,7 +283,6 @@ const componentController = {
             return res.status(500).json({ success: false, message: 'Error interno del servidor' });
         }
     }
-    
 }
 
 module.exports = componentController;

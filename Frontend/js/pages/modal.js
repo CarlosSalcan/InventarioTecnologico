@@ -8,8 +8,8 @@ function loadSelectOptions(apiEndpoint, selectId) {
                 select.innerHTML = ''; // Limpiar opciones previas
                 data.data.forEach(item => {
                     const option = document.createElement('option');
-                    option.value = item.cod_piso || item.cod_servicio || item.nom_marcas || item.nom_memoria || item.nom_proce || item.nom_tam_hdd || item.nom_dis_opt || item.nom_sis_ope || item.nom_office || item.nom_antivirus || item.nom_condicion || item.nom_estado || item.nom_tam_mon || item.nom_tmt || item. nom_puerto;
-                    option.textContent = item.nom_piso || item.nom_servicio || item.nom_marcas || item.nom_memoria || item.nom_proce || item.nom_tam_hdd || item.nom_dis_opt || item.nom_sis_ope || item.nom_office || item.nom_antivirus || item.nom_condicion || item.nom_estado || item.nom_tam_mon || item.nom_tmt || item. nom_puerto;
+                    option.value = item.cod_piso || item.cod_servicio || item.nom_marcas || item.nom_memoria || item.nom_proce || item.nom_tam_hdd || item.nom_dis_opt || item.nom_sis_ope || item.nom_office || item.nom_antivirus || item.nom_condicion || item.nom_estado || item.nom_tam_mon || item.nom_tmt || item. nom_puerto || item.nom_ti;
+                    option.textContent = item.nom_piso || item.nom_servicio || item.nom_marcas || item.nom_memoria || item.nom_proce || item.nom_tam_hdd || item.nom_dis_opt || item.nom_sis_ope || item.nom_office || item.nom_antivirus || item.nom_condicion || item.nom_estado || item.nom_tam_mon || item.nom_tmt || item. nom_puerto || item.nom_ti;
                     select.appendChild(option);
                 });
             } else {
