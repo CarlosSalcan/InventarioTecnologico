@@ -486,7 +486,7 @@
 </div>
 
 <!-- Modal para Editar Impresora -->
-<div class="modal fade" id="editImpresora" tabindex="-1" aria-labelledby="modalEditarImpresoraLabel" aria-hidden="true">
+<div class="modal fade" id="editImpresoraModal" tabindex="-1" aria-labelledby="modalEditarImpresoraLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -563,6 +563,82 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" onclick="saveImpresoraChanges()">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Editar Telefono -->
+<div class="modal fade" id="editTelefonoModal" tabindex="-1" aria-labelledby="editTelefonoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editTelefonoModalLabel">Detalles del Teléfono</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editTelefonoForm">
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control is-valid" id="modal-cod-telf" readonly
+                                placeholder="Código Teléfono">
+                            <label for="modal-cod-telf">Código Teléfono</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control is-valid" id="modal-cod-equipo-telf" readonly
+                                placeholder="Código Equipo">
+                            <label for="modal-cod-equipo-telf">Código Equipo</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control is-valid" id="modal-cod-tics-telf" readonly
+                                placeholder="Código TICS Teléfono">
+                            <label for="modal-cod-tics-telf">Código TICS Teléfono</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control is-valid" id="modal-nom-usua-telf" readonly
+                                placeholder="Nombre Usuario">
+                            <label for="modal-nom-usua-telf">Nombre Usuario</label>
+                        </div>
+                    </div>
+
+                    <p>Información del Teléfono:</p>
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-ser-telf" placeholder="Serie Teléfono">
+                            <label for="modal-ser-telf">Serie Teléfono</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-mod-telf" placeholder="Modelo Teléfono">
+                            <label for="modal-mod-telf">Modelo Teléfono</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="modal-mar-telf"
+                                aria-label="Seleccionar marca teléfono"></select>
+                            <label for="modal-mar-telf">Marca Teléfono</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="modal-con-telf"
+                                aria-label="Seleccionar condición teléfono"></select>
+                            <label for="modal-con-telf">Condición Teléfono</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="modal-est-telf"
+                                aria-label="Seleccionar estado teléfono"></select>
+                            <label for="modal-est-telf">Estado Teléfono</label>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="modal-obs-telf" rows="3"
+                            placeholder="Observación"></textarea>
+                        <label for="modal-obs-telf">Observación Teléfono</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="saveTelefonoChanges()">Guardar cambios</button>
             </div>
         </div>
     </div>

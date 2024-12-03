@@ -63,7 +63,7 @@ async function saveImpresoraChanges() {
         const data = await response.json();
         if (data.success) {
             alert('Impresora actualizada exitosamente');
-            const modal = bootstrap.Modal.getInstance(document.getElementById('editImpresora'));
+            const modal = bootstrap.Modal.getInstance(document.getElementById('editImpresoraModal'));
             modal.hide();
             location.reload();
         } else {
@@ -75,4 +75,71 @@ async function saveImpresoraChanges() {
     }
 }
 
+function editTelefono(cod_telfono) {
+    // Realizar la solicitud a la API para obtener los detalles de la impresora
+    fetch(`http://localhost:3000/api/telefonos/${cod_telfono}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const telefono = data.data;
 
+                document.getElementById('modal-cod-telf').value = telefono.cod_telf;
+                document.getElementById('modal-cod-equipo-telf').value = telefono.cod_equipo;
+                document.getElementById('modal-cod-tics-telf').value = telefono.cod_tics_telf;
+                document.getElementById('modal-mar-telf').value = telefono.mar_telf;
+                document.getElementById('modal-mod-telf').value = telefono.mod_telf;
+                document.getElementById('modal-ser-telf').value = telefono.ser_telf;
+                document.getElementById('modal-con-telf').value = telefono.con_telf;
+                document.getElementById('modal-est-telf').value = telefono.est_telf;
+                document.getElementById('modal-obs-telf').value = telefono.obs_telf;
+                document.getElementById('modal-nom-usua-telf').value = telefono.nom_usua;
+            } else {
+                console.error('Telfono no encontrado');
+            }
+        })
+        .catch(error => {
+            console.error('Error al obtener los datos del telefono:', error);
+        });
+}
+
+async function saveTelefonoChanges() {
+    const codTelefono = document.getElementById('modal-cod-telf').value;
+    const marTelef = document.getElementById('modal-mar-telf').value;
+    const modTelef = document.getElementById('modal-mod-telf').value;
+    const serTelef = document.getElementById('modal-ser-telf').value;
+    const conTelef = document.getElementById('modal-con-telf').value;
+    const estTelef = document.getElementById('modal-est-telf').value;
+    const obsTelef = document.getElementById('modal-obs-telf').value;
+
+    const impresoraData = {
+        mar_telf: marTelef,
+        mod_telf: modTelef,
+        ser_telf: serTelef,
+        con_telf: conTelef,
+        est_telf: estTelef,
+        obs_telf: obsTelef
+    };
+
+    try {
+        const response = await fetch(`http://localhost:3000/api/editTelefonos/${codTelefono}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(impresoraData),
+        });
+
+        const data = await response.json();
+        if (data.success) {
+            alert('Telefono actualizada exitosamente');
+            const modal = bootstrap.Modal.getInstance(document.getElementById('editTelefonoModal'));
+            modal.hide();
+            location.reload();
+        } else {
+            alert(`Error al actualizar el telfono: ${data.message}`);
+        }
+    } catch (error) {
+        console.error('Error al enviar la solicitud:', error);
+        alert('Hubo un error al actualizar los datos');
+    }
+}

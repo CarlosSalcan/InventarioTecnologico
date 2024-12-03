@@ -29,7 +29,17 @@ function showEquipos(equipos, tablaId) {
         equipos.forEach(equipo => {
             // Crear una nueva fila para cada equipo
             const fila = document.createElement('tr');
-            
+
+            // Determinar qué modal y función utilizar según el tipo de equipo
+            let modalId, editFunction;
+            if (equipo.tip_equipo === 'Impresora') {
+                modalId = 'editImpresoraModal';
+                editFunction = `editImpresora(${equipo.cod_equipo})`;
+            } else if (equipo.tip_equipo === 'Teléfono') {
+                modalId = 'editTelefonoModal';
+                editFunction = `editTelefono(${equipo.cod_equipo})`;
+            }
+
             // Crear las celdas con los datos del equipo
             fila.innerHTML = `
                 <td>${equipo.cod_equipo}</td>
@@ -41,10 +51,14 @@ function showEquipos(equipos, tablaId) {
                 <td>${equipo.nom_custodio}</td>
                 <td>${equipo.nom_usua}</td>
                 <td>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editImpresora" onclick="editImpresora(${equipo.cod_equipo})"> EDIT </button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" 
+                        data-bs-target="#${modalId}" 
+                        onclick="${editFunction}">
+                        EDIT
+                    </button>
                 </td>
             `;
-            
+
             // Agregar la fila a la tabla
             tbody.appendChild(fila);
         });
@@ -52,13 +66,20 @@ function showEquipos(equipos, tablaId) {
         tbody.innerHTML = '<tr><td colspan="6">No hay equipos disponibles de este tipo.</td></tr>';
     }
 
-    // Load Opption SELECT-IMPRESORA
+    // Load opciones SELECT-IMPRESORA
     loadSelectOptions('marcas', 'modal-marca-impresora');
     loadSelectOptions('tipImpresora', 'modal-tipo-impresora');
     loadSelectOptions('puerto', 'modal-puerto-impresora');
     loadSelectOptions('condicion', 'modal-condicion-impresora');
     loadSelectOptions('estado', 'modal-estado-impresora');
+
+    // Load opciones SELECT-TELEFONO
+    loadSelectOptions('marcas', 'modal-mar-telf');
+    loadSelectOptions('condicion', 'modal-con-telf');
+    loadSelectOptions('estado', 'modal-est-telf');
 }
+
 
 // Llamar a la función para cargar los equipos de tipo "Impresora" en la tabla correspondiente
 loadEquipos('Impresora', 'impresora-table');
+loadEquipos('Teléfono', 'telefono-table');

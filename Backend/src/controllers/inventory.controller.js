@@ -166,6 +166,24 @@ const inventoryController = {
 
             res.status(200).json({ success: true, data: results[0] });
         });
+    },
+
+    getTelefonoInventory: (req, res) => {
+        const { id } = req.params; // ID del registro de la impresora
+        const query = 'SELECT * FROM telefono WHERE cod_equipo = ?';
+
+        connection.query(query, [id], (error, results) => {
+            if (error) {
+                console.error('Error al obtener los datos de la impresora:', error);
+                return res.status(500).json({ success: false, message: 'Error interno del servidor' });
+            }
+
+            if (results.length === 0) {
+                return res.status(404).json({ success: false, message: 'Impresora no encontrada' });
+            }
+
+            res.status(200).json({ success: true, data: results[0] });
+        });
     }
 }
 

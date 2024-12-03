@@ -33,6 +33,7 @@ router.get('/options/puerto', optionController.getPuerto);
 router.put('/inventory/:cod_equipo', inventoryController.updateItem);
 router.get('/inventory/escritorio', inventoryController.getEscritorioInventory);
 router.get('/impresoras/:id', inventoryController.getImpresoraInventory);
+router.get('/telefonos/:id', inventoryController.getTelefonoInventory);
 
 router.get('/inventoryFilter/:tipo', inventoryController.getEquipoInventory); //-------->
 router.put('/monitor/:cod_monitor',componentController.updateMonitor);
@@ -40,6 +41,7 @@ router.put('/mouse/:cod_mouse',componentController.updateMouse);
 router.put('/teclado/:cod_teclado',componentController.updateTeclado);
 router.put('/cpu/:cod_cpu',componentController.updateCPU);
 router.put('/editImpresoras/:cod_impresora', componentController.updateImpresora);
+router.put('/editTelefonos/:cod_telf', componentController.updateTelefono);
 
 
 module.exports = router;

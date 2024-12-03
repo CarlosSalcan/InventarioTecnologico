@@ -344,6 +344,66 @@ const componentController = {
                 message: 'Error en el servidor al actualizar la impresora',
             });
         }
+    },
+
+    updateTelefono: (req, res) => {
+        try {
+            const id = req.params.cod_telf; // ID del telfono
+            const {
+                mar_telf,
+                mod_telf,
+                ser_telf,
+                con_telf,
+                est_telf,
+                obs_telf
+            } = req.body;
+
+            const sql = `
+                UPDATE telefono 
+                SET mar_telf = ?, 
+                    mod_telf = ?, 
+                    ser_telf = ?, 
+                    con_telf = ?, 
+                    est_telf = ?, 
+                    obs_telf = ?
+                WHERE cod_telf = ?`;
+
+            const values = [
+                mar_telf,
+                mod_telf,
+                ser_telf,
+                con_telf,
+                est_telf,
+                obs_telf,
+                id,
+            ];
+
+            connection.query(sql, values, (error, result) => {
+                if (error) {
+                    console.error('Error al actualizar el telfono:', error);
+                    return res.status(500).json({
+                        success: false,
+                        message: 'Error al ejecutar la consulta SQL',
+                    });
+                }
+                if (result.affectedRows === 0) {
+                    return res.status(404).json({
+                        success: false,
+                        message: 'No se encontró el telfono con el ID especificado',
+                    });
+                }
+                return res.status(200).json({
+                    success: true,
+                    message: 'Telefono actualizada exitosamente',
+                });
+            });
+        } catch (error) {
+            console.error('Error en el controlador al intentar actualizar el telefono:', error);
+            res.status(500).json({
+                success: false,
+                message: 'Error en el servidor al actualizar el telfono',
+            });
+        }
     }
 }
 
