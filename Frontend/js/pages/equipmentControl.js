@@ -38,6 +38,9 @@ function showEquipos(equipos, tablaId) {
             } else if (equipo.tip_equipo === 'Teléfono') {
                 modalId = 'editTelefonoModal';
                 editFunction = `editTelefono(${equipo.cod_equipo})`;
+            } else if (equipo.tip_equipo === 'Portatil') {
+                modalId = 'editPortatilModal';
+                editFunction = `editPortatil(${equipo.cod_equipo})`;
             }
 
             // Crear las celdas con los datos del equipo
@@ -83,3 +86,4 @@ function showEquipos(equipos, tablaId) {
 // Llamar a la función para cargar los equipos de tipo "Impresora" en la tabla correspondiente
 loadEquipos('Impresora', 'impresora-table');
 loadEquipos('Teléfono', 'telefono-table');
+loadEquipos('Portatil', 'portatil-table');
