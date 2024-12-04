@@ -39,7 +39,7 @@ function showEquipos(equipos, tablaId) {
                 modalId = 'editTelefonoModal';
                 editFunction = `editTelefono(${equipo.cod_equipo})`;
             } else if (equipo.tip_equipo === 'Portatil') {
-                modalId = 'editPortatilModal';
+                modalId = 'editLaptopModal';
                 editFunction = `editPortatil(${equipo.cod_equipo})`;
             }
 

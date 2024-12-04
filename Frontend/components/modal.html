@@ -486,7 +486,8 @@
 </div>
 
 <!-- Modal para Editar Impresora -->
-<div class="modal fade" id="editImpresoraModal" tabindex="-1" aria-labelledby="modalEditarImpresoraLabel" aria-hidden="true">
+<div class="modal fade" id="editImpresoraModal" tabindex="-1" aria-labelledby="modalEditarImpresoraLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -497,19 +498,23 @@
             <div class="modal-body">
                 <div class="form-row">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control is-valid" id="modal-cod-impresora" placeholder="Cod. Impresora readonly">
+                        <input type="text" class="form-control is-valid" id="modal-cod-impresora"
+                            placeholder="Cod. Impresora readonly">
                         <label for="modal-cod-impresora">Cod. Impresora</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control is-valid" id="modal-cod-equipo-impresora" placeholder="Cod. Equipo" readonly>
+                        <input type="text" class="form-control is-valid" id="modal-cod-equipo-impresora"
+                            placeholder="Cod. Equipo" readonly>
                         <label for="modal-cod-equipo-impresora">Cod. Equipo</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control is-valid" id="modal-cod-tics-impresora" placeholder="Cod. TICS Impresora" readonly>
+                        <input type="text" class="form-control is-valid" id="modal-cod-tics-impresora"
+                            placeholder="Cod. TICS Impresora" readonly>
                         <label for="modal-cod-tics-impresora">Cod. TICS Impresora</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control is-valid" id="nom-usua-impresora" placeholder="Personal Tics" readonly>
+                        <input type="text" class="form-control is-valid" id="nom-usua-impresora"
+                            placeholder="Personal Tics" readonly>
                         <label for="nom-usua-impresora">Personal Tics</label>
                     </div>
                 </div>
@@ -518,15 +523,17 @@
                 <div class="form-row">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="modal-marca-impresora"
-                                aria-label="Floating label select example" placeholder="Marca Impresora"></select>
-                            <label for="floatingSelect">Marca Impresora</label>
+                            aria-label="Floating label select example" placeholder="Marca Impresora"></select>
+                        <label for="floatingSelect">Marca Impresora</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="modal-modelo-impresora" placeholder="Modelo Impresora">
+                        <input type="text" class="form-control" id="modal-modelo-impresora"
+                            placeholder="Modelo Impresora">
                         <label for="modal-modelo-impresora">Modelo Impresora</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="modal-serie-impresora" placeholder="Serie Impresora">
+                        <input type="text" class="form-control" id="modal-serie-impresora"
+                            placeholder="Serie Impresora">
                         <label for="modal-serie-impresora">Serie Impresora</label>
                     </div>
                     <div class="form-floating mb-3">
@@ -537,11 +544,11 @@
                 </div>
                 <div class="form-row">
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="modal-tipo-impresora"
-                                aria-label="Floating label select example" placeholder="Tipo Impresora"></select>
-                            <label for="floatingSelect">Tipo Impresora</label>
+                        <select class="form-select" id="modal-tipo-impresora" aria-label="Floating label select example"
+                            placeholder="Tipo Impresora"></select>
+                        <label for="floatingSelect">Tipo Impresora</label>
                     </div>
-                    
+
                     <div class="form-floating mb-3">
                         <select class="form-select" id="modal-condicion-impresora"
                             aria-label="Floating label select example" placeholder=" Condicion Impresora"></select>
@@ -555,7 +562,8 @@
                 </div>
                 <div class="form-row">
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" id="modal-obs-impresora" rows="3" placeholder="Observacion"></textarea>
+                        <textarea class="form-control" id="modal-obs-impresora" rows="3"
+                            placeholder="Observacion"></textarea>
                         <label for="modal-obs-imp">Observaciones</label>
                     </div>
                 </div>
@@ -569,7 +577,8 @@
 </div>
 
 <!-- Modal para Editar Telefono -->
-<div class="modal fade" id="editTelefonoModal" tabindex="-1" aria-labelledby="editTelefonoModalLabel" aria-hidden="true">
+<div class="modal fade" id="editTelefonoModal" tabindex="-1" aria-labelledby="editTelefonoModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -639,6 +648,116 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" onclick="saveTelefonoChanges()">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Editar Portatil -->
+<div class="modal fade" id="editLaptopModal" tabindex="-1" aria-labelledby="editLaptopModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editLaptopModalLabel">Detalles del Equipo Portátil</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editLaptopForm">
+                    <!-- Identificación -->
+                    <p><strong>Información de Identificación:</strong></p>
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-cod-laptop" readonly
+                                placeholder="Código Laptop">
+                            <label for="modal-cod-laptop">Código Laptop</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-cod-equipo" readonly
+                                placeholder="Código Equipo">
+                            <label for="modal-cod-equipo">Código Equipo</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-cod-tics-equipo" readonly
+                                placeholder="Código TICS Equipo">
+                            <label for="modal-cod-tics-equipo">Código TICS Equipo</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-nom-usua" readonly
+                                placeholder="Nombre Usuario">
+                            <label for="modal-nom-usua">Nombre Usuario</label>
+                        </div>
+                    </div>
+
+                    <!-- Detalles del Laptop -->
+                    <p><strong>Especificaciones del Portátil:</strong></p>
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-mar-laptop" placeholder="Marca Laptop">
+                            <label for="modal-mar-laptop">Marca Laptop</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-mod-laptop" placeholder="Modelo Laptop">
+                            <label for="modal-mod-laptop">Modelo Laptop</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-ser-laptop" placeholder="Serie Laptop">
+                            <label for="modal-ser-laptop">Serie Laptop</label>
+                        </div>
+                    </div>
+
+                    <!-- Componentes -->
+                    <p><strong>Componentes:</strong></p>
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-pro-laptop"
+                                placeholder="Procesador Laptop">
+                            <label for="modal-pro-laptop">Procesador Laptop</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-vel-laptop"
+                                placeholder="Velocidad Laptop">
+                            <label for="modal-vel-laptop">Velocidad Laptop</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-mem-laptop" placeholder="Memoria Laptop">
+                            <label for="modal-mem-laptop">Memoria Laptop</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-hdd-laptop"
+                                placeholder="Disco Duro Laptop">
+                            <label for="modal-hdd-laptop">Disco Duro Laptop</label>
+                        </div>
+                    </div>
+
+                    <!-- Configuración y Estado -->
+                    <p><strong>Configuración y Estado:</strong></p>
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-so-laptop"
+                                placeholder="Sistema Operativo">
+                            <label for="modal-so-laptop">Sistema Operativo</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="modal-est-laptop" aria-label="Estado del Laptop">
+                                <option value="1">Bueno</option>
+                                <option value="2">Regular</option>
+                                <option value="3">Malo</option>
+                            </select>
+                            <label for="modal-est-laptop">Estado Laptop</label>
+                        </div>
+                    </div>
+
+                    <!-- Observaciones -->
+                    <p><strong>Observaciones:</strong></p>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="modal-observacion-laptop" rows="3"
+                            placeholder="Observaciones"></textarea>
+                        <label for="modal-observacion-laptop">Observaciones</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="saveLaptopChanges()">Guardar cambios</button>
             </div>
         </div>
     </div>
