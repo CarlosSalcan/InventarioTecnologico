@@ -70,16 +70,27 @@ function showEquipos(equipos, tablaId) {
     }
 
     // Load opciones SELECT-IMPRESORA
-    loadSelectOptions('marcas', 'modal-marca-impresora');
+    loadSelectOptions('condicion', 'modal-condicion-impresora');
     loadSelectOptions('tipImpresora', 'modal-tipo-impresora');
     loadSelectOptions('puerto', 'modal-puerto-impresora');
-    loadSelectOptions('condicion', 'modal-condicion-impresora');
     loadSelectOptions('estado', 'modal-estado-impresora');
+    loadSelectOptions('marcas', 'modal-marca-impresora');
 
     // Load opciones SELECT-TELEFONO
-    loadSelectOptions('marcas', 'modal-mar-telf');
     loadSelectOptions('condicion', 'modal-con-telf');
+    loadSelectOptions('marcas', 'modal-mar-telf');
     loadSelectOptions('estado', 'modal-est-telf');
+
+    // Load opciones SELECT-LAPTOP
+    loadSelectOptions('nomAntivirus', 'modal-nom-antivirus-laptop');
+    loadSelectOptions('disOpt', 'modal-disp-optico-laptop');
+    loadSelectOptions('procesador', 'modal-proce-laptop');
+    loadSelectOptions('memoria', 'modal-memoria-laptop');
+    loadSelectOptions('sisOpe', 'modal-sisOpe-laptop');
+    loadSelectOptions('estado', 'modal-estado-laptop');
+    loadSelectOptions('marcas', 'modal-marca-laptop');
+    loadSelectOptions('tamHdd', 'modal-hdd-laptop');
+    loadSelectOptions('office', 'modal-off-laptop');
 }
 
 

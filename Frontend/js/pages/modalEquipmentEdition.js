@@ -143,3 +143,52 @@ async function saveTelefonoChanges() {
         alert('Hubo un error al actualizar los datos');
     }
 }
+
+function editPortatil(cod_laptop) {
+    // Realizar la solicitud a la API para obtener los detalles de la impresora
+    fetch(`http://localhost:3000/api/laptops/${cod_laptop}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const cpuData = data.data;
+
+                document.getElementById('modal-cod-laptop').value = cpuData.cod_laptop;
+                document.getElementById('modal-cod-equipo-laptop').value = cpuData.cod_equipo;
+                document.getElementById('modal-cod-tics-laptop').value = cpuData.cod_tics_laptop;
+                document.getElementById('modal-nom-usua-laptop').value = cpuData.nom_usua;
+            
+                document.getElementById('modal-marca-laptop').value = cpuData.mar_laptop;
+                document.getElementById('modal-mod-laptop').value = cpuData.mod_laptop;
+                document.getElementById('modal-ser-laptop').value = cpuData.ser_laptop;
+            
+                document.getElementById('modal-antivirus-laptop').value = cpuData.antv_laptop;
+                document.getElementById('modal-nom-antivirus-laptop').value = cpuData.nom_antv_laptop;
+                document.getElementById('modal-ver-antivirus-laptop').value = cpuData.ver_antv_laptop;
+                
+                document.getElementById('modal-proce-laptop').value = cpuData.pro_laptop;
+                document.getElementById('modal-vel-laptop').value = cpuData.vel_laptop;
+                document.getElementById('modal-memoria-laptop').value = cpuData.mem_laptop;
+                document.getElementById('modal-hdd-laptop').value = cpuData.hdd_laptop;
+                document.getElementById('modal-disp-optico-laptop').value = cpuData.dop_laptop;
+            
+                document.getElementById('modal-sisOpe-laptop').value = cpuData.so_laptop;
+                document.getElementById('modal-off-laptop').value = cpuData.off_laptop;
+                document.getElementById('modal-estado-laptop').value = cpuData.est_laptop;
+            
+                document.getElementById('modal-host-laptop').value = cpuData.nom_hots_laptop;
+                document.getElementById('modal-generacion-cpu').value = cpuData.ip_equipo;
+                document.getElementById('modal-observacion-laptop').value = cpuData.observacion_laptop;
+            
+                // Asignar valores a los checkboxes
+                document.getElementById("modal-red-fija-laptop").checked = cpuData.red_laptop === "SI";
+                document.getElementById("modal-red-laptop").checked = cpuData.wif_laptop === "SI";
+                document.getElementById("modal-bluetooth-laptop").checked = cpuData.blu_laptop === "SI";
+                document.getElementById("modal-lecTarjeta-laptop").checked = cpuData.tar_laptop === "SI";
+            } else {
+                console.error('Telfono no encontrado');
+            }
+        })
+        .catch(error => {
+            console.error('Error al obtener los datos del telefono:', error);
+        });
+}
