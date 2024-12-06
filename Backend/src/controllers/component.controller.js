@@ -375,7 +375,7 @@ const componentController = {
                 con_telf,
                 est_telf,
                 obs_telf,
-                id,
+                id
             ];
 
             connection.query(sql, values, (error, result) => {
@@ -402,6 +402,108 @@ const componentController = {
             res.status(500).json({
                 success: false,
                 message: 'Error en el servidor al actualizar el telfono',
+            });
+        }
+    },
+
+    updatePortatil: (req, res) => {
+        try {
+            const id = req.params.cod_laptop; // ID del telfono
+            const {
+                mar_laptop,
+                mod_laptop,
+                ser_laptop,
+                pro_laptop,
+                vel_laptop,
+                mem_laptop,
+                hdd_laptop,
+                dop_laptop,
+                red_laptop,
+                wif_laptop,
+                blu_laptop,
+                tar_laptop,
+                so_laptop,
+                off_laptop,
+                antv_laptop,
+                nom_antv_laptop,
+                ver_antv_laptop,
+                nom_hots_laptop,
+                est_laptop,
+                observacion_laptop
+            } = req.body;
+
+            const sql = `
+                UPDATE laptop 
+                SET mar_laptop = ?,
+                    mod_laptop = ?,
+                    ser_laptop = ?,
+                    pro_laptop = ?,
+                    vel_laptop = ?,
+                    mem_laptop = ?,
+                    hdd_laptop = ?,
+                    dop_laptop = ?,
+                    red_laptop = ?,
+                    wif_laptop = ?,
+                    blu_laptop = ?,
+                    tar_laptop = ?,
+                    so_laptop = ?,
+                    off_laptop = ?,
+                    antv_laptop = ?,
+                    nom_antv_laptop = ?,
+                    ver_antv_laptop = ?,
+                    nom_hots_laptop = ?,
+                    est_laptop = ?,
+                    observacion_laptop = ?
+                WHERE cod_laptop = ?`;
+
+            const values = [
+                mar_laptop,
+                mod_laptop,
+                ser_laptop,
+                pro_laptop,
+                vel_laptop,
+                mem_laptop,
+                hdd_laptop,
+                dop_laptop,
+                red_laptop,
+                wif_laptop,
+                blu_laptop,
+                tar_laptop,
+                so_laptop,
+                off_laptop,
+                antv_laptop,
+                nom_antv_laptop,
+                ver_antv_laptop,
+                nom_hots_laptop,
+                est_laptop,
+                observacion_laptop,
+                id
+            ];
+
+            connection.query(sql, values, (error, result) => {
+                if (error) {
+                    console.error('Error al actualizar el Laptop:', error);
+                    return res.status(500).json({
+                        success: false,
+                        message: 'Error al ejecutar la consulta SQL',
+                    });
+                }
+                if (result.affectedRows === 0) {
+                    return res.status(404).json({
+                        success: false,
+                        message: 'No se encontró el Laptop con el ID especificado',
+                    });
+                }
+                return res.status(200).json({
+                    success: true,
+                    message: 'Laptop actualizada exitosamente',
+                });
+            });
+        } catch (error) {
+            console.error('Error en el controlador al intentar actualizar el Laptop:', error);
+            res.status(500).json({
+                success: false,
+                message: 'Error en el servidor al actualizar el Laptop',
             });
         }
     }

@@ -156,29 +156,29 @@ function editPortatil(cod_laptop) {
                 document.getElementById('modal-cod-equipo-laptop').value = cpuData.cod_equipo;
                 document.getElementById('modal-cod-tics-laptop').value = cpuData.cod_tics_laptop;
                 document.getElementById('modal-nom-usua-laptop').value = cpuData.nom_usua;
-            
+
                 document.getElementById('modal-marca-laptop').value = cpuData.mar_laptop;
                 document.getElementById('modal-mod-laptop').value = cpuData.mod_laptop;
                 document.getElementById('modal-ser-laptop').value = cpuData.ser_laptop;
-            
+
                 document.getElementById('modal-antivirus-laptop').value = cpuData.antv_laptop;
                 document.getElementById('modal-nom-antivirus-laptop').value = cpuData.nom_antv_laptop;
                 document.getElementById('modal-ver-antivirus-laptop').value = cpuData.ver_antv_laptop;
-                
+
                 document.getElementById('modal-proce-laptop').value = cpuData.pro_laptop;
                 document.getElementById('modal-vel-laptop').value = cpuData.vel_laptop;
                 document.getElementById('modal-memoria-laptop').value = cpuData.mem_laptop;
                 document.getElementById('modal-hdd-laptop').value = cpuData.hdd_laptop;
                 document.getElementById('modal-disp-optico-laptop').value = cpuData.dop_laptop;
-            
+
                 document.getElementById('modal-sisOpe-laptop').value = cpuData.so_laptop;
                 document.getElementById('modal-off-laptop').value = cpuData.off_laptop;
                 document.getElementById('modal-estado-laptop').value = cpuData.est_laptop;
-            
+
                 document.getElementById('modal-host-laptop').value = cpuData.nom_hots_laptop;
                 document.getElementById('modal-generacion-cpu').value = cpuData.ip_equipo;
                 document.getElementById('modal-observacion-laptop').value = cpuData.observacion_laptop;
-            
+
                 // Asignar valores a los checkboxes
                 document.getElementById("modal-red-fija-laptop").checked = cpuData.red_laptop === "SI";
                 document.getElementById("modal-red-laptop").checked = cpuData.wif_laptop === "SI";
@@ -191,4 +191,80 @@ function editPortatil(cod_laptop) {
         .catch(error => {
             console.error('Error al obtener los datos del telefono:', error);
         });
+}
+
+async function savePortatilChanges() {
+    const codLaptop = document.getElementById('modal-cod-laptop').value;
+    const marLaptop = document.getElementById('modal-marca-laptop').value;
+    const modLaptop = document.getElementById('modal-mod-laptop').value;
+    const serLaptop = document.getElementById('modal-ser-laptop').value;
+
+    const antvLaptop = document.getElementById('modal-antivirus-laptop').value;
+    const nomAntvLaptop = document.getElementById('modal-nom-antivirus-laptop').value;
+    const verAntvLaptop = document.getElementById('modal-ver-antivirus-laptop').value;
+
+    const proceLaptop = document.getElementById('modal-proce-laptop').value;
+    const veloLaptop = document.getElementById('modal-vel-laptop').value;
+    const ramLaptop = document.getElementById('modal-memoria-laptop').value;
+    const hddLaptop = document.getElementById('modal-hdd-laptop').value;
+    const disOpLaptop = document.getElementById('modal-disp-optico-laptop').value;
+
+    const sisOpeLaptop = document.getElementById('modal-sisOpe-laptop').value;
+    const offLaptop = document.getElementById('modal-off-laptop').value;
+    const estLaptop = document.getElementById('modal-estado-laptop').value;
+
+    const hostLaptop = document.getElementById('modal-host-laptop').value;
+    const obsLaptop = document.getElementById('modal-observacion-laptop').value;
+
+    // Asignar valores a los checkboxes
+    const redLaptop = document.getElementById("modal-red-fija-laptop").checked ? "SI" : "NO";
+    const wifLaptop = document.getElementById("modal-red-laptop").checked ? "SI" : "NO";
+    const bluLaptop = document.getElementById("modal-bluetooth-laptop").checked ? "SI" : "NO";
+    const lecTarLaptop = document.getElementById("modal-lecTarjeta-laptop").checked ? "SI" : "NO";
+
+    const laptopData = {
+        mar_laptop: marLaptop,
+        mod_laptop: modLaptop,
+        ser_laptop: serLaptop,
+        pro_laptop: proceLaptop,
+        vel_laptop: veloLaptop,
+        mem_laptop: ramLaptop,
+        hdd_laptop: hddLaptop,
+        dop_laptop: disOpLaptop,
+        red_laptop: redLaptop,
+        wif_laptop: wifLaptop,
+        blu_laptop: bluLaptop,
+        tar_laptop: lecTarLaptop,
+        so_laptop: sisOpeLaptop,
+        off_laptop: offLaptop,
+        antv_laptop: antvLaptop,
+        nom_antv_laptop: nomAntvLaptop,
+        ver_antv_laptop: verAntvLaptop,
+        nom_hots_laptop: hostLaptop,
+        est_laptop: estLaptop,
+        observacion_laptop: obsLaptop
+    };
+
+    try {
+        const response = await fetch(`http://localhost:3000/api/editPortatiles/${codLaptop}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(laptopData),
+        });
+
+        const data = await response.json();
+        if (data.success) {
+            alert('Laptop actualizada exitosamente');
+            const modal = bootstrap.Modal.getInstance(document.getElementById('editLaptopModal'));
+            modal.hide();
+            location.reload();
+        } else {
+            alert(`Error al actualizar el Laptop: ${data.message}`);
+        }
+    } catch (error) {
+        console.error('Error al enviar la solicitud:', error);
+        alert('Hubo un error al actualizar los datos');
+    }
 }

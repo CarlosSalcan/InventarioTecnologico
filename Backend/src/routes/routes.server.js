@@ -43,6 +43,7 @@ router.put('/teclado/:cod_teclado',componentController.updateTeclado);
 router.put('/cpu/:cod_cpu',componentController.updateCPU);
 router.put('/editImpresoras/:cod_impresora', componentController.updateImpresora);
 router.put('/editTelefonos/:cod_telf', componentController.updateTelefono);
+router.put('/editPortatiles/:cod_laptop', componentController.updatePortatil);
 
 
 module.exports = router;
