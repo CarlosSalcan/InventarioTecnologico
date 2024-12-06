@@ -6,7 +6,7 @@ const inventoryController = {
 
         connection.query(query, (error, results) => {
             if (error) {
-                console.error('Error al obtener los datos del inventario:', error);
+                console.error('Error al obtener los datos del inventario TODOS:', error);
                 return res.status(500).json({ success: false, message: 'Error interno del servidor' });
             }
 
@@ -125,7 +125,7 @@ const inventoryController = {
         connection.query(query, (err, results) => {
             if (err) {
                 console.error('Error al ejecutar la consulta:', err); // Agregar logging
-                return res.status(500).json({ success: false, message: 'Error al obtener datos', error: err });
+                return res.status(500).json({ success: false, message: 'Error al obtener datos ESCRITORIO', error: err });
             }
             return res.status(200).json({ success: true, data: results });
         });
@@ -145,7 +145,7 @@ const inventoryController = {
             if (results.length > 0) {
                 res.status(200).json({ success: true, equipos: results });
             } else {
-                res.status(404).json({ success: false, message: 'No se encontraron equipos de este tipo.' });
+                res.status(404).json({ success: false, message: 'No se encontraron equipos de este tipo.', tipo });
             }
         });
     },

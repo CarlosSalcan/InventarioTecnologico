@@ -14,7 +14,7 @@ async function loadEquipos(tipo, tablaId) {
         }
     } catch (error) {
         console.error('Error al cargar los equipos:', error);
-        alert('Hubo un error al cargar los equipos.');
+        alert('Hubo un error al cargar los equipos TIPO.');
     }
 }
 

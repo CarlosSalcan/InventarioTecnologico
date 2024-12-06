@@ -315,7 +315,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="viewCpuModalLabel">Edición CPU</h5>
+                <h1 class="modal-title" id="viewCpuModalLabel">Edición CPU</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -664,38 +664,44 @@
             <div class="modal-body">
                 <form id="editLaptopForm">
                     <!-- Identificación -->
-                    <p><strong>Información de Identificación:</strong></p>
                     <div class="form-row">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="modal-cod-laptop" readonly
+                            <input type="text" class="form-control is-valid" id="modal-cod-laptop" readonly
                                 placeholder="Código Laptop">
                             <label for="modal-cod-laptop">Código Laptop</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="modal-cod-equipo-laptop" readonly
+                            <input type="text" class="form-control is-valid" id="modal-cod-equipo-laptop" readonly
                                 placeholder="Código Equipo">
                             <label for="modal-cod-equipo-laptop">Código Equipo</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="modal-cod-tics-laptop" readonly
+                            <input type="text" class="form-control is-valid" id="modal-cod-tics-laptop" readonly
                                 placeholder="Código TICS laptop">
                             <label for="modal-cod-tics-laptop">Código TICS Equipo</label>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="modal-nom-usua-laptop" readonly
-                                placeholder="Nombre Usuario">
-                            <label for="modal-nom-usua-laptop">Personal Tics</label>
-                        </div>
+                    </div>
+
+                    <div class="form-row">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="modal-host-laptop" readonly
                                 placeholder="Nombre Usuario">
-                            <label for="modal-host-laptop">Nom Usuario</label>
+                            <label for="modal-host-laptop">Nombre Host</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control is-valid" id="modal-nom-usua-laptop" readonly
+                                placeholder="Nombre Usuario">
+                            <label for="modal-nom-usua-laptop">Personal Tics</label>
                         </div>
                     </div>
 
                     <!-- Detalles del Laptop -->
-                    <p><strong>Especificaciones del Portátil:</strong></p>
+                    <p>Informacion del Portátil:</p>
                     <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-ser-laptop" placeholder="Serie Laptop">
+                            <label for="modal-ser-laptop">Serie Laptop</label>
+                        </div>
                         <div class="form-floating mb-3">
                             <select class="form-select" id="modal-marca-laptop"
                                 aria-label="Floating label select example" placeholder="Marca">
@@ -706,9 +712,51 @@
                             <input type="text" class="form-control" id="modal-mod-laptop" placeholder="Modelo Laptop">
                             <label for="modal-mod-laptop">Modelo Laptop</label>
                         </div>
+                    </div>
+
+                    <div class="form-row">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="modal-ser-laptop" placeholder="Serie Laptop">
-                            <label for="modal-ser-laptop">Serie Laptop</label>
+                            <select class="form-select" id="modal-proce-laptop"
+                                aria-label="Floating label select example" placeholder="Procesador">
+                            </select>
+                            <label for="floatingSelect">Procesador</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="modal-hdd-laptop"
+                                aria-label="Floating label select example" placeholder="Almacenamiento">
+                            </select>
+                            <label for="floatingSelect">Tamao HDD</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="modal-memoria-laptop"
+                                aria-label="Floating label select example" placeholder="Memoria RAM">
+                            </select>
+                            <label for="floatingSelect">Memoria</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="modal-vel-laptop"
+                                placeholder="Velocidad Laptop">
+                            <label for="modal-vel-laptop">Alimentacion</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="modal-disp-optico-laptop"
+                                aria-label="Floating label select example"></select>
+                            <label for="floatingSelect">Dispositivo Óptico</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="modal-sisOpe-laptop"
+                                aria-label="Floating label select example" placeholder="Sistema Operativo">
+                            </select>
+                            <label for="floatingSelect">Sistema Operativo</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="modal-off-laptop"
+                                aria-label="Floating label select example" placeholder="Office">
+                            </select>
+                            <label for="floatingSelect">Office</label>
                         </div>
                     </div>
 
@@ -733,56 +781,6 @@
                             <input type="text" class="form-control" id="modal-ver-antivirus-laptop"
                                 placeholder="Version Antivirus">
                             <label for="modal-ver-antivirus-laptop">Version Antivirus</label>
-                        </div>
-                    </div>
-
-                    <!-- Componentes -->
-                    <p><strong>Componentes:</strong></p>
-                    <div class="form-row">
-                        <div class="form-floating mb-3">
-                            <select class="form-select" id="modal-proce-laptop"
-                                aria-label="Floating label select example" placeholder="Procesador">
-                            </select>
-                            <label for="floatingSelect">Procesador Laptop</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="modal-vel-laptop"
-                                placeholder="Velocidad Laptop">
-                            <label for="modal-vel-laptop">Velocidad Laptop</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <select class="form-select" id="modal-memoria-laptop"
-                                aria-label="Floating label select example" placeholder="Memoria RAM">
-                            </select>
-                            <label for="floatingSelect">Memoria Laptop</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <select class="form-select" id="modal-hdd-laptop"
-                                aria-label="Floating label select example" placeholder="Almacenamiento">
-                            </select>
-                            <label for="floatingSelect">Almacenamiento Laptop</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <select class="form-select" id="modal-disp-optico-laptop"
-                                aria-label="Floating label select example"></select>
-                            <label for="floatingSelect">Dispositivo Óptico</label>
-                        </div>
-                    </div>
-
-                    <!-- Configuración y Estado -->
-                    <p><strong>Configuración y Estado:</strong></p>
-                    <div class="form-row">
-                        <div class="form-floating mb-3">
-                            <select class="form-select" id="modal-sisOpe-laptop"
-                                aria-label="Floating label select example" placeholder="Sistema Operativo">
-                            </select>
-                            <label for="floatingSelect">Sistema Operativo</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <select class="form-select" id="modal-off-laptop"
-                                aria-label="Floating label select example" placeholder="Office">
-                            </select>
-                            <label for="floatingSelect">Office</label>
                         </div>
                         <div class="form-floating mb-3">
                             <select class="form-select" id="modal-estado-laptop"
