@@ -257,3 +257,20 @@ footer span {
 .form-floating textarea::placeholder {
     color: transparent; /* Ocultar el texto placeholder */
 }
+
+/*********************
+    EDIT PARAMETER
+*********************/
+.paramEdit {
+    display: flex;           
+    justify-content: space-between; 
+    width: 100%; 
+    padding: 15px;
+    border-radius: 50px;
+}
+
+.paramContainer {
+    width: 50%;         
+    padding: 10px;          
+    border-top: #333 20px ;  
+}

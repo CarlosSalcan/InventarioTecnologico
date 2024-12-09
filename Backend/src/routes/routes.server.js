@@ -5,6 +5,7 @@ const userController = require('../controllers/user.controller.js');
 const inventoryController = require('../controllers/inventory.controller.js');
 const optionController = require('../controllers/option.controller.js');
 const componentController = require('../controllers/component.controller.js');
+const paramController = require('../controllers/param.controller.js');
 
 // Ruta para el inicio de sesión
 // Ruta para obtener los datos del inventario
@@ -45,5 +46,6 @@ router.put('/editImpresoras/:cod_impresora', componentController.updateImpresora
 router.put('/editTelefonos/:cod_telf', componentController.updateTelefono);
 router.put('/editPortatiles/:cod_laptop', componentController.updatePortatil);
 
+router.get('/parameter/:tabla', paramController.getParameter);
 
 module.exports = router;
