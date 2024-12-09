@@ -45,3 +45,43 @@ async function mostrarParametros(tabla, campoCodigo, campoNombre, campoMostrar) 
         console.error('Error al cargar los parámetros:', error);
     }
 }
+
+// Función para cargar la tabla seleccionada
+function cargarTablaSeleccionada(tabla) {
+    // Limpiar el contenido del contenedor
+    document.getElementById('searchContainer').innerHTML = '';
+
+    // Llamar a la función mostrarParametros según la tabla seleccionada
+    switch (tabla) {
+        case 'param_antivirus':
+            mostrarParametros('param_antivirus', 'cod_antivirus', 'nom_antivirus', 'searchContainer');
+            break;
+        case 'param_condicion':
+            mostrarParametros('param_condicion', 'cod_condicion', 'nom_condicion', 'searchContainer');
+            break;
+        case 'param_estado':
+            mostrarParametros('param_estado', 'cod_estado', 'nom_estado', 'searchContainer');
+            break;
+        case 'param_marcas':
+            mostrarParametros('param_marcas', 'cod_marcas', 'nom_marcas', 'searchContainer');
+            break;
+        case 'param_memoria':
+            mostrarParametros('param_memoria', 'cod_memoria', 'nom_memoria', 'searchContainer');
+            break;
+        case 'param_office':
+            mostrarParametros('param_office', 'cod_office', 'nom_office', 'searchContainer');
+            break;
+        case 'param_piso':
+            mostrarParametros('param_piso', 'cod_piso', 'nom_piso', 'searchContainer');
+            break;
+        case 'param_sis_ope':
+            mostrarParametros('param_sis_ope', 'cod_sis_ope', 'nom_sis_ope', 'searchContainer');
+            break;
+        case 'param_tamano_hdd':
+            mostrarParametros('param_tamano_hdd', 'cod_tam_hdd', 'nom_tam_hdd', 'searchContainer');
+            break;
+        default:
+            document.getElementById('searchContainer').innerHTML = '<p>Seleccione una tabla para mostrar.</p>';
+            break;
+    }
+}
