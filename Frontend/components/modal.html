@@ -825,3 +825,40 @@
         </div>
     </div>
 </div>
+
+<!-- Modal para Editar Parametro -->
+<div class="modal fade" id="editParamModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edicion Parametro</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-row">
+                    <form class="form-floating">
+                        <input type="text" class="form-control is-valid" id="modal-cod-param" readonly>
+                        <label for="modal-cod-param">Cod. Parametro</label>
+                    </form>
+                    <form class="form-floating">
+                        <input type="text" class="form-control is-valid" id="modal-param" readonly>
+                        <label for="modal-param">Nombre Actual</label>
+                    </form>
+                </div>
+
+                <p>Edición:</p>
+                <div class="form-row">
+                    <form class="form-floating me-2">
+                        <input type="email" class="form-control" id="modal-cod-almacen">
+                        <label for="modal-new-name">Nuevo Nombre</label>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="saveChangesParam()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

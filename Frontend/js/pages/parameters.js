@@ -17,7 +17,7 @@ async function mostrarParametros(tabla, campoCodigo, campoNombre, campoMostrar) 
                         <tr>
                             <td>${parametro[campoCodigo]}</td>
                             <td>${parametro[campoNombre]}</td>
-                            <td><button class="edit-btn" onclick="mostrarVentanaEdit('modal2', '${parametro[campoCodigo]}', '${parametro[campoNombre]}', '${tabla}', '${campoNombre}')">
+                            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editParamModal" onclick="openEditModal(${JSON.stringify(parametro)})'">
                                     Editar
                                 </button>
                             </td>
