@@ -174,8 +174,6 @@ footer span {
     background-color: #cfe2f3;              /* Color de fondo al pasar el ratón */
 }
 
-
-
 /*********************
     BTN EDIT
 *********************/
@@ -273,4 +271,17 @@ footer span {
     width: 50%;         
     padding: 10px;          
     border-top: #333 20px ;  
+}
+
+.paramContainer .container-fluid {
+    display: grid;             
+    grid-template-columns: repeat(3, 1fr); /* Divide el espacio en 3 columnas */
+    gap: 10px;                    /* Espacio entre los botones */
+    width: 100%;        
+}
+
+.paramContainer button {
+    width: 100%;               
+    padding: 10px;              
+    box-sizing: border-box;       /* Asegura que el padding no afecte el tamaño total del botón */
 }
