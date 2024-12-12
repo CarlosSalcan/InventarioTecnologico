@@ -8,11 +8,10 @@ const paramController = {
             const tablasPermitidas = [
                 'param_antivirus', 'param_condicion', 'param_dis_opt',
                 'param_estado','param_marcas','param_memoria',
-                'param_num_hdd','param_office','param_piso',
-                'param_procesador','param_puertos','param_servicio',
-                'param_sis_ope','param_tamano_hdd','param_tamano_monitor',
-                'param_tipo_equipo','param_tipo_impresora','param_tipo_monitor',
-                'param_tipo_mt'
+                'param_office','param_piso','param_procesador',
+                'param_puertos','param_servicio','param_sis_ope',
+                'param_tamano_hdd','param_tamano_monitor','param_tipo_equipo',
+                'param_tipo_impresora','param_tipo_monitor','param_tipo_mt'
             ];
     
             if (!tablasPermitidas.includes(tabla)) {

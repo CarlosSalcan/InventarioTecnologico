@@ -71,9 +71,6 @@ function cargarTablaSeleccionada(tabla) {
         case 'param_memoria':
             mostrarParametros('param_memoria', 'cod_memoria', 'nom_memoria', 'searchContainer');
             break;
-        case 'param_num_hdd':
-            mostrarParametros('param_num_hdd', 'cod_n_hdd', 'nom_n_hdd', 'searchContainer');
-            break;
         case 'param_office':
             mostrarParametros('param_office', 'cod_office', 'nom_office', 'searchContainer');
             break;
