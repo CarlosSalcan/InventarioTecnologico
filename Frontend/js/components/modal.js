@@ -14,5 +14,14 @@ fetch('./components/modal.html') // Ruta del componente
             }
         });
 
+        const modal2 = document.getElementById('editParamModal');
+        modal2.addEventListener('hidden.bs.modal', function () {
+            document.body.classList.remove('modal-open');
+            const backdrop = document.querySelector('.modal-backdrop');
+            if (backdrop) {
+                backdrop.remove();
+            }
+        });
+
     })
     .catch(error => console.error('Error al cargar el modal:', error));

@@ -8,8 +8,8 @@ function loadSelectOptions(apiEndpoint, selectId) {
                 select.innerHTML = ''; // Limpiar opciones previas
                 data.data.forEach(item => {
                     const option = document.createElement('option');
-                    option.value = item.cod_piso || item.cod_servicio || item.nom_marcas || item.nom_memoria || item.nom_proce || item.nom_tam_hdd || item.nom_dis_opt || item.nom_sis_ope || item.nom_office || item.nom_antivirus || item.nom_condicion || item.nom_estado || item.nom_tam_mon || item.nom_tmt || item. nom_puerto || item.nom_ti;
-                    option.textContent = item.nom_piso || item.nom_servicio || item.nom_marcas || item.nom_memoria || item.nom_proce || item.nom_tam_hdd || item.nom_dis_opt || item.nom_sis_ope || item.nom_office || item.nom_antivirus || item.nom_condicion || item.nom_estado || item.nom_tam_mon || item.nom_tmt || item. nom_puerto || item.nom_ti;
+                    option.value = item.cod_piso || item.cod_servicio || item.nom_marcas || item.nom_memoria || item.nom_proce || item.nom_tam_hdd || item.nom_dis_opt || item.nom_sis_ope || item.nom_office || item.nom_antivirus || item.nom_condicion || item.nom_estado || item.nom_tam_mon || item.nom_tmt || item.nom_puerto || item.nom_ti;
+                    option.textContent = item.nom_piso || item.nom_servicio || item.nom_marcas || item.nom_memoria || item.nom_proce || item.nom_tam_hdd || item.nom_dis_opt || item.nom_sis_ope || item.nom_office || item.nom_antivirus || item.nom_condicion || item.nom_estado || item.nom_tam_mon || item.nom_tmt || item.nom_puerto || item.nom_ti;
                     select.appendChild(option);
                 });
             } else {
@@ -46,6 +46,28 @@ function openEditModal(item) {
 
     // Mostrar el modal
     const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+    modal.show();
+}
+
+function openEditParamModal(parametro) {
+    // Obtener todas las claves y valores del objeto 'parametro'
+    const keys = Object.keys(parametro);
+    const values = Object.values(parametro);
+
+    // Seleccionar el campo de código y nombre de forma dinámica
+    const inputCodParam = document.getElementById('modal-cod-param');
+    const inputParam = document.getElementById('modal-param');
+
+    // Configurar los valores en los inputs
+    if (keys.length > 0 && inputCodParam) {
+        inputCodParam.value = values[0]; // Primer campo del objeto, por convención asumimos que es el ID
+    }
+    if (keys.length > 1 && inputParam) {
+        inputParam.value = values[1]; // Segundo campo del objeto, asumimos que es el nombre
+    }
+
+    // Abrir el modal (si estás usando Bootstrap)
+    const modal = new bootstrap.Modal(document.getElementById('editParamModal'));
     modal.show();
 }
 

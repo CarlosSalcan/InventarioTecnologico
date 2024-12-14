@@ -13,15 +13,17 @@ async function mostrarParametros(tabla, campoCodigo, campoNombre, campoMostrar) 
             if (parametros.length > 0) {
                 // Generar el HTML para la tabla de parámetros
                 const html = parametros.map((parametro) => {
-                    return `
-                        <tr>
+                    return `<tr>
                             <td>${parametro[campoCodigo]}</td>
                             <td>${parametro[campoNombre]}</td>
-                            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editParamModal" onclick="openEditModal(${JSON.stringify(parametro)})'">
+                            <td>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editParamModal"
+                                    onclick='openEditParamModal(${JSON.stringify(parametro)})'>
                                     Editar
                                 </button>
                             </td>
-                            <td><button class="delete-btn" onclick="eliminarParam('${tabla}', '${campoCodigo}', '${parametro[campoCodigo]}', '${parametro[campoNombre]}')">
+                            <td>
+                                <button class="delete-btn" onclick="eliminarParam('${tabla}', '${campoCodigo}', '${parametro[campoCodigo]}', '${parametro[campoNombre]}')">
                                     Borrar
                                 </button>
                             </td>
