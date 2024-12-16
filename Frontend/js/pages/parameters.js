@@ -1,7 +1,10 @@
+
 async function mostrarParametros(tabla, campoCodigo, campoNombre, campoMostrar) {
     try {
         // Realizar la solicitud fetch al backend para obtener los parámetros
         const response = await fetch(`http://localhost:3000/api/parameter/${tabla}`);
+        document.getElementById('tablaMostrada').textContent = tabla;
+        document.getElementById('campoMostrado').textContent = campoNombre;
 
         // Verificar si la respuesta es exitosa
         const data = await response.json();
