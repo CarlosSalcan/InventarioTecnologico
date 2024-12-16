@@ -863,7 +863,11 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick="saveChangesParam()">Save changes</button>
+                <button type="button" class="btn btn-primary" onclick="modificarNombre(
+                    document.getElementById('tablaMostrada').textContent.trim(), 
+                    document.getElementById('campoMostrado').textContent.trim(), 
+                    document.getElementById('modal-param').value.trim(),
+                    document.getElementById('modal-new-name').value.trim())">Save changes</button>
             </div>
         </div>
     </div>

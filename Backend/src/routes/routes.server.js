@@ -47,5 +47,6 @@ router.put('/editTelefonos/:cod_telf', componentController.updateTelefono);
 router.put('/editPortatiles/:cod_laptop', componentController.updatePortatil);
 
 router.get('/parameter/:tabla', paramController.getParameter);
+router.put('/modificarNombre/:tabla/:campo/:valor/:nuevoNombre', paramController.updateParameter);
 
 module.exports = router;

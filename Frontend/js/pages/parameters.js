@@ -117,3 +117,34 @@ function cargarTablaSeleccionada(tabla) {
             break;
     }
 }
+
+async function modificarNombre(tabla, campo, valor, nuevoNombre) {
+    console.log("Tabla:", tabla);
+    console.log("Campo:", campo);
+    console.log("Valor:", valor); // Asegúrate de que este valor no está vacío
+    console.log("Nuevo Nombre:", nuevoNombre);
+    console.log("Campo modal-param antes de abrir el modal:", document.getElementById('modal-param').value);
+
+
+    try {
+        const response = await fetch(`http://localhost:3000/api/modificarNombre/${tabla}/${campo}/${valor}/${nuevoNombre}`, {
+            method: 'PUT'
+        });
+        const data = await response.json();
+
+        if (data.success) {
+            console.log('Nombre de PARAMETRO modificado Correctamente');
+        } else {
+            console.error('Error al modificar el nombre del registro:', data.message);
+            if (data.message === 'El nombre ingresado ya existe en la tabla') {
+                alert('El nombre ingresado YA EXISTE en la tabla');
+                window.location.reload();
+            }
+        }
+    } catch (error) {
+        console.error('Error al editar el nombre del parámetro:', error);
+    }
+}
+
+
+
