@@ -119,13 +119,6 @@ function cargarTablaSeleccionada(tabla) {
 }
 
 async function modificarNombre(tabla, campo, valor, nuevoNombre) {
-    console.log("Tabla:", tabla);
-    console.log("Campo:", campo);
-    console.log("Valor:", valor); // Asegúrate de que este valor no está vacío
-    console.log("Nuevo Nombre:", nuevoNombre);
-    console.log("Campo modal-param antes de abrir el modal:", document.getElementById('modal-param').value);
-
-
     try {
         const response = await fetch(`http://localhost:3000/api/modificarNombre/${tabla}/${campo}/${valor}/${nuevoNombre}`, {
             method: 'PUT'
