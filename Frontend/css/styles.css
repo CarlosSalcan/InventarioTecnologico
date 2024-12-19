@@ -285,3 +285,20 @@ footer span {
     padding: 10px;              
     box-sizing: border-box;       /* Asegura que el padding no afecte el tamaño total del botón */
 }
+
+/*********************
+    NEW EQUIPMENT
+*********************/
+
+.registration-cards {
+    display: grid;
+    padding: 10px;
+    grid-gap: 10px; /* Espacio entre las tarjetas */
+    margin: 90px 0 0 255px;
+    background-color: #0b0b4e;
+    border-radius: 20px;
+}
+
+.card {
+    margin: 20px;
+}
