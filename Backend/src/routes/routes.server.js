@@ -6,6 +6,7 @@ const inventoryController = require('../controllers/inventory.controller.js');
 const optionController = require('../controllers/option.controller.js');
 const componentController = require('../controllers/component.controller.js');
 const paramController = require('../controllers/param.controller.js');
+const registerControllerr = require('../controllers/register.controller.js');
 
 // Ruta para el inicio de sesión
 // Ruta para obtener los datos del inventario
@@ -48,5 +49,8 @@ router.put('/editPortatiles/:cod_laptop', componentController.updatePortatil);
 
 router.get('/parameter/:tabla', paramController.getParameter);
 router.put('/modificarNombre/:tabla/:campo/:valor/:nuevoNombre', paramController.updateParameter);
+
+// Ruta para obtener el último código de un equipo por tipo
+router.get('/lastCode/:type', registerControllerr.getLastEquipmentCode);
 
 module.exports = router;
