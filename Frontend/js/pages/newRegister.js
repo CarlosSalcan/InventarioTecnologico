@@ -1,5 +1,19 @@
 // Función para cargar el último código en el modal
 async function openNewRegisterModal(type) {
+    const loggedUser = localStorage.getItem('loggedUser'); // Recuperar el usuario del Local Storage
+
+    if (loggedUser) {
+        console.log('Usuario logueado:', loggedUser);
+        const inputField = document.getElementById('modal-newR-Tics');
+        if (inputField) {
+            inputField.value = loggedUser; // Asignar el usuario al input
+        } else {
+            console.error('El campo modal-newR-Tics no existe en el DOM.');
+        }
+    } else {
+        console.error('No se encontró un usuario logueado en Local Storage.');
+    }
+
     fetch(`http://localhost:3000/api/lastCode/${type}`)
         .then((response) => response.json())
         .then((data) => {
@@ -20,7 +34,7 @@ async function openNewRegisterModal(type) {
                 loadSelectOptions('sisOpe', 'modal-newR-SisOpe');
                 loadSelectOptions('office', 'modal-newR-Off');
                 loadSelectOptions('nomAntivirus', 'modal-newR-NomAnt');
-                    loadSelectOptions('estado', 'modal-newR-Estado');
+                loadSelectOptions('estado', 'modal-newR-Estado');
             } else {
                 // Si no se encuentra el código, mostrar un mensaje
                 document.getElementById('modal-lastCode').value = `Sin registros para ${type}`;

@@ -1,6 +1,4 @@
-// LOGIN
-// TODO: Tipo de usuario
-document.getElementById('loginForm').addEventListener('submit', async function(event) {
+document.getElementById('loginForm').addEventListener('submit', async function (event) {
     event.preventDefault(); // Evitar el envío del formulario por defecto
 
     const username = document.getElementById('username').value;
@@ -18,12 +16,15 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         const data = await response.json();
 
         if (data.success) {
-            window.location.href = 'inventario.html';
+            console.log('Usuario logueado:', data.username); // Verificar que el usuario sea correcto
+            localStorage.setItem('loggedUser', data.username); // Guardar el usuario logueado
+            window.location.href = 'registro.html'; // Redirigir
         } else {
-            alert(data.message); 
+            alert(data.message);
         }
     } catch (error) {
         console.error('Error al iniciar sesión:', error);
         alert('Error en el servidor. Inténtalo de nuevo más tarde.');
     }
 });
+
