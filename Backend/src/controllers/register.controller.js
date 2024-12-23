@@ -10,12 +10,16 @@ const registerController = {
                 return res.status(500).json({ success: false, message: 'Error en la base de datos' });
             }
 
-            // Asegúrate de que 'result' contiene datos y extrae el cod_almacen correctamente
             if (result.length > 0) {
                 const lastCode = result[0].cod_almacen; // Extraer el valor del primer resultado
-                return res.status(200).json({ success: true, lastCode: lastCode });
+                const parts = lastCode.split('-');
+                const number = parseInt(parts[2]) + 1; // Incrementar el número final
+                const newCode = `${parts[0]}-${parts[1]}-${number.toString().padStart(4, '0')}`;
+                return res.status(200).json({ success: true, newCode: newCode });
             } else {
-                return res.status(200).json({ success: false, message: `No se encontró ningún código para el tipo ${type}.` });
+                // Si no hay registros previos, generar el primer código
+                const newCode = `CZ9TICS-${type}-0001`;
+                return res.status(200).json({ success: true, newCode: newCode });
             }
         });
     }

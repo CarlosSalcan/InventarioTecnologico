@@ -5,9 +5,9 @@ async function openNewRegisterModal(type) {
         .then((data) => {
             console.log('Respuesta del servidor:', data); // Verifica la estructura de la respuesta
 
-            if (data.success && data.lastCode) {
-                // Si el código está disponible, asignarlo al input
-                document.getElementById('modal-lastCode').value = data.lastCode;
+            if (data.success && data.newCode) {
+                // Asignar el nuevo código al input
+                document.getElementById('modal-lastCode').value = data.newCode;
 
                 // Load Options SELECT-EQUIPO
                 loadSelectOptions('servicios', 'modal-newR-Ubic');
@@ -24,11 +24,9 @@ async function openNewRegisterModal(type) {
 
     const modal = new bootstrap.Modal(document.getElementById('newLaptopModal'));
     modal.show();
-
-
 }
 
-// Función para obtener la fecha actual en formato YYYY-MM-DD
+
 function setCurrentDate() {
     const today = new Date();
 
