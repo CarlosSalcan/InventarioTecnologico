@@ -302,3 +302,8 @@ footer span {
 .card {
     margin: 20px;
 }
+
+.regsiterNewwEquip{
+    display: grid;               /* Activar Grid */
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+}

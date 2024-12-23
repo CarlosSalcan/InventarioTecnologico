@@ -9,17 +9,26 @@ async function openNewRegisterModal(type) {
                 // Asignar el nuevo código al input
                 document.getElementById('modal-lastCode').value = data.newCode;
 
-                // Load Options SELECT-EQUIPO
+                // Cargar opciones de los SELECTs
                 loadSelectOptions('servicios', 'modal-newR-Ubic');
                 loadSelectOptions('pisos', 'modal-newR-Piso');
+                loadSelectOptions('marcas', 'modal-newR-Marca');
+                loadSelectOptions('procesador', 'modal-newR-Proce');
+                loadSelectOptions('memoria', 'modal-newR-Ram');
+                loadSelectOptions('tamHdd', 'modal-newR-Hdd');
+                loadSelectOptions('disOpt', 'modal-newR-DisOpt');
+                loadSelectOptions('sisOpe', 'modal-newR-SisOpe');
+                loadSelectOptions('office', 'modal-newR-Off');
+                loadSelectOptions('nomAntivirus', 'modal-newR-NomAnt');
+                    loadSelectOptions('estado', 'modal-newR-Estado');
             } else {
                 // Si no se encuentra el código, mostrar un mensaje
-                document.getElementById('lastCodeInput').value = `Sin registros para ${type}`;
+                document.getElementById('modal-lastCode').value = `Sin registros para ${type}`;
             }
         })
         .catch((error) => {
-            console.error('Error al obtener el último código:', error);
-            document.getElementById('lastCodeInput').value = 'Error al cargar código';
+            console.error('Error al obtener el código:', error);
+            document.getElementById('modal-lastCode').value = 'Error al cargar código';
         });
 
     const modal = new bootstrap.Modal(document.getElementById('newLaptopModal'));
