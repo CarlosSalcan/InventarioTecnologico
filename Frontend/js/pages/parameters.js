@@ -6,6 +6,7 @@ async function mostrarParametros(tabla, campoCodigo, campoNombre, campoMostrar) 
         document.getElementById('tablaMostrada').textContent = tabla;
         document.getElementById('campoMostrado').textContent = campoNombre;
 
+
         // Verificar si la respuesta es exitosa
         const data = await response.json();
 

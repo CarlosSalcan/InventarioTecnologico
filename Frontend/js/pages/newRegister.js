@@ -49,7 +49,6 @@ async function openNewRegisterModal(type) {
     modal.show();
 }
 
-
 function setCurrentDate() {
     const today = new Date();
 
@@ -65,3 +64,48 @@ function setCurrentDate() {
     document.getElementById('modal-NewDate').value = currentDate;
 }
 
+async function guardarEquipo() {
+    // Obtener los valores del formulario
+    const cod_equipo = document.getElementById("modal-lastCode").value;
+    const fec_reg = document.getElementById("modal-NewDate").value;
+    const cod_almacen = document.getElementById("modal-newR-Tics").value;
+    const tip_equipo = "Portatil"; // Campo fijo en el formulario
+    const piso_ubic = document.getElementById("modal-newR-Piso").value;
+    const serv_depar = document.getElementById("modal-newR-Ubic").value;
+    const nom_custodio = document.getElementById("modal-newR-Custodio").value;
+    const nom_usua = document.getElementById("modal-newR-Host").value;
+
+    // Crear el objeto con los datos
+    const equipoData = {
+        cod_equipo,
+        fec_reg,
+        cod_almacen,
+        tip_equipo,
+        piso_ubic,
+        serv_depar,
+        nom_custodio,
+        nom_usua,
+    };
+
+    try {
+        // Realizar la petición al backend
+        const response = await fetch('/saveNewEquipo', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(equipoData),
+        });
+
+        // Manejar la respuesta
+        if (response.ok) {
+            alert("Equipo guardado correctamente.");
+        } else {
+            const error = await response.json();
+            alert(`Error al guardar: ${error.message}`);
+        }
+    } catch (error) {
+        console.error("Error al guardar el equipo:", error);
+        alert("Ocurrió un error al intentar guardar el equipo.");
+    }
+}

@@ -21,6 +21,11 @@ async function loadEquipos(tipo, tablaId) {
 // Función para mostrar los equipos en la tabla específica
 function showEquipos(equipos, tablaId) {
     const tabla = document.getElementById(tablaId);
+    if (!tabla) {
+        console.error(`No se encontró la tabla con ID '${tablaId}'`);
+        return;
+    }
+    
     const tbody = tabla.querySelector('tbody');
     tbody.innerHTML = ''; // Limpiar cualquier contenido previo en la tabla
 
@@ -93,8 +98,15 @@ function showEquipos(equipos, tablaId) {
     loadSelectOptions('office', 'modal-off-laptop');
 }
 
-
 // Llamar a la función para cargar los equipos de tipo "Impresora" en la tabla correspondiente
-loadEquipos('Impresora', 'impresora-table');
-loadEquipos('Teléfono', 'telefono-table');
-loadEquipos('Portatil', 'portatil-table');
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('impresora-table')) {
+        loadEquipos('Impresora', 'impresora-table');
+    }
+    if (document.getElementById('telefono-table')) {
+        loadEquipos('Teléfono', 'telefono-table');
+    }
+    if (document.getElementById('portatil-table')) {
+        loadEquipos('Portatil', 'portatil-table');
+    }
+});
