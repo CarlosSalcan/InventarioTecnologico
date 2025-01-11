@@ -33,12 +33,12 @@ function openEditModal(item) {
     const modalNomUsua = document.getElementById('modal-nom-usua');
 
     // Cargar los datos del equipo en el modal
-    modalCodEquipo.value = item.cod_equipo;
+    modalCodEquipo.value = item.cod_equipo_general;
     modalFecReg.value = new Date(item.fec_reg).toISOString().split('T')[0];
     modalCodAlmacen.value = item.cod_almacen;
     modalTipEquipo.value = item.tip_equipo;
     modalNomCustodio.value = item.nom_custodio;
-    modalNomUsua.value = item.nom_usua;
+    modalNomUsua.value = item.nom_usua_equipo;
 
     // Establecer el piso y servicio seleccionados en los select
     setSelectedOption(modalPisoUbic, item.piso_ubic);
@@ -80,6 +80,14 @@ function setSelectedOption(selectElement, valueToSelect) {
             break;
         }
     }
+}
+
+// Función genérica para aplicar límite de caracteres a varios inputs
+function setCharacterLimit(selector, limit) {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(element => {
+        element.maxLength = limit;
+    });
 }
 
 // Funcion para enviar cambios en campos del modal
@@ -124,3 +132,8 @@ function saveChanges() {
             console.error('Error al guardar los cambios:', error);
         });
 }
+
+// Llamadas a la función para diferentes inputs
+setCharacterLimit('#modal-ser-cpu', 20);  // Para el input con id "input1"
+setCharacterLimit('#modal-ser-monitor', 20);  // Para el input con id "input2"
+setCharacterLimit('#modal-ser-mouse', 20);  // Para el input con id "input3"

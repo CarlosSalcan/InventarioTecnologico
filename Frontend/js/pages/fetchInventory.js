@@ -29,7 +29,7 @@ function populateTable(equipos) {
             <td>${equipo.piso_ubic}</td>
             <td>${equipo.serv_depar}</td>
             <td>${equipo.nom_custodio}</td>
-            <td>${equipo.nom_usua}</td>
+            <td>${equipo.nom_usua_equipo}</td>
             <td>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick='openEditModal(${JSON.stringify(equipo)})'> E </button>
             </td>`;
@@ -63,8 +63,8 @@ function populateTable(equipos) {
                                     <tbody>
                                         <tr>
                                             ${equipo.cod_cpu ? `
-                                                <td>${equipo.cod_cpu}</td>
-                                                <td>${equipo.cod_tics_cpu}</td>
+                                                <td>${equipo.cod_cpu_equipo}</td>
+                                                <td>${equipo.nom_usuario_cpu}</td>
                                                 <td>${equipo.mar_cpu}</td>
                                                 <td>${equipo.procesador}</td>
                                                 <td>${equipo.memoria}</td>

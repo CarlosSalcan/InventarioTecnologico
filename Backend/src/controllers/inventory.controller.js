@@ -59,7 +59,7 @@ const inventoryController = {
                 c.nom_antivirus, 
                 c.ver_antivirus, 
                 c.nom_hots, 
-                c.nom_usuario AS nom_usuario_cpu, 
+                c.nom_usua AS nom_usuario_cpu, 
                 c.ip_equipo, 
                 c.con_cpu, 
                 c.est_cpu, 
