@@ -874,7 +874,7 @@
 </div>
 
 <!-- Modal para Ingresar Portatil -->
-<div class="modal" id="newLaptopModal" tabindex="-1">
+<div class="modal" id="newLapModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -890,7 +890,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Tipo</span>
-                        <input type="text" class="form-control" placeholder="Portatil" aria-label="Username"
+                        <input type="text" class="form-control" value="Portatil" aria-label="Username"
                             aria-describedby="basic-addon2" readonly>
                     </div>
                     <div class="input-group mb-3">
@@ -977,7 +977,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">GHz</span>
-                        <input type="text" class="form-control" id="modal-newR-Serie" aria-label="Velocidad"
+                        <input type="text" class="form-control" id="modal-newR-Ghz" aria-label="Velocidad"
                             aria-describedby="basic-addon1" placeholder="2.30 GHz">
                     </div>
                     <div class="input-group mb-3">
@@ -1033,13 +1033,18 @@
 
                 <div class="input-group">
                     <span class="input-group-text">Observaciones</span>
-                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                    <textarea class="form-control" id="modal-newR-Obs" aria-label="With textarea"></textarea>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="saveChangesButton">Save changes</button>
+                <button type="button" class="btn btn-primary" id="saveChangesButton" onclick="guardarEquipo()">Save
+                    changes</button>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal" id="newDeskpModal" tabindex="-1"></div>
+<div class="modal" id="newTelModal" tabindex="-1"></div>
+<div class="modal" id="newImpModal" tabindex="-1"></div>

@@ -27,7 +27,6 @@ const registerController = {
     saveEquipo: async (req, res) => {
         try {
             const {
-                cod_equipo,
                 fec_reg,
                 cod_almacen,
                 tip_equipo,
@@ -36,10 +35,9 @@ const registerController = {
                 nom_custodio,
                 nom_usua
             } = req.body;
-    
+
             const query = `
                 INSERT INTO equipo (
-                    cod_equipo,
                     fec_reg,
                     cod_almacen,
                     tip_equipo,
@@ -47,11 +45,10 @@ const registerController = {
                     serv_depar,
                     nom_custodio,
                     nom_usua
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, ?)
             `;
-    
+
             connection.query(query, [
-                cod_equipo,
                 fec_reg,
                 cod_almacen,
                 tip_equipo,
@@ -64,12 +61,46 @@ const registerController = {
                     console.error('Error al insertar los datos:', error);
                     return res.status(500).json({ success: false, message: 'Error al guardar los datos' });
                 }
-    
+
                 res.status(200).json({ success: true, message: 'Datos guardados exitosamente' });
             });
         } catch (error) {
             console.error('Error interno del servidor:', error);
             res.status(500).json({ success: false, message: 'Error interno del servidor' });
+        }
+    },
+
+    savePortatil: async (req, res) => {
+        try {
+            const {
+                cod_tics, marca, modelo, serie, procesador, velocidad,
+                memoria, hdd, dis_optico, red_fija, wifi, bluetooth, lector_tarjetas,
+                sistema_operativo, office, antivirus, nom_antivirus, version_antivirus,
+                host, custodio, estado, observaciones, cod_equipo
+            } = req.body;
+
+            // Query para insertar en la base de datos
+            const query = `
+                INSERT INTO laptop (
+                cod_tics_laptop, mar_laptop, mod_laptop, ser_laptop, pro_laptop,
+                vel_laptop, mem_laptop, hdd_laptop, dop_laptop, red_laptop, wif_laptop,
+                blu_laptop, tar_laptop, so_laptop, off_laptop, antv_laptop, nom_antv_laptop,
+                ver_antv_laptop, nom_hots_laptop, nom_usuario_laptop, est_laptop, observacion_laptop, nom_usua
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            `;
+
+            // Ejecutar la consulta
+            await connection.query(query, [
+                cod_tics, marca, modelo, serie, procesador, velocidad,
+                memoria, hdd, dis_optico, red_fija, wifi, bluetooth, lector_tarjetas,
+                sistema_operativo, office, antivirus, nom_antivirus, version_antivirus,
+                host, custodio, estado, observaciones, cod_equipo
+            ]);
+
+            res.status(201).json({ message: "Equipo guardado exitosamente" });
+        } catch (error) {
+            console.error("Error al guardar el equipo:", error);
+            res.status(500).json({ error: "Hubo un problema al guardar el equipo" });
         }
     }
 }

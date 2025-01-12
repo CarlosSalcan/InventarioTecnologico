@@ -1,5 +1,6 @@
 // Función para cargar el último código en el modal
-async function openNewRegisterModal(type) {
+async function openNewRegisterModal(type, modalId) {
+
     const loggedUser = localStorage.getItem('loggedUser'); // Recuperar el usuario del Local Storage
 
     if (loggedUser) {
@@ -14,38 +15,38 @@ async function openNewRegisterModal(type) {
         console.error('No se encontró un usuario logueado en Local Storage.');
     }
 
-    fetch(`http://localhost:3000/api/lastCode/${type}`)
-        .then((response) => response.json())
-        .then((data) => {
-            console.log('Respuesta del servidor:', data); // Verifica la estructura de la respuesta
+    try {
+        const response = await fetch(`http://localhost:3000/api/lastCode/${type}`);
+        const data = await response.json();
+        console.log('Respuesta del servidor:', data); // Verifica la estructura de la respuesta
 
-            if (data.success && data.newCode) {
-                // Asignar el nuevo código al input
-                document.getElementById('modal-lastCode').value = data.newCode;
+        if (data.success && data.newCode) {
+            // Asignar el nuevo código al input
+            document.getElementById('modal-lastCode').value = data.newCode;
 
-                // Cargar opciones de los SELECTs
-                loadSelectOptions('servicios', 'modal-newR-Ubic');
-                loadSelectOptions('pisos', 'modal-newR-Piso');
-                loadSelectOptions('marcas', 'modal-newR-Marca');
-                loadSelectOptions('procesador', 'modal-newR-Proce');
-                loadSelectOptions('memoria', 'modal-newR-Ram');
-                loadSelectOptions('tamHdd', 'modal-newR-Hdd');
-                loadSelectOptions('disOpt', 'modal-newR-DisOpt');
-                loadSelectOptions('sisOpe', 'modal-newR-SisOpe');
-                loadSelectOptions('office', 'modal-newR-Off');
-                loadSelectOptions('nomAntivirus', 'modal-newR-NomAnt');
-                loadSelectOptions('estado', 'modal-newR-Estado');
-            } else {
-                // Si no se encuentra el código, mostrar un mensaje
-                document.getElementById('modal-lastCode').value = `Sin registros para ${type}`;
-            }
-        })
-        .catch((error) => {
-            console.error('Error al obtener el código:', error);
-            document.getElementById('modal-lastCode').value = 'Error al cargar código';
-        });
+            // Cargar opciones de los SELECTs
+            loadSelectOptions('servicios', 'modal-newR-Ubic');
+            loadSelectOptions('pisos', 'modal-newR-Piso');
+            loadSelectOptions('marcas', 'modal-newR-Marca');
+            loadSelectOptions('procesador', 'modal-newR-Proce');
+            loadSelectOptions('memoria', 'modal-newR-Ram');
+            loadSelectOptions('tamHdd', 'modal-newR-Hdd');
+            loadSelectOptions('disOpt', 'modal-newR-DisOpt');
+            loadSelectOptions('sisOpe', 'modal-newR-SisOpe');
+            loadSelectOptions('office', 'modal-newR-Off');
+            loadSelectOptions('nomAntivirus', 'modal-newR-NomAnt');
+            loadSelectOptions('estado', 'modal-newR-Estado');
+        } else {
+            // Si no se encuentra el código, mostrar un mensaje
+            document.getElementById('modal-lastCode').value = `Sin registros para ${type}`;
+        }
+    } catch (error) {
+        console.error('Error al obtener el código:', error);
+        document.getElementById('modal-lastCode').value = 'Error al cargar código';
+    }
 
-    const modal = new bootstrap.Modal(document.getElementById('newLaptopModal'));
+    // Mostrar el modal correspondiente
+    const modal = new bootstrap.Modal(document.getElementById(modalId));
     modal.show();
 }
 
@@ -66,30 +67,27 @@ function setCurrentDate() {
 
 async function guardarEquipo() {
     // Obtener los valores del formulario
-    const cod_equipo = document.getElementById("modal-lastCode").value;
     const fec_reg = document.getElementById("modal-NewDate").value;
-    const cod_almacen = document.getElementById("modal-newR-Tics").value;
-    const tip_equipo = "Portatil"; // Campo fijo en el formulario
-    const piso_ubic = document.getElementById("modal-newR-Piso").value;
-    const serv_depar = document.getElementById("modal-newR-Ubic").value;
+    const cod_almacen = document.getElementById("modal-lastCode").value;
+    const tip_equipo = document.querySelector('input[aria-label="Username"]').value;
+    const piso_ubic = document.getElementById("modal-newR-Piso").selectedOptions[0].text;
+    const serv_depar = document.getElementById("modal-newR-Ubic").selectedOptions[0].text;
     const nom_custodio = document.getElementById("modal-newR-Custodio").value;
-    const nom_usua = document.getElementById("modal-newR-Host").value;
+    const nom_usua = document.getElementById("modal-newR-Tics").value;
 
     // Crear el objeto con los datos
     const equipoData = {
-        cod_equipo,
         fec_reg,
         cod_almacen,
         tip_equipo,
         piso_ubic,
         serv_depar,
         nom_custodio,
-        nom_usua,
+        nom_usua
     };
 
     try {
-        // Realizar la petición al backend
-        const response = await fetch('/saveNewEquipo', {
+        const response = await fetch('http://localhost:3000/api/saveNewEquipo', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -97,15 +95,17 @@ async function guardarEquipo() {
             body: JSON.stringify(equipoData),
         });
 
-        // Manejar la respuesta
+        const result = await response.json();
+        console.log(result); // Revisa la respuesta del backend.
+
         if (response.ok) {
             alert("Equipo guardado correctamente.");
         } else {
-            const error = await response.json();
-            alert(`Error al guardar: ${error.message}`);
+            alert(`Error al guardar: ${result.message}`);
         }
     } catch (error) {
         console.error("Error al guardar el equipo:", error);
         alert("Ocurrió un error al intentar guardar el equipo.");
     }
+
 }

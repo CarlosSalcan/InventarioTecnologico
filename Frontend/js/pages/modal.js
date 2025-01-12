@@ -33,7 +33,7 @@ function openEditModal(item) {
     const modalNomUsua = document.getElementById('modal-nom-usua');
 
     // Cargar los datos del equipo en el modal
-    modalCodEquipo.value = item.cod_equipo_general;
+    modalCodEquipo.value = item.cod_equipo_general ;
     modalFecReg.value = new Date(item.fec_reg).toISOString().split('T')[0];
     modalCodAlmacen.value = item.cod_almacen;
     modalTipEquipo.value = item.tip_equipo;
