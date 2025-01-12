@@ -133,6 +133,20 @@ function saveChanges() {
         });
 }
 
+function switchModal(currentModalId, nextModalId) {
+    const currentModal = new bootstrap.Modal(document.getElementById(currentModalId));
+    const nextModal = new bootstrap.Modal(document.getElementById(nextModalId));
+
+    // Cierra el modal actual
+    currentModal.hide();
+
+    // Abre el siguiente modal después de un pequeño retraso
+    setTimeout(() => {
+        nextModal.show();
+    }, 300); // Puedes ajustar este tiempo si es necesario
+}
+
+
 // Llamadas a la función para diferentes inputs
 setCharacterLimit('#modal-ser-cpu', 20);  // Para el input con id "input1"
 setCharacterLimit('#modal-ser-monitor', 20);  // Para el input con id "input2"

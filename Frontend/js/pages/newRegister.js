@@ -1,6 +1,5 @@
 // Función para cargar el último código en el modal
 async function openNewRegisterModal(type, modalId) {
-
     const loggedUser = localStorage.getItem('loggedUser'); // Recuperar el usuario del Local Storage
 
     if (loggedUser) {
@@ -65,7 +64,7 @@ function setCurrentDate() {
     document.getElementById('modal-NewDate').value = currentDate;
 }
 
-async function guardarEquipo() {
+async function guardarEquipo(currentModalId, nextModalId) {
     // Obtener los valores del formulario
     const fec_reg = document.getElementById("modal-NewDate").value;
     const cod_almacen = document.getElementById("modal-lastCode").value;
@@ -100,6 +99,7 @@ async function guardarEquipo() {
 
         if (response.ok) {
             alert("Equipo guardado correctamente.");
+            switchModal(currentModalId, nextModalId);
         } else {
             alert(`Error al guardar: ${result.message}`);
         }
@@ -107,5 +107,4 @@ async function guardarEquipo() {
         console.error("Error al guardar el equipo:", error);
         alert("Ocurrió un error al intentar guardar el equipo.");
     }
-
 }
