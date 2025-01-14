@@ -7,7 +7,7 @@ const registerController = {
 
         connection.query(query, (err, result) => {
             if (err) {
-                return res.status(500).json({ success: false, message: 'Error en la base de datos'});
+                return res.status(500).json({ success: false, message: 'Error en la base de datos' });
             }
 
             if (result.length > 0) {
@@ -73,34 +73,97 @@ const registerController = {
     savePortatil: async (req, res) => {
         try {
             const {
-                cod_tics, marca, modelo, serie, procesador, velocidad,
-                memoria, hdd, dis_optico, red_fija, wifi, bluetooth, lector_tarjetas,
-                sistema_operativo, office, antivirus, nom_antivirus, version_antivirus,
-                host, custodio, estado, observaciones, cod_equipo
+                cod_tics,
+                marca,
+                modelo,
+                serie,
+                procesador,
+                velocidad,
+                memoria,
+                hdd,
+                dis_optico,
+                red_fija,
+                wifi,
+                bluetooth,
+                lector_tarjetas,
+                sistema_operativo,
+                office,
+                antivirus,
+                nom_antivirus,
+                version_antivirus,
+                host,
+                custodio,
+                estado,
+                observaciones,
+                personal
             } = req.body;
 
-            // Query para insertar en la base de datos
+            // Aquí puedes mostrar en consola los valores recibidos para depurar si es necesario
+            console.log(req.body);
+            // Query para insertar en la base de daos
             const query = `
                 INSERT INTO laptop (
-                cod_tics_laptop, mar_laptop, mod_laptop, ser_laptop, pro_laptop,
-                vel_laptop, mem_laptop, hdd_laptop, dop_laptop, red_laptop, wif_laptop,
-                blu_laptop, tar_laptop, so_laptop, off_laptop, antv_laptop, nom_antv_laptop,
-                ver_antv_laptop, nom_hots_laptop, nom_usuario_laptop, est_laptop, observacion_laptop, nom_usua
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            `;
+	                cod_tics_laptop, 
+	                mar_laptop, 
+	                mod_laptop, 
+	                ser_laptop, 
+	                pro_laptop, 
+	                vel_laptop, 
+	                mem_laptop, 
+	                hdd_laptop, 
+	                dop_laptop, 
+	                red_laptop, 
+	                wif_laptop, 
+	                blu_laptop, 
+	                tar_laptop, 
+	                so_laptop, 
+	                off_laptop, 
+	                antv_laptop, 
+	                nom_antv_laptop, 
+	                ver_antv_laptop, 
+	                nom_hots_laptop, 
+	                nom_usuario_laptop, 
+	                est_laptop, 
+	                observacion_laptop, 
+	                nom_usua
+                ) VALUES (
+                    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
-            // Ejecutar la consulta
-            await connection.query(query, [
-                cod_tics, marca, modelo, serie, procesador, velocidad,
-                memoria, hdd, dis_optico, red_fija, wifi, bluetooth, lector_tarjetas,
-                sistema_operativo, office, antivirus, nom_antivirus, version_antivirus,
-                host, custodio, estado, observaciones, cod_equipo
-            ]);
+            connection.query(query, [
+                cod_tics,
+                marca,
+                modelo,
+                serie,
+                procesador,
+                velocidad,
+                memoria,
+                hdd,
+                dis_optico,
+                red_fija,
+                wifi,
+                bluetooth,
+                lector_tarjetas,
+                sistema_operativo,
+                office,
+                antivirus,
+                nom_antivirus,
+                version_antivirus,
+                host,
+                custodio,
+                estado,
+                observaciones,
+                personal
+            ], (error, results) => {
+                if (error) {
+                    console.error('Error al insertar los datos:', error);
+                    return res.status(500).json({ success: false, message: 'Error al guardar los datos PTL' });
+                }
 
-            res.status(201).json({ message: "Equipo guardado exitosamente" });
+                res.status(200).json({ success: true, message: 'Datos guardados exitosamente PTL' });
+            });
         } catch (error) {
             console.error("Error al guardar el equipo:", error);
-            res.status(500).json({ error: "Hubo un problema al guardar el equipo" });
+            res.status(500).json({ error: 'Hubo un error al guardar el equipo' });
         }
     }
 }

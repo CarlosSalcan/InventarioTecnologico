@@ -924,7 +924,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" id="saveChangesButton"
-                    onclick="guardarSwitchEquipo('newEquipModal', 'newLapModal'), setCurrentDate('modal-NewDateP'), loadinfo('LAP'), copySelectValues('modal-newR-Ubic', 'modal-newR-UbicP', 'modal-newR-Piso', 'modal-newR-PisoP')">Save
+                    onclick="guardarEquipo(),loadinfo() ">Save
                     changes</button>
             </div>
         </div>
@@ -975,18 +975,6 @@
 
                 <hr>
                 <p>Informacion de Equipo:</p>
-                <div class="form-row">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Piso</span>
-                        <input type="text" class="form-control" id="modal-newR-PisoP" aria-label="modelo"
-                            aria-describedby="basic-addon1" placeholder="N4112"readonly>
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Serv/Depa</span>
-                        <input type="text" class="form-control" id="modal-newR-UbicP" aria-label="modelo"
-                            aria-describedby="basic-addon1" placeholder="N4112"readonly>
-                    </div>
-                </div>
                 <div class="form-row">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Modelo</span>
@@ -1096,7 +1084,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="saveChangesButton" onclick="guardarEquipo()">Save
+                <button type="button" class="btn btn-primary" id="saveChangesButton" onclick="newPortatil()">Save
                     changes</button>
             </div>
         </div>

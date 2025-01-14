@@ -53,7 +53,6 @@ function setLoggedUser(inputId) {
     }
 }
 
-
 function setCurrentDate(inputId) {
     const today = new Date();
 
@@ -69,8 +68,7 @@ function setCurrentDate(inputId) {
     document.getElementById(inputId).value = currentDate;
 }
 
-
-async function guardarEquipo(currentModalId, nextModalId) {
+async function guardarEquipo() {
     // Obtener los valores del formulario
     const fec_reg = document.getElementById("modal-NewDate").value;
     const cod_almacen = document.getElementById("modal-lastCode").value;
@@ -105,7 +103,6 @@ async function guardarEquipo(currentModalId, nextModalId) {
 
         if (response.ok) {
             alert("Equipo guardado correctamente.");
-            switchModal(currentModalId, nextModalId);
         } else {
             alert(`Error al guardar: ${result.message}`);
         }
@@ -154,67 +151,65 @@ function copySelectValues(selectId1, inputId1, selectId2, inputId2) {
     }
 }
 
+function transferInputValue(inputId1, inputId2) {
+    // Obtener el input del Modal1
+    const input1 = document.getElementById(inputId1);
 
-async function loadinfo(type) {
-    setLoggedUser('modal-newR-TicsP');
-    try {
-        const response = await fetch(`http://localhost:3000/api/lastCode/${type}`);
-        const data = await response.json();
-        console.log('Respuesta del servidorPRT:', data); // Verifica la estructura de la respuesta
+    // Obtener el input del Modal2
+    const input2 = document.getElementById(inputId2);
 
-        if (data.success && data.newCode) {
-            // Asignar el nuevo código al input
-            document.getElementById('modal-lastCodeP').value = data.newCode;
-
-            // Cargar opciones de los SELECTs
-            loadSelectOptions('marcas', 'modal-newR-MarcaP');
-            loadSelectOptions('procesador', 'modal-newR-ProceP');
-            loadSelectOptions('memoria', 'modal-newR-RamP');
-            loadSelectOptions('tamHdd', 'modal-newR-HddP');
-            loadSelectOptions('disOpt', 'modal-newR-DisOptP');
-            loadSelectOptions('sisOpe', 'modal-newR-SisOpeP');
-            loadSelectOptions('office', 'modal-newR-OffP');
-            loadSelectOptions('nomAntivirus', 'modal-newR-NomAntP');
-            loadSelectOptions('estado', 'modal-newR-EstadoP');
-
-        } else {
-            // Si no se encuentra el código, mostrar un mensaje
-            document.getElementById('modal-lastCode').value = `Sin registros para ${type}`;
-        }
-    } catch (error) {
-        console.error('Error al obtener el código:', error);
-        document.getElementById('modal-lastCode').value = 'Error al cargar código';
+    // Verificar si los inputs existen
+    if (input1 && input2) {
+        // Copiar el valor del input1 al input2
+        input2.value = input1.value;
+    } else {
+        console.error(`No se encontraron los inputs con los IDs: ${inputId1}, ${inputId2}`);
     }
 }
 
+async function loadinfo(type) {
+    guardarSwitchEquipo('newEquipModal', 'newLapModal');
+    setCurrentDate('modal-NewDateP');
+    setLoggedUser('modal-newR-TicsP');
+    transferInputValue('modal-lastCode', 'modal-lastCodeP');
+    transferInputValue('modal-newR-Custodio', 'modal-newR-CustodioP');
 
-
+    loadSelectOptions('marcas', 'modal-newR-MarcaP');
+    loadSelectOptions('procesador', 'modal-newR-ProceP');
+    loadSelectOptions('memoria', 'modal-newR-RamP');
+    loadSelectOptions('tamHdd', 'modal-newR-HddP');
+    loadSelectOptions('disOpt', 'modal-newR-DisOptP');
+    loadSelectOptions('sisOpe', 'modal-newR-SisOpeP');
+    loadSelectOptions('office', 'modal-newR-OffP');
+    loadSelectOptions('nomAntivirus', 'modal-newR-NomAntP');
+    loadSelectOptions('estado', 'modal-newR-EstadoP');
+}
 
 async function newPortatil() {
     try {
-        const cod_tics = document.getElementById("modal-lastCode").value;
-        const cod_equipo = document.getElementById("modal-newR-Tics").value;
-        const marca = document.getElementById("modal-newR-Marca").value;
-        const modelo = document.getElementById("modal-newR-Model").value;
-        const serie = document.getElementById("modal-newR-Serie").value;
-        const procesador = document.getElementById("modal-newR-Proce").value;
-        const velocidad = document.getElementById("modal-newR-Ghz").value;
-        const memoria = document.getElementById("modal-newR-Ram").value;
-        const hdd = document.getElementById("modal-newR-Hdd").value;
-        const dis_optico = document.getElementById("modal-newR-DisOpt").value;
-        const red_fija = document.getElementById("modal-red-newR-RF").checked ? 'SI' : 'NO';
-        const wifi = document.getElementById("modal-newR-RI").checked ? 'SI' : 'NO';
-        const bluetooth = document.getElementById("modal-newR-B").checked ? 'SI' : 'NO';
-        const lector_tarjetas = document.getElementById("modal-newR-LT").checked ? 'SI' : 'NO';
-        const sistema_operativo = document.getElementById("modal-newR-SisOpe").value;
-        const office = document.getElementById("modal-newR-Off").value;
-        const antivirus = document.getElementById("modal-newR-Ant").value;
-        const nom_antivirus = document.getElementById("modal-newR-NomAnt").value;
-        const version_antivirus = document.getElementById("modal-newR-VerAnt").value;
-        const host = document.getElementById("modal-newR-Host").value;
-        const custodio = document.getElementById("modal-newR-Custodio").value;
-        const estado = document.getElementById("modal-newR-Estado").value;
-        const observaciones = document.getElementById("modal-newR-Obs").value;
+        const cod_tics = document.getElementById("modal-lastCodeP").value;
+        const marca = document.getElementById("modal-newR-MarcaP").value;
+        const modelo = document.getElementById("modal-newR-ModelP").value;
+        const serie = document.getElementById("modal-newR-SerieP").value;
+        const procesador = document.getElementById("modal-newR-ProceP").value;
+        const velocidad = document.getElementById("modal-newR-GhzP").value;
+        const memoria = document.getElementById("modal-newR-RamP").value;
+        const hdd = document.getElementById("modal-newR-HddP").value;
+        const dis_optico = document.getElementById("modal-newR-DisOptP").value;
+        const red_fija = document.getElementById("modal-red-newR-RFP").checked ? 'SI' : 'NO';
+        const wifi = document.getElementById("modal-newR-RIP").checked ? 'SI' : 'NO';
+        const bluetooth = document.getElementById("modal-newR-BP").checked ? 'SI' : 'NO';
+        const lector_tarjetas = document.getElementById("modal-newR-LTP").checked ? 'SI' : 'NO';
+        const sistema_operativo = document.getElementById("modal-newR-SisOpeP").value;
+        const office = document.getElementById("modal-newR-OffP").value;
+        const antivirus = document.getElementById("modal-newR-AntP").value;
+        const nom_antivirus = document.getElementById("modal-newR-NomAntP").value;
+        const version_antivirus = document.getElementById("modal-newR-VerAntP").value;
+        const host = document.getElementById("modal-newR-HostP").value;
+        const custodio = document.getElementById("modal-newR-CustodioP").value; //usuario
+        const estado = document.getElementById("modal-newR-EstadoP").value;
+        const observaciones = document.getElementById("modal-newR-ObsP").value;
+        const personal = document.getElementById("modal-newR-TicsP").value;
 
         // Crear el objeto de datos
         const data = {
@@ -240,11 +235,11 @@ async function newPortatil() {
             custodio,
             estado,
             observaciones,
-            cod_equipo
+            personal
         };
 
         // Realizar la solicitud POST al servidor
-        const response = await fetch('http://localhost:3000/api/saveNewEquipo', {
+        const response = await fetch('http://localhost:3000/api/saveNewPortatil', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
