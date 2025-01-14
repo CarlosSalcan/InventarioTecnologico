@@ -873,29 +873,8 @@
     </div>
 </div>
 
-<!-- Modal para Ingresar Portatil -->
+<!-- Modal para Ingresar Equipo -->
 <div class="modal" id="newEquipModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Ingreso de Nuevo Portatil</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="regsiterNewwEquip">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Cod.</span>
-                        <input type="text" class="form-control" id="modal-lastCode" aria-label="Último Código"
-                            aria-describedby="basic-addon1" readonly>
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Tipo</span>
-                        <input type="text" class="form-control" value="Portatil" aria-label="Username"
-                            aria-describedby="basic-addon2" readonly>
-    </div>
-</div>
-
-<div class="modal" id="newLapModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -920,25 +899,10 @@
                             aria-describedby="basic-addon2" readonly>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text">Host</span>
-                        <input type="text" class="form-control" id="modal-newR-Host" aria-label="Host"
-                            aria-describedby="basic-addon1" placeholder="Nombre/s Apeliido/s">
-                    </div>
-                    <div class="input-group mb-3">
                         <span class="input-group-text">TICS</span>
                         <input type="text" class="form-control" id="modal-newR-Tics" aria-label="Último Código"
                             aria-describedby="basic-addon1" readonly>
                     </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Custodio</span>
-                        <input type="text" class="form-control" id="modal-newR-Custodio" aria-label="Custodio"
-                            aria-describedby="basic-addon1" placeholder="Nombre/s Apeliido/s">
-                    </div>
-                </div>
-
-                <hr>
-                <p>Informacion de Equipo:</p>
-                <div class="form-row">
                     <div class="input-group mb-3">
                         <span class="input-group-text" for="floatingSelect">Piso</span>
                         <select class="form-select" id="modal-newR-Piso"
@@ -949,26 +913,99 @@
                         <select class="form-select" id="modal-newR-Ubic"
                             aria-label="Floating label select example"></select>
                     </div>
+                    <div></div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Custodio</span>
+                        <input type="text" class="form-control" id="modal-newR-Custodio" aria-label="Custodio"
+                            aria-describedby="basic-addon1" placeholder="Nombre/s Apeliido/s">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveChangesButton"
+                    onclick="guardarSwitchEquipo('newEquipModal', 'newLapModal'), setCurrentDate('modal-NewDateP'), loadinfo('LAP'), copySelectValues('modal-newR-Ubic', 'modal-newR-UbicP', 'modal-newR-Piso', 'modal-newR-PisoP')">Save
+                    changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Ingresar Portatil -->
+<div class="modal" id="newLapModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ingreso de Nuevo Portatil</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="regsiterNewwEquip">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Cod.</span>
+                        <input type="text" class="form-control" id="modal-lastCodeP" aria-label="Último Código"
+                            aria-describedby="basic-addon1" readonly>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1P">Tipo</span>
+                        <input type="text" class="form-control" value="Portatil" aria-label="Username"
+                            aria-describedby="basic-addon2" readonly>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Date</span>
+                        <input type="text" class="form-control" id="modal-NewDateP" aria-label="Recipient's username"
+                            aria-describedby="basic-addon2" readonly>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Host</span>
+                        <input type="text" class="form-control" id="modal-newR-HostP" aria-label="Host"
+                            aria-describedby="basic-addon1" placeholder="Nombre/s Apeliido/s">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">TICS</span>
+                        <input type="text" class="form-control" id="modal-newR-TicsP" aria-label="Último Código"
+                            aria-describedby="basic-addon1" readonly>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Custodio</span>
+                        <input type="text" class="form-control" id="modal-newR-CustodioP" aria-label="Custodio"
+                            aria-describedby="basic-addon1" placeholder="Nombre/s Apeliido/s">
+                    </div>
+                </div>
+
+                <hr>
+                <p>Informacion de Equipo:</p>
+                <div class="form-row">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Piso</span>
+                        <input type="text" class="form-control" id="modal-newR-PisoP" aria-label="modelo"
+                            aria-describedby="basic-addon1" placeholder="N4112"readonly>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Serv/Depa</span>
+                        <input type="text" class="form-control" id="modal-newR-UbicP" aria-label="modelo"
+                            aria-describedby="basic-addon1" placeholder="N4112"readonly>
+                    </div>
                 </div>
                 <div class="form-row">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Modelo</span>
-                        <input type="text" class="form-control" id="modal-newR-Model" aria-label="modelo"
+                        <input type="text" class="form-control" id="modal-newR-ModelP" aria-label="modelo"
                             aria-describedby="basic-addon1" placeholder="N4112">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" for="floatingSelect">Marca</span>
-                        <select class="form-select" id="modal-newR-Marca"
+                        <select class="form-select" id="modal-newR-MarcaP"
                             aria-label="Floating label select example"></select>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Serie</span>
-                        <input type="text" class="form-control" id="modal-newR-Serie" aria-label="Serie"
+                        <input type="text" class="form-control" id="modal-newR-SerieP" aria-label="Serie"
                             aria-describedby="basic-addon1" placeholder="6P510Q1">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" for="floatingSelect">Estado</span>
-                        <select class="form-select" id="modal-newR-Estado"
+                        <select class="form-select" id="modal-newR-EstadoP"
                             aria-label="Floating label select example"></select>
                     </div>
                 </div>
@@ -978,32 +1015,32 @@
                 <div class="regsiterNewwEquip">
                     <div class="input-group mb-3">
                         <span class="input-group-text" for="floatingSelect">SisOpe</span>
-                        <select class="form-select" id="modal-newR-SisOpe"
+                        <select class="form-select" id="modal-newR-SisOpeP"
                             aria-label="Floating label select example"></select>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" for="floatingSelect">Proce</span>
-                        <select class="form-select" id="modal-newR-Proce"
+                        <select class="form-select" id="modal-newR-ProceP"
                             aria-label="Floating label select example"></select>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" for="floatingSelect">Office</span>
-                        <select class="form-select" id="modal-newR-Off"
+                        <select class="form-select" id="modal-newR-OffP"
                             aria-label="Floating label select example"></select>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" for="floatingSelect">HDD</span>
-                        <select class="form-select" id="modal-newR-Hdd"
+                        <select class="form-select" id="modal-newR-HddP"
                             aria-label="Floating label select example"></select>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">GHz</span>
-                        <input type="text" class="form-control" id="modal-newR-Ghz" aria-label="Velocidad"
+                        <input type="text" class="form-control" id="modal-newR-GhzP" aria-label="Velocidad"
                             aria-describedby="basic-addon1" placeholder="2.30 GHz">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" for="floatingSelect">RAM</span>
-                        <select class="form-select" id="modal-newR-Ram"
+                        <select class="form-select" id="modal-newR-RamP"
                             aria-label="Floating label select example"></select>
                     </div>
                 </div>
@@ -1012,49 +1049,49 @@
                 <p>Adicionales y Seguridad:</p>
                 <div class="regsiterNewwEquip">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="modal-red-newR-RF">
+                        <input class="form-check-input" type="checkbox" id="modal-red-newR-RFP">
                         <label class="form-check-label" for="modal-red-fija-laptop">Red Fija</label>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" for="floatingSelect">Ant</span>
-                        <select class="form-select" id="modal-newR-Ant" aria-label="Floating label select example">
+                        <select class="form-select" id="modal-newR-AntP" aria-label="Floating label select example">
                             <option value="" disabled selected>Seleccione</option>
                             <option value="SI">SI</option>
                             <option value="NO">NO</option>
                         </select>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="modal-newR-RI">
+                        <input class="form-check-input" type="checkbox" id="modal-newR-RIP">
                         <label class="form-check-label" for="modal-red-laptop">Red Inalámbrica</label>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" for="floatingSelect">NomAnt</span>
-                        <select class="form-select" id="modal-newR-NomAnt"
+                        <select class="form-select" id="modal-newR-NomAntP"
                             aria-label="Floating label select example"></select>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="modal-newR-B">
+                        <input class="form-check-input" type="checkbox" id="modal-newR-BP">
                         <label class="form-check-label" for="modal-bluetooth-laptop">Bluetooth</label>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Version</span>
-                        <input type="text" class="form-control" id="modal-newR-VerAnt" aria-label="VerAnt"
+                        <input type="text" class="form-control" id="modal-newR-VerAntP" aria-label="VerAnt"
                             aria-describedby="basic-addon1" placeholder="1.1.1.1">
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="modal-newR-LT">
+                        <input class="form-check-input" type="checkbox" id="modal-newR-LTP">
                         <label class="form-check-label" for="modal-lecTarjeta-laptop">Lector de Tarjetas</label>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" for="floatingSelect">DisOpt</span>
-                        <select class="form-select" id="modal-newR-DisOpt"
+                        <select class="form-select" id="modal-newR-DisOptP"
                             aria-label="Floating label select example"></select>
                     </div>
                 </div>
 
                 <div class="input-group">
                     <span class="input-group-text">Observaciones</span>
-                    <textarea class="form-control" id="modal-newR-Obs" aria-label="With textarea"></textarea>
+                    <textarea class="form-control" id="modal-newR-ObsP" aria-label="With textarea"></textarea>
                 </div>
             </div>
             <div class="modal-footer">
@@ -1065,7 +1102,3 @@
         </div>
     </div>
 </div>
-
-
-<div class="modal" id="newTelModal" tabindex="-1"></div>
-<div class="modal" id="newImpModal" tabindex="-1"></div>

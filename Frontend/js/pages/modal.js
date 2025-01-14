@@ -33,7 +33,7 @@ function openEditModal(item) {
     const modalNomUsua = document.getElementById('modal-nom-usua');
 
     // Cargar los datos del equipo en el modal
-    modalCodEquipo.value = item.cod_equipo_general ;
+    modalCodEquipo.value = item.cod_equipo_general;
     modalFecReg.value = new Date(item.fec_reg).toISOString().split('T')[0];
     modalCodAlmacen.value = item.cod_almacen;
     modalTipEquipo.value = item.tip_equipo;
@@ -133,21 +133,27 @@ function saveChanges() {
         });
 }
 
-function switchModal(currentModalId, nextModalId) {
-    const currentModal = new bootstrap.Modal(document.getElementById(currentModalId));
-    const nextModal = new bootstrap.Modal(document.getElementById(nextModalId));
+function guardarSwitchEquipo(modalToCloseId, modalToShowId) {
+    // Obtener referencias a los modales
+    const modalToClose = document.getElementById(modalToCloseId);
+    const modalToShow = document.getElementById(modalToShowId);
 
-    // Cierra el modal actual
-    currentModal.hide();
+    // Crear instancias de Bootstrap Modal
+    const bootstrapModalToClose = bootstrap.Modal.getInstance(modalToClose);
+    const bootstrapModalToShow = new bootstrap.Modal(modalToShow);
 
-    // Abre el siguiente modal después de un pequeño retraso
+    // Cerrar el primer modal
+    if (bootstrapModalToClose) {
+        bootstrapModalToClose.hide();
+    }
+
+    // Abrir el segundo modal después de un pequeño retraso
     setTimeout(() => {
-        nextModal.show();
-    }, 300); // Puedes ajustar este tiempo si es necesario
+        bootstrapModalToShow.show();
+    }, 300); // Ajusta el tiempo si es necesario
 }
 
-
-// Llamadas a la función para diferentes inputs
-setCharacterLimit('#modal-ser-cpu', 20);  // Para el input con id "input1"
-setCharacterLimit('#modal-ser-monitor', 20);  // Para el input con id "input2"
-setCharacterLimit('#modal-ser-mouse', 20);  // Para el input con id "input3"
+// Llamadas a la función limitacion de caracteres
+setCharacterLimit('#modal-ser-cpu', 20); 
+setCharacterLimit('#modal-ser-monitor', 20); 
+setCharacterLimit('#modal-ser-mouse', 20); 

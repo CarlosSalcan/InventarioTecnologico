@@ -7,7 +7,7 @@ const registerController = {
 
         connection.query(query, (err, result) => {
             if (err) {
-                return res.status(500).json({ success: false, message: 'Error en la base de datos' });
+                return res.status(500).json({ success: false, message: 'Error en la base de datos'});
             }
 
             if (result.length > 0) {
