@@ -206,6 +206,17 @@ async function loadinfo() {
         loadSelectOptions('marcas', 'modal-newR-MarcaT');
         loadSelectOptions('estado', 'modal-newR-EstadoT');
         loadSelectOptions('condicion', 'modal-newR-CondicionT');
+    } else if (tipoEq === 'Impresora') {
+        guardarSwitchEquipo('newEquipModal', 'newImpModal');
+        setLoggedUser('modal-newR-TicsI');
+        setCurrentDate('modal-NewDateI');
+        transferInputValue('modal-lastCode', 'modal-lastCodeI');
+
+        loadSelectOptions('tipImpresora', 'modal-newR-TipoI');
+        loadSelectOptions('puerto', 'modal-newR-PuertoI');
+        loadSelectOptions('marcas', 'modal-newR-MarcaI');
+        loadSelectOptions('estado', 'modal-newR-EstadoI');
+        loadSelectOptions('condicion', 'modal-newR-CondicionI');
     } else {
         console.error("Tipo de equipo desconocido");
     }
@@ -231,7 +242,7 @@ async function newPortatil() {
         // Obtener el último código de equipo desde el servidor
         const codEquipoResponse = await fetch('http://localhost:3000/api/lasCodeEq');
         let cod_equipo = "";
-        console.log(codEquipoResponse );
+        console.log(codEquipoResponse);
         if (codEquipoResponse.ok) {
             const codEquipoData = await codEquipoResponse.json();
             cod_equipo = codEquipoData.cod_equipo || ""; // Asignar el último código o vacío si no existe
@@ -241,7 +252,7 @@ async function newPortatil() {
             alert("No se pudo obtener el último código de equipo");
             return; // Detener ejecución si no se puede obtener el código
         }
-        
+
 
         // Obtener valores de los campos del formulario
         const cod_tics = document.getElementById("modal-lastCodeP").value;
@@ -321,5 +332,145 @@ async function newPortatil() {
     } catch (error) {
         console.error("Error en la solicitud:", error);
         alert("Hubo un error al guardar el equipo");
+    }
+}
+
+async function newTelefono() {
+    try {
+        // Obtener el último código de equipo desde el servidor
+        const codEquipoResponse = await fetch('http://localhost:3000/api/lasCodeEq');
+        let cod_equipo = "";
+        console.log(codEquipoResponse);
+        if (codEquipoResponse.ok) {
+            const codEquipoData = await codEquipoResponse.json();
+            cod_equipo = codEquipoData.cod_equipo || ""; // Asignar el último código o vacío si no existe
+            console.log(codEquipoData);
+        } else {
+            console.error("Error al obtener el último código de equipo:", await codEquipoResponse.text());
+            alert("No se pudo obtener el último código de equipo");
+            return; // Detener ejecución si no se puede obtener el código
+        }
+
+
+        // Obtener valores de los campos del formulario
+        const cod_tics = document.getElementById("modal-lastCodeT").value;
+        const marca = document.getElementById("modal-newR-MarcaT").value;
+        const modelo = document.getElementById("modal-newR-ModelT").value;
+        const serie = document.getElementById("modal-newR-SerieT").value;
+        const condicion = document.getElementById("modal-newR-CondicionT").value;
+        const estado = document.getElementById("modal-newR-EstadoT").value;
+        const observaciones = document.getElementById("modal-newR-ObsT").value;
+        const personal = document.getElementById("modal-newR-TicsT").value;
+
+        // Crear el objeto de datos
+        const data = {
+            cod_equipo,
+            cod_tics,
+            marca,
+            modelo,
+            serie,
+            condicion,
+            estado,
+            observaciones,
+            personal
+        };
+
+        // Realizar la solicitud POST al servidor
+        const response = await fetch('http://localhost:3000/api/saveNewTelefono', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        // Manejar la respuesta
+        if (response.ok) {
+            const result = await response.json();
+            alert("Equipo guardado exitosamente T");
+            // Opcional: Cierra el modal
+            const modalElement = document.getElementById('newTelModal');
+            const modalInstance = bootstrap.Modal.getInstance(modalElement);
+            modalInstance.hide();
+        } else {
+            const error = await response.json();
+            console.error("Error al guardar el equipo:", error);
+            alert("Error al guardar el equipo");
+        }
+    } catch (error) {
+        console.error("Error en la solicitud:", error);
+        alert("Hubo un error al guardar el equipo");
+    }
+}
+
+async function newPortatil() {
+    try {
+        // Obtener el último código de equipo desde el servidor
+        const codEquipoResponse = await fetch('http://localhost:3000/api/lasCodeEq');
+        let cod_equipo = "";
+        console.log(codEquipoResponse);
+        if (codEquipoResponse.ok) {
+            const codEquipoData = await codEquipoResponse.json();
+            cod_equipo = codEquipoData.cod_equipo || ""; // Asignar el último código o vacío si no existe
+            console.log(codEquipoData);
+        } else {
+            console.error("Error al obtener el último código de equipo:", await codEquipoResponse.text());
+            alert("No se pudo obtener el último código de equipo");
+            return; // Detener ejecución si no se puede obtener el código
+        }
+
+        // Obtener valores de los campos del formulario
+        const cod_tics = document.getElementById("modal-lastCodeI").value;
+        const marca = document.getElementById("modal-newR-MarcaI").value;
+        const modelo = document.getElementById("modal-newR-ModelI").value;
+        const serie = document.getElementById("modal-newR-SerieI").value;
+        const tipo = document.getElementById("modal-newR-TipoI").value;
+        const puerto = document.getElementById("modal-newR-PuertoI").value;
+        const condicion = document.getElementById("modal-newR-CondicionI").value;
+        const estado = document.getElementById("modal-newR-EstadoI").value;
+        const observaciones = document.getElementById("modal-newR-ObsI").value;
+        const personal = document.getElementById("modal-newR-TicsI").value;
+
+        // Crear el objeto de datos
+        const data = {
+            cod_equipo,
+            cod_tics,
+            marca,
+            modelo,
+            serie,
+            tipo,
+            puerto,
+            condicion,
+            estado,
+            observaciones,
+            personal
+        };
+
+        // Realizar la solicitud POST al servidor
+        const response = await fetch('http://localhost:3000/api/saveNewImp', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        // Manejar la respuesta
+        if (response.ok) {
+            const result = await response.json();
+            console.log(result); // Depurar la respuesta
+            alert("Equipo guardado exitosamente");
+
+            // Opcional: Cierra el modal
+            const modalElement = document.getElementById('newLapModal');
+            const modalInstance = bootstrap.Modal.getInstance(modalElement);
+            modalInstance.hide();
+        } else {
+            const error = await response.json();
+            console.error("Error al guardar el equipo:", error);
+            alert("Error al guardar el equipo");
+        }
+    } catch (error) {
+        console.error("Error en la solicitud:", error);
     }
 }

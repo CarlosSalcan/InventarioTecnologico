@@ -55,5 +55,7 @@ router.post('/saveNewEquipo', registerController.saveEquipo);
 router.get('/lastCode/:type', registerController.getLastEquipmentCode);
 router.get('/lasCodeEq', registerController.getLastCodEquipo);
 router.post('/saveNewPortatil', registerController.savePortatil);
+router.post('/saveNewTelefono', registerController.saveTelefono);
+router.post('/saveNewImp', registerController.saveImpresora);
 
 module.exports = router;

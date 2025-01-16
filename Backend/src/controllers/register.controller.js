@@ -12,11 +12,11 @@ const registerController = {
                 console.error("Error obteniendo el último código de equipo:", error);
                 return res.status(500).json({ error: "Error obteniendo el último código de equipo." });
             }
-    
+
             if (rows.length === 0) {
                 return res.status(404).json({ message: "No se encontraron equipos." });
             }
-    
+
             const lastCodEquipo = rows[0].cod_equipo;
             res.json({ cod_equipo: lastCodEquipo });
         });
@@ -174,6 +174,121 @@ const registerController = {
                 version_antivirus,
                 host,
                 custodio,
+                estado,
+                observaciones,
+                personal
+            ], (error, results) => {
+                if (error) {
+                    console.error('Error al insertar los datos:', error);
+                    return res.status(500).json({ success: false, message: 'Error al guardar los datos PTL' });
+                }
+
+                res.status(200).json({ success: true, message: 'Datos guardados exitosamente PTL' });
+            });
+        } catch (error) {
+            console.error("Error al guardar el equipo:", error);
+            res.status(500).json({ error: 'Hubo un error al guardar el equipo' });
+        }
+    },
+
+    saveTelefono: async (req, res) => {
+        try {
+            const {
+                cod_equipo,
+                cod_tics,
+                marca,
+                modelo,
+                serie,
+                condicion,
+                estado,
+                observaciones,
+                personal
+            } = req.body;
+
+            // Aquí puedes mostrar en consola los valores recibidos para depurar si es necesario
+            console.log(req.body);
+            // Query para insertar en la base de daos
+            const query = `
+                INSERT INTO telefono (
+	                cod_equipo, 
+	                cod_tics_telf, 
+	                mar_telf, 
+	                mod_telf, 
+	                ser_telf, 
+	                con_telf, 
+	                est_telf, 
+	                obs_telf, 
+	                nom_usua
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
+            connection.query(query, [
+                cod_equipo,
+                cod_tics,
+                marca,
+                modelo,
+                serie,
+                condicion,
+                estado,
+                observaciones,
+                personal
+            ], (error, results) => {
+                if (error) {
+                    console.error('Error al insertar los datos:', error);
+                    return res.status(500).json({ success: false, message: 'Error al guardar los datos PTL' });
+                }
+
+                res.status(200).json({ success: true, message: 'Datos guardados exitosamente PTL' });
+            });
+        } catch (error) {
+            console.error("Error al guardar el equipo:", error);
+            res.status(500).json({ error: 'Hubo un error al guardar el equipo' });
+        }
+    },
+
+    saveImpresora: async (req, res) => {
+        try {
+            const {
+                cod_equipo,
+                cod_tics,
+                marca,
+                modelo,
+                serie,
+                tipo,
+                puerto,
+                condicion,
+                estado,
+                observaciones,
+                personal
+            } = req.body;
+
+            // Aquí puedes mostrar en consola los valores recibidos para depurar si es necesario
+            console.log(req.body);
+            // Query para insertar en la base de daos
+            const query = `
+                    INSERT INTO impresora ( 
+                    cod_equipo, 
+                    cod_tics_impresora, 
+                    mar_imp, 
+                    mod_imp, 
+                    ser_imp, 
+                    tip_imp, 
+                    pue_imp, 
+                    con_imp, 
+                    est_imp, 
+                    obs_imp, 
+                    nom_usua
+                ) VALUES (
+                    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
+            connection.query(query, [
+                cod_equipo,
+                cod_tics,
+                marca,
+                modelo,
+                serie,
+                tipo,
+                puerto,
+                condicion,
                 estado,
                 observaciones,
                 personal

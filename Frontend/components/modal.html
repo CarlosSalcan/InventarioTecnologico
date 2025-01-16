@@ -1157,12 +1157,103 @@
                 
                 <div class="input-group">
                     <span class="input-group-text">Observaciones</span>
-                    <textarea class="form-control" id="modal-newR-ObsP" aria-label="With textarea"></textarea>
+                    <textarea class="form-control" id="modal-newR-ObsT" aria-label="With textarea"></textarea>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" id="saveChangesButton" onclick="newTelefono()">Save
+                    changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Ingresar Impresora -->
+<div class="modal" id="newImpModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ingreso de Nueva Impresora</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="regsiterNewwEquip">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Cod.</span>
+                        <input type="text" class="form-control" id="modal-lastCodeI" aria-label="Último Código"
+                            aria-describedby="basic-addon1" readonly>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1I">Tipo</span>
+                        <input type="text" class="form-control" value="Portatil" aria-label="Username"
+                            aria-describedby="basic-addon2" readonly>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Date</span>
+                        <input type="text" class="form-control" id="modal-NewDateI" aria-label="Recipient's username"
+                            aria-describedby="basic-addon2" readonly>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">TICS</span>
+                        <input type="text" class="form-control" id="modal-newR-TicsI" aria-label="Último Código"
+                            aria-describedby="basic-addon1" readonly>
+                    </div>
+                </div>
+
+                <hr>
+                <p>Informacion de Equipo:</p>
+                <div class="form-row">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Modelo</span>
+                        <input type="text" class="form-control" id="modal-newR-ModelI" aria-label="modelo"
+                            aria-describedby="basic-addon1" placeholder="N4112">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" for="floatingSelect">Marca</span>
+                        <select class="form-select" id="modal-newR-MarcaI"
+                            aria-label="Floating label select example"></select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Serie</span>
+                        <input type="text" class="form-control" id="modal-newR-SerieI" aria-label="Serie"
+                            aria-describedby="basic-addon1" placeholder="6P510Q1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" for="floatingSelect">Tipo</span>
+                        <select class="form-select" id="modal-newR-TipoI"
+                            aria-label="Floating label select example"></select>
+                    </div>
+                </div>
+
+                <hr>
+                <p>Caracteristicas:</p>
+                <div class="regsiterNewwEquip">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" for="floatingSelect">Puerto</span>
+                        <select class="form-select" id="modal-newR-PuertoI"
+                            aria-label="Floating label select example"></select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" for="floatingSelect">Condicion</span>
+                        <select class="form-select" id="modal-newR-CondicionI"
+                            aria-label="Floating label select example"></select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" for="floatingSelect">Estado</span>
+                        <select class="form-select" id="modal-newR-EstadoI"
+                            aria-label="Floating label select example"></select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text">Observaciones</span>
+                    <textarea class="form-control" id="modal-newR-ObsI" aria-label="With textarea"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveChangesButton" onclick="newPortatil()">Save
                     changes</button>
             </div>
         </div>
