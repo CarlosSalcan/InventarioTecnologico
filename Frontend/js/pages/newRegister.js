@@ -167,25 +167,49 @@ function transferInputValue(inputId1, inputId2) {
     }
 }
 
-async function loadinfo(type) {
-    guardarSwitchEquipo('newEquipModal', 'newLapModal');
-    setCurrentDate('modal-NewDateP');
-    setLoggedUser('modal-newR-TicsP');
-    transferInputValue('modal-lastCode', 'modal-lastCodeP');
-    transferInputValue('modal-newR-Custodio', 'modal-newR-CustodioP');
-
-    loadSelectOptions('marcas', 'modal-newR-MarcaP');
-    loadSelectOptions('procesador', 'modal-newR-ProceP');
-    loadSelectOptions('memoria', 'modal-newR-RamP');
-    loadSelectOptions('tamHdd', 'modal-newR-HddP');
-    loadSelectOptions('disOpt', 'modal-newR-DisOptP');
-    loadSelectOptions('sisOpe', 'modal-newR-SisOpeP');
-    loadSelectOptions('office', 'modal-newR-OffP');
-    loadSelectOptions('nomAntivirus', 'modal-newR-NomAntP');
-    loadSelectOptions('estado', 'modal-newR-EstadoP');
+function setInputValue(inputId, value) {
+    const inputElement = document.getElementById(inputId);
+    if (inputElement) {
+        inputElement.value = value;
+    } else {
+        console.error("El elemento con id " + inputId + " no se encontró.");
+    }
 }
 
-// public/js/equipos.js
+async function loadinfo() {
+    // Obtener el valor del campo 'tipoEq'
+    const tipoEq = document.getElementById('tipoEq').value;
+
+    // Verificar el tipo de equipo y abrir el modal correspondiente
+    if (tipoEq === 'Portatil') {
+        guardarSwitchEquipo('newEquipModal', 'newLapModal');
+        setCurrentDate('modal-NewDateP');
+        setLoggedUser('modal-newR-TicsP');
+        transferInputValue('modal-lastCode', 'modal-lastCodeP');
+        transferInputValue('modal-newR-Custodio', 'modal-newR-CustodioP');
+
+        loadSelectOptions('marcas', 'modal-newR-MarcaP');
+        loadSelectOptions('procesador', 'modal-newR-ProceP');
+        loadSelectOptions('memoria', 'modal-newR-RamP');
+        loadSelectOptions('tamHdd', 'modal-newR-HddP');
+        loadSelectOptions('disOpt', 'modal-newR-DisOptP');
+        loadSelectOptions('sisOpe', 'modal-newR-SisOpeP');
+        loadSelectOptions('office', 'modal-newR-OffP');
+        loadSelectOptions('nomAntivirus', 'modal-newR-NomAntP');
+        loadSelectOptions('estado', 'modal-newR-EstadoP');
+    } else if (tipoEq === 'Telefono') {
+        guardarSwitchEquipo('newEquipModal', 'newTelModal');
+        setLoggedUser('modal-newR-TicsT');
+        setCurrentDate('modal-NewDateT');
+        transferInputValue('modal-lastCode', 'modal-lastCodeT');
+
+        loadSelectOptions('marcas', 'modal-newR-MarcaT');
+        loadSelectOptions('estado', 'modal-newR-EstadoT');
+        loadSelectOptions('condicion', 'modal-newR-CondicionT');
+    } else {
+        console.error("Tipo de equipo desconocido");
+    }
+}
 
 async function obtenerUltimoCodEquipo() {
     try {

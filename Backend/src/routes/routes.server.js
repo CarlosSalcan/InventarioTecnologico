@@ -51,9 +51,9 @@ router.get('/parameter/:tabla', paramController.getParameter);
 router.put('/modificarNombre/:tabla/:campo/:valor/:nuevoNombre', paramController.updateParameter);
 
 // Ruta para obtener el último código de un equipo por tipo
+router.post('/saveNewEquipo', registerController.saveEquipo);
 router.get('/lastCode/:type', registerController.getLastEquipmentCode);
 router.get('/lasCodeEq', registerController.getLastCodEquipo);
-router.post('/saveNewEquipo', registerController.saveEquipo);
 router.post('/saveNewPortatil', registerController.savePortatil);
 
 module.exports = router;
