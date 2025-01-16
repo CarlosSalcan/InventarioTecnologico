@@ -185,8 +185,41 @@ async function loadinfo(type) {
     loadSelectOptions('estado', 'modal-newR-EstadoP');
 }
 
+// public/js/equipos.js
+
+async function obtenerUltimoCodEquipo() {
+    try {
+        const response = await fetch('http://localhost:3000/api/ultimo-cod-equipo');
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Último código de equipo:', data.cod_equipo);
+            return data.cod_equipo;
+        } else {
+            console.error('Error al obtener el último código de equipo:', await response.text());
+        }
+    } catch (error) {
+        console.error('Error en la solicitud:', error);
+    }
+}
+
 async function newPortatil() {
     try {
+        // Obtener el último código de equipo desde el servidor
+        const codEquipoResponse = await fetch('http://localhost:3000/api/lasCodeEq');
+        let cod_equipo = "";
+        console.log(codEquipoResponse );
+        if (codEquipoResponse.ok) {
+            const codEquipoData = await codEquipoResponse.json();
+            cod_equipo = codEquipoData.cod_equipo || ""; // Asignar el último código o vacío si no existe
+            console.log(codEquipoData);
+        } else {
+            console.error("Error al obtener el último código de equipo:", await codEquipoResponse.text());
+            alert("No se pudo obtener el último código de equipo");
+            return; // Detener ejecución si no se puede obtener el código
+        }
+        
+
+        // Obtener valores de los campos del formulario
         const cod_tics = document.getElementById("modal-lastCodeP").value;
         const marca = document.getElementById("modal-newR-MarcaP").value;
         const modelo = document.getElementById("modal-newR-ModelP").value;
@@ -206,13 +239,14 @@ async function newPortatil() {
         const nom_antivirus = document.getElementById("modal-newR-NomAntP").value;
         const version_antivirus = document.getElementById("modal-newR-VerAntP").value;
         const host = document.getElementById("modal-newR-HostP").value;
-        const custodio = document.getElementById("modal-newR-CustodioP").value; //usuario
+        const custodio = document.getElementById("modal-newR-CustodioP").value; // Usuario
         const estado = document.getElementById("modal-newR-EstadoP").value;
         const observaciones = document.getElementById("modal-newR-ObsP").value;
         const personal = document.getElementById("modal-newR-TicsP").value;
 
         // Crear el objeto de datos
         const data = {
+            cod_equipo,
             cod_tics,
             marca,
             modelo,

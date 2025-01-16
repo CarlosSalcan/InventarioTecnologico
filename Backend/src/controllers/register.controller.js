@@ -1,6 +1,27 @@
 const connection = require('../connection');
 
 const registerController = {
+    getLastCodEquipo: async (req, res) => {
+        connection.query(`
+            SELECT cod_equipo 
+            FROM equipo 
+            ORDER BY cod_equipo DESC 
+            LIMIT 1
+        `, (error, rows) => {
+            if (error) {
+                console.error("Error obteniendo el último código de equipo:", error);
+                return res.status(500).json({ error: "Error obteniendo el último código de equipo." });
+            }
+    
+            if (rows.length === 0) {
+                return res.status(404).json({ message: "No se encontraron equipos." });
+            }
+    
+            const lastCodEquipo = rows[0].cod_equipo;
+            res.json({ cod_equipo: lastCodEquipo });
+        });
+    },
+
     getLastEquipmentCode: (req, res) => {
         const { type } = req.params;
         const query = `SELECT cod_almacen FROM equipo WHERE cod_almacen LIKE 'CZ9TICS-${type}-%' ORDER BY cod_almacen DESC LIMIT 1`;
@@ -73,6 +94,7 @@ const registerController = {
     savePortatil: async (req, res) => {
         try {
             const {
+                cod_equipo,
                 cod_tics,
                 marca,
                 modelo,
@@ -103,6 +125,7 @@ const registerController = {
             // Query para insertar en la base de daos
             const query = `
                 INSERT INTO laptop (
+                    cod_equipo,
 	                cod_tics_laptop, 
 	                mar_laptop, 
 	                mod_laptop, 
@@ -127,9 +150,10 @@ const registerController = {
 	                observacion_laptop, 
 	                nom_usua
                 ) VALUES (
-                    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+                    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
             connection.query(query, [
+                cod_equipo,
                 cod_tics,
                 marca,
                 modelo,
